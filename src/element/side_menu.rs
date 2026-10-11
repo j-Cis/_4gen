@@ -6,14 +6,12 @@ use eframe::egui;
 #[macro_export]
 macro_rules! i {
     ($path:literal) => {
-        eframe::egui::Image::new(
-            eframe::egui::include_image!(concat!(
-                env!("CARGO_MANIFEST_DIR"), 
-                "/assets/icons/", 
-                $path, 
-                ".svg"
-            ))
-        )
+        eframe::egui::Image::new(eframe::egui::include_image!(concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/assets/icons/",
+            $path,
+            ".svg"
+        )))
     };
 }
 
@@ -72,7 +70,7 @@ impl SideMenu {
 
     pub fn show(&mut self, ui: &mut egui::Ui, items: &[MenuItem<'_>]) -> Option<usize> {
         let mut clicked_index = None;
-        
+
         let current_width = if self.is_collapsed {
             self.icon_size
         } else {
@@ -80,8 +78,8 @@ impl SideMenu {
         };
 
         let (sidebar_rect, _) = ui.allocate_exact_size(
-            egui::vec2(current_width, ui.available_height()), 
-            egui::Sense::hover()
+            egui::vec2(current_width, ui.available_height()),
+            egui::Sense::hover(),
         );
 
         ui.painter().rect_filled(sidebar_rect, 0.0, self.bg_color);
@@ -99,7 +97,8 @@ impl SideMenu {
             self.is_collapsed = !self.is_collapsed;
         }
         if toggle_resp.hovered() {
-            ui.painter().rect_filled(toggle_rect, 0.0, egui::Color32::from_white_alpha(20));
+            ui.painter()
+                .rect_filled(toggle_rect, 0.0, egui::Color32::from_white_alpha(20));
         }
 
         let icon_x_center = sidebar_rect.min.x + (self.icon_size / 2.0);
@@ -115,7 +114,7 @@ impl SideMenu {
 
         for (i, item) in items.iter().enumerate() {
             let is_active = self.active_index == Some(i);
-            
+
             let item_rect = egui::Rect::from_min_max(
                 egui::pos2(sidebar_rect.min.x, current_y),
                 egui::pos2(sidebar_rect.max.x, current_y + self.icon_size),
@@ -129,21 +128,24 @@ impl SideMenu {
             }
 
             if is_active {
-                ui.painter().rect_filled(item_rect, 0.0, egui::Color32::from_white_alpha(30));
-                
+                ui.painter()
+                    .rect_filled(item_rect, 0.0, egui::Color32::from_white_alpha(30));
+
                 let accent_rect = egui::Rect::from_min_max(
                     egui::pos2(item_rect.min.x, item_rect.min.y + 10.0),
                     egui::pos2(item_rect.min.x + 3.0, item_rect.max.y - 10.0),
                 );
-                ui.painter().rect_filled(accent_rect, 2.0, egui::Color32::from_rgb(0, 120, 215));
+                ui.painter()
+                    .rect_filled(accent_rect, 2.0, egui::Color32::from_rgb(0, 120, 215));
             } else if item_resp.hovered() {
-                ui.painter().rect_filled(item_rect, 0.0, egui::Color32::from_white_alpha(15));
+                ui.painter()
+                    .rect_filled(item_rect, 0.0, egui::Color32::from_white_alpha(15));
             }
 
-            let color = if is_active || item_resp.hovered() { 
-                egui::Color32::WHITE 
-            } else { 
-                egui::Color32::from_gray(200) 
+            let color = if is_active || item_resp.hovered() {
+                egui::Color32::WHITE
+            } else {
+                egui::Color32::from_gray(200)
             };
 
             // Rysowanie zależy od tego, jaki typ ikony przekazano
@@ -161,13 +163,13 @@ impl SideMenu {
                     let img_size = self.icon_size * 0.5;
                     let img_rect = egui::Rect::from_center_size(
                         egui::pos2(icon_x_center, item_rect.center().y),
-                        egui::vec2(img_size, img_size)
+                        egui::vec2(img_size, img_size),
                     );
-                    
-                    let tint = if is_active || item_resp.hovered() { 
-                        egui::Color32::WHITE 
-                    } else { 
-                        egui::Color32::from_white_alpha(150) 
+
+                    let tint = if is_active || item_resp.hovered() {
+                        egui::Color32::WHITE
+                    } else {
+                        egui::Color32::from_white_alpha(150)
                     };
 
                     img.clone().tint(tint).paint_at(ui, img_rect);

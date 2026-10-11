@@ -1,0 +1,362 @@
+<html lang="pl" data-app-block-surface="stage" style="background-color: var(--main-surface-primary, #ffffff);"><head><style>@layer sandbox-defaults{html,body,#root{margin:0;padding:0}}</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opis zespołu metrykalnego — Zaleszczyki</title>
+<style>
+:root { color-scheme: light dark; --page: light-dark(#f4f6f8,#111827); --surface:light-dark(#fff,#1b2432); --surface2:light-dark(#f8fafc,#202c3d); --ink:light-dark(#182230,#eef2f7); --muted:light-dark(#667085,#a9b5c6); --line:light-dark(#dce3eb,#364357); --accent:light-dark(#245b75,#8bc6df); --accent-ink:light-dark(#fff,#102632); --field:light-dark(#fff,#131c29); }
+*{box-sizing:border-box} body{margin:0;background:var(--page);color:var(--ink);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif} .app{background:var(--page);min-height:100vh;padding:34px 18px 56px} .wrap{max-width:1020px;margin:auto}.eyebrow{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);font-weight:800}.hero{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;margin-bottom:24px}.hero h1{font-size:clamp(27px,4vw,38px);line-height:1.12;letter-spacing:-.035em;margin:8px 0 10px}.hero p{margin:0;color:var(--muted);max-width:620px}.seal{border:1px solid var(--line);border-radius:16px;padding:14px 17px;text-align:center;min-width:118px;background:var(--surface);color:var(--muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase}.seal strong{display:block;font-size:27px;color:var(--accent);letter-spacing:0}.card{background:var(--surface);border:1px solid var(--line);border-radius:17px;margin:16px 0;overflow:hidden;box-shadow:0 5px 20px #00000008}.card-head{display:flex;align-items:center;gap:12px;padding:17px 22px;border-bottom:1px solid var(--line);background:var(--surface2)}.num{display:grid;place-items:center;width:31px;height:31px;border-radius:9px;background:var(--accent);color:var(--accent-ink);font-weight:800}.card-head h2{font-size:16px;margin:0}.card-head p{font-size:12px;color:var(--muted);margin:2px 0 0}.body{padding:22px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px;margin-bottom:17px}.grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.field{min-width:0}.field.full{grid-column:1/-1}label,.legend{display:block;font-size:12px;font-weight:750;color:var(--muted);margin-bottom:7px;letter-spacing:.025em}input,select,textarea{width:100%;border:1px solid var(--line);background:var(--field);color:var(--ink);border-radius:9px;padding:11px 12px;font:inherit;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}.inline{display:grid;grid-template-columns:1fr 1fr;gap:12px}.checkline{display:flex;gap:9px;align-items:center;color:var(--ink);font-size:14px;margin:7px 0}.checkline input{width:16px;height:16px;accent-color:var(--accent)}.checks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.checktile{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--surface2)}.checktile label{display:flex;align-items:center;gap:8px;margin:0;color:var(--ink);font-size:14px}.checktile input{width:16px;height:16px;accent-color:var(--accent)}
+
+/* Chips Input Styles */
+.chips-container { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 9px; background: var(--field); min-height: 48px; transition: border-color 0.15s ease, box-shadow 0.15s ease; cursor: text; }
+.chips-container:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent); }
+.chip { display: inline-flex; align-items: center; gap: 6px; background: var(--surface2); border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px; font-size: 13px; color: var(--ink); user-select: none; }
+.chip .stars { color: var(--accent); font-weight: 800; letter-spacing: .04em; }
+.chip-remove { background: transparent; border: none; color: var(--muted); font-size: 16px; line-height: 1; cursor: pointer; padding: 0; margin-left: 2px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; width: 18px; height: 18px; transition: background-color 0.15s, color 0.15s; }
+.chip-remove:hover { background: color-mix(in srgb, var(--muted) 20%, transparent); color: var(--ink); }
+.chip-input { border: none !important; outline: none !important; box-shadow: none !important; background: transparent !important; flex: 1; min-width: 180px; padding: 4px 0 !important; font-size: 13px; color: var(--ink); }
+
+/* Legend List Styles */
+.star-legend-item { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px; background: var(--surface2); padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); }
+.star-legend-symbol { width: 70px; flex-shrink: 0; font-weight: 800; color: var(--accent); text-align: center; }
+.star-legend-text { flex: 1; }
+.remove-btn { border: 1px solid var(--line); background: var(--surface); color: var(--muted); border-radius: 7px; padding: 6px 10px; font-size: 12px; cursor: pointer; }
+.remove-btn:hover { color: #e53e3e; border-color: #e53e3e; }
+
+.hint{font-size:12px;color:var(--muted);margin-top:8px}.pill{display:inline-block;padding:4px 9px;border-radius:999px;background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent);font-size:12px;font-weight:750}.actions{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:20px;flex-wrap:wrap}.buttons{display:flex;gap:9px;flex-wrap:wrap}button{border:1px solid var(--line);border-radius:9px;padding:10px 15px;background:var(--surface);color:var(--ink);font:inherit;font-weight:750;cursor:pointer}button.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}button:hover{filter:brightness(1.05)}.status{font-size:12px;color:var(--muted)}.footer{font-size:12px;color:var(--muted);text-align:center;margin-top:20px}.required{color:var(--accent)}@media(max-width:680px){.app{padding:23px 12px 40px}.hero{display:block}.seal{display:none}.body{padding:16px}.grid,.grid-3,.grid-4{grid-template-columns:1fr}.field.full{grid-column:auto}.checks{grid-template-columns:1fr}.card-head{padding:14px 16px}}
+</style>
+<style>html, body, #root { margin-top: 0; margin-bottom: 0; padding-top: 0; padding-bottom: 0; }
+html,body,#root{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}html,body{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Helvetica Neue,Arial,sans-serif!important}button,input,textarea,select{font-family:inherit}html{background-color:transparent}html.chatgptOled.dark,html.mobileSkybridge.dark{background-color:#000}@supports (font: -apple-system-body){html.mobileSkybridge{font:-apple-system-body}}html.desktopSkybridge.dark{background-color:#1e1e1e}html.transparentSkybridgeBackground,html.transparentSkybridgeBackground.dark{background-color:transparent}html.androidSkybridge,html.androidSkybridge body,html.androidSkybridge *{-webkit-tap-highlight-color:rgba(255,255,255,0)}html.androidSkybridge *::selection,html.androidSkybridge *::-moz-selection{background:#fff0;color:inherit}</style></head>
+<body><main class="app"><div class="wrap">
+<header class="hero"><div><div class="eyebrow">Archiwum · ewidencja metrykalna</div><h1>Opis ksiąg metrykalnych</h1><p>Formularz opisu jednostki archiwalnej dla parafii rzymskokatolickiej w Zaleszczykach. Pola wypełniono przykładowymi danymi na podstawie przekazanych informacji.</p></div><div class="seal"><strong>✳</strong>karta zespołu<br>metrykalnego</div></header>
+<form id="recordForm">
+<section class="card"><div class="card-head"><span class="num">01</span><div><h2>Przynależność parafialna i opis księgi</h2><p>Parafia, dekanat, ryt, cechy fizyczne oraz zawartość</p></div></div><div class="body">
+<div class="grid-3">
+<div class="field"><label for="parish">Parafia <span class="required">*</span></label><input id="parish" name="parish" value="Zaleszczyki" required=""></div>
+<div class="field"><label for="deanery">Dekanat</label><input id="deanery" name="deanery" value="Jazłowiec"></div>
+<div class="field"><label for="rite">Ryt / Obrządek</label><input id="rite" name="rite" value="rzymskokatolicki"></div>
+</div>
+<div class="grid" style="margin-bottom:17px">
+<div class="field"><label for="language">Język</label><input id="language" name="language" value="łac., pol."></div>
+<div class="field"><label for="bookDesc">Opis księgi / stan zachowania</label><input id="bookDesc" name="bookDesc" value="składki, zszywki, s. 32"></div>
+</div>
+<div class="grid">
+<div class="field full"><span class="legend">Zawartość ksiąg</span><div class="checks"><div class="checktile"><label><input type="checkbox" name="records" value="ur" checked=""> Urodzenia (ur.)</label></div><div class="checktile"><label><input type="checkbox" name="records" value="śl" checked=""> Małżeństwa (śl.)</label></div><div class="checktile"><label><input type="checkbox" name="records" value="zg" checked=""> Zgony (zg.)</label></div></div></div>
+<div class="field full"><label for="contents">Opis zawartości</label><input id="contents" name="contents" value="Kopie z ksiąg metrykalnych — ur. [x], śl. [x], zg. [x]"></div>
+</div></div></section>
+
+<section class="card"><div class="card-head"><span class="num">02</span><div><h2>Miejscowości objęte księgami</h2><p>Miasta parafialne, wsie filialne oraz objaśnienia terytorialne</p></div></div><div class="body">
+<div class="field" style="margin-bottom:20px">
+  <span class="legend">Miasta <span class="pill" id="townCount">0 miast</span></span>
+  <div class="chips-container" id="townsContainer">
+    <input type="text" id="townInput" class="chip-input" placeholder="Wpisz miasto i wciśnij Enter…">
+  </div>
+</div>
+
+<div class="field" style="margin-bottom:24px">
+  <span class="legend">Wsie <span class="pill" id="villageCount">0 miejscowości</span></span>
+  <div class="chips-container" id="villagesContainer">
+    <input type="text" id="villageInput" class="chip-input" placeholder="Wpisz miejscowość (np. Holihrady ***) i wciśnij Enter…">
+  </div>
+  <p class="hint">Wpisz nazwę i naciśnij <strong>Enter</strong> lub <strong>przecinek</strong>. Oznaczenie gwiazdkami (* / ** / ***) możesz dopisać bezpośrednio w nazwie.</p>
+</div>
+
+<div class="field full">
+  <span class="legend">Objaśnienia gwiazdek (* / ** / ***)</span>
+  <div id="starLegendContainer"></div>
+  <button type="button" id="addLegendBtn" class="remove-btn" style="margin-top:5px; font-weight:750; color:var(--accent); border-color:var(--accent)">＋ Dodaj kolejne objaśnienie gwiazdek</button>
+</div>
+</div></section>
+
+<section class="card"><div class="card-head"><span class="num">03</span><div><h2>Oznaczenia archiwalne</h2><p>Wiele sygnatur i zespołów z różnych archiwów</p></div></div><div class="body">
+<div id="archiveEntries" class="archive-entries"></div>
+<div class="actions" style="justify-content:flex-start;margin:14px 0 22px"><button type="button" id="addArchiveBtn" class="primary">＋ Dodaj oznaczenie archiwalne</button></div><div class="grid">
+<div class="field full"><label>Daty skrajne</label><div class="inline"><div><label for="dateFrom">Od</label><input id="dateFrom" name="dateFrom" type="number" min="1000" max="2100" value="1895"></div><div><label for="dateTo">Do</label><input id="dateTo" name="dateTo" type="number" min="1000" max="2100" value="1895"></div></div></div>
+<div class="field full"><label for="notes">Uwagi</label><textarea id="notes" name="notes" rows="2" placeholder="Dodatkowe informacje o jednostce…"></textarea></div>
+</div><div class="actions"><span class="status" id="status">Dane przykładowe · formularz można edytować</span><div class="buttons"><button type="button" id="resetBtn">Przywróć przykład</button><button type="button" class="primary" id="exportBtn">Eksportuj dane JSON ↗</button></div></div></div></section>
+</form><div class="footer">Karta robocza do opisu źródła genealogicznego · dane przykładowe</div>
+</div></main>
+
+<script>
+const initialTowns = [{ name: 'Zaleszczyki', stars: '' }];
+
+const initialVillages = [
+  { name: 'Bedrykowce', stars: '' }, { name: 'Błyszczanka', stars: '**' }, { name: 'Dobrowlany', stars: '' },
+  { name: 'Duninów', stars: '*' }, { name: 'Dupliska', stars: '**' }, { name: 'Dźwiniacz', stars: '' },
+  { name: 'Gródek', stars: '*' }, { name: 'Holihrady', stars: '***' }, { name: 'Kasperowce', stars: '*' },
+  { name: 'Kościelniki', stars: '' }, { name: 'Kułakowce', stars: '*' }, { name: 'Lesieczniki', stars: '*' },
+  { name: 'Pieczarna', stars: '' }, { name: 'Szczytowce', stars: '*' }, { name: 'Uhryńkowce', stars: '**' },
+  { name: 'Winiatyńce', stars: '***' }, { name: 'Zaleszczyki Stare', stars: '' }, { name: 'Zazulińce', stars: '***' },
+  { name: 'Żezawa', stars: '' }, { name: 'Żyrawka', stars: '' }
+];
+
+const initialLegend = [
+  { symbol: '*', text: 'Szczytowce - od 1904 r. samodzielna parafia wyodrębniona z par. Zaleszczyki z wsiami: Duninów, Gródek, Kasperowce, Kościelniki, Kułakowce, Lesieczniki;' },
+  { symbol: '**', text: 'Uhryńkowce - od 1911 r. samodzielna parafia wyodrębniona z par. Zaleszczyki z wsiami: Błyszczanka, Dupliska;' },
+  { symbol: '***', text: 'Winiatyńce - od 1912 r. samodzielna parafia wyodrębniona z par. Sczytowce m. in. z wsiami: Holihrady, Zazulińce; (zs)' }
+];
+
+function escapeHtml(str) {
+  return str.replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m]));
+}
+
+function getGrammarForm(count, type) {
+  if (type === 'town') {
+    if (count === 1) return 'miasto';
+    const mod10 = count % 10;
+    const mod100 = count % 100;
+    if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return 'miasta';
+    return 'miast';
+  } else {
+    if (count === 1) return 'miejscowość';
+    const mod10 = count % 10;
+    const mod100 = count % 100;
+    if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return 'miejscowości';
+    return 'miejscowości';
+  }
+}
+
+/* --- Chips Manager --- */
+function createChipsManager({ containerId, inputId, countId, initialData, unitType }) {
+  let items = [...initialData];
+  const container = document.getElementById(containerId);
+  const input = document.getElementById(inputId);
+  const countEl = document.getElementById(countId);
+
+  function render() {
+    container.querySelectorAll('.chip').forEach(c => c.remove());
+
+    items.forEach((item, idx) => {
+      const chip = document.createElement('div');
+      chip.className = 'chip';
+
+      let html = `<span>${escapeHtml(item.name)}</span>`;
+      if (item.stars) {
+        html += `<span class="stars">${escapeHtml(item.stars)}</span>`;
+      }
+      html += `<button type="button" class="chip-remove" aria-label="Usuń">&times;</button>`;
+      chip.innerHTML = html;
+
+      chip.querySelector('.chip-remove').addEventListener('click', (e) => {
+        e.stopPropagation();
+        items.splice(idx, 1);
+        render();
+      });
+
+      container.insertBefore(chip, input);
+    });
+
+    if (countEl) {
+      countEl.textContent = `${items.length} ${getGrammarForm(items.length, unitType)}`;
+    }
+  }
+
+  function addFromInput() {
+    const val = input.value.trim();
+    if (!val) return;
+
+    const parts = val.split(',').map(s => s.trim()).filter(Boolean);
+    parts.forEach(p => {
+      const match = p.match(/^(.*?)\s*(\*+)?$/);
+      if (match) {
+        const name = match[1].trim();
+        const stars = match[2] || '';
+        if (name) items.push({ name, stars });
+      }
+    });
+
+    input.value = '';
+    render();
+  }
+
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ',') {
+      e.preventDefault();
+      addFromInput();
+    } else if (e.key === 'Backspace' && input.value === '' && items.length > 0) {
+      items.pop();
+      render();
+    }
+  });
+
+  container.addEventListener('click', () => input.focus());
+  render();
+
+  return {
+    getItems: () => items,
+    reset: (newData) => {
+      items = [...newData];
+      render();
+    }
+  };
+}
+
+const townsManager = createChipsManager({
+  containerId: 'townsContainer',
+  inputId: 'townInput',
+  countId: 'townCount',
+  initialData: initialTowns,
+  unitType: 'town'
+});
+
+const villagesManager = createChipsManager({
+  containerId: 'villagesContainer',
+  inputId: 'villageInput',
+  countId: 'villageCount',
+  initialData: initialVillages,
+  unitType: 'village'
+});
+
+/* --- Dynamic Legend Manager --- */
+const starLegendContainer = document.getElementById('starLegendContainer');
+
+function renderLegendItem(data = { symbol: '*', text: '' }) {
+  const row = document.createElement('div');
+  row.className = 'star-legend-item';
+  row.innerHTML = `
+    <input class="star-legend-symbol" value="${escapeHtml(data.symbol)}" placeholder="*">
+    <textarea class="star-legend-text" rows="2" placeholder="Opis oznaczenia…">${escapeHtml(data.text)}</textarea>
+    <button type="button" class="remove-btn">Usuń</button>
+  `;
+  row.querySelector('.remove-btn').addEventListener('click', () => row.remove());
+  starLegendContainer.appendChild(row);
+}
+
+function loadLegend(items) {
+  starLegendContainer.innerHTML = '';
+  items.forEach(item => renderLegendItem(item));
+}
+
+document.getElementById('addLegendBtn').addEventListener('click', () => {
+  renderLegendItem({ symbol: '*', text: '' });
+});
+
+loadLegend(initialLegend);
+
+/* --- Archive Entries Manager --- */
+const archiveEntries = document.getElementById('archiveEntries');
+
+function renumberArchives(){
+  [...archiveEntries.children].forEach((card,i)=>{
+    card.querySelector('.entry-number').textContent = i + 1;
+  });
+}
+
+function addArchiveEntry(values={
+  archive: 'AGAD',
+  signature: '1/301/0/-/1817',
+  oldSignature: '915 (521-523)',
+  microfilm: '92577',
+  fonds: 'Księgi metrykalne parafii wyznania rzymskokatolickiego z archidiecezji lwowskiej',
+  url: 'https://www.szukajwarchiwach.gov.pl/zespol/-/zespol/125071',
+  url2: 'http://agadd.home.net.pl/metrykalia/301/sygn.%201817/indeks.htm'
+}){
+  const card = document.createElement('div');
+  card.className = 'archive-entry';
+  card.style.cssText = 'border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px;background:var(--surface2)';
+  
+  card.innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:13px">
+      <strong>Oznaczenie archiwalne <span class="entry-number"></span></strong>
+      <button type="button" class="remove-entry remove-btn">Usuń</button>
+    </div>
+    <div class="grid-4" style="margin-bottom:12px">
+      <div class="field"><label>Archiwum</label><input data-field="archive"></div>
+      <div class="field"><label>Sygnatura</label><input data-field="signature"></div>
+      <div class="field"><label>Dawna sygnatura</label><input data-field="oldSignature"></div>
+      <div class="field"><label>Mikrofilm</label><input data-field="microfilm"></div>
+    </div>
+    <div class="grid">
+      <div class="field full"><label>Zespół archiwalny</label><input data-field="fonds"></div>
+      <div class="field"><label>Adres zespołu / jednostki (np. SzukajwArchiwach)</label><input data-field="url" type="url"></div>
+      <div class="field"><label>Link do skanów / indeksu (AGAD)</label><input data-field="url2" type="url"></div>
+    </div>
+  `;
+  
+  for(const key of ['archive','signature','oldSignature','microfilm','fonds','url','url2']) {
+    const el = card.querySelector('[data-field="'+key+'"]');
+    if (el) el.value = values[key] || '';
+  }
+  
+  card.querySelector('.remove-entry').addEventListener('click', () => {
+    card.remove();
+    renumberArchives();
+  });
+  
+  archiveEntries.append(card);
+  renumberArchives();
+}
+
+addArchiveEntry();
+
+document.getElementById('addArchiveBtn').addEventListener('click', () => addArchiveEntry({
+  archive:'', signature:'', oldSignature:'', microfilm:'', fonds:'', url:'', url2:''
+}));
+
+/* --- Reset Form --- */
+document.getElementById('resetBtn').addEventListener('click', () => {
+  document.getElementById('recordForm').reset();
+  archiveEntries.innerHTML = '';
+  addArchiveEntry();
+  townsManager.reset(initialTowns);
+  villagesManager.reset(initialVillages);
+  loadLegend(initialLegend);
+  document.getElementById('status').textContent = 'Przywrócono przykładowe dane.';
+});
+
+/* --- Export JSON --- */
+document.getElementById('exportBtn').addEventListener('click', () => {
+  const f = document.getElementById('recordForm');
+  
+  const legendData = [...starLegendContainer.children].map(row => ({
+    symbol: row.querySelector('.star-legend-symbol').value,
+    text: row.querySelector('.star-legend-text').value
+  }));
+
+  const data = {
+    parafia: f.parish.value,
+    dekanat: f.deanery.value,
+    ryt: f.rite.value,
+    jezyk: f.language.value,
+    opis_ksiegi: f.bookDesc.value,
+    miasta: townsManager.getItems().map(v => ({ nazwa: v.name, oznaczenie: v.stars })),
+    zawartosc: f.contents.value,
+    typy_wpisow: [...f.querySelectorAll('input[name="records"]:checked')].map(x => x.value),
+    wsie: villagesManager.getItems().map(v => ({ nazwa: v.name, oznaczenie: v.stars })),
+    objasnienia_gwiazdek: legendData,
+    oznaczenia_archiwalne: [...archiveEntries.children].map(card => Object.fromEntries([...card.querySelectorAll('[data-field]')].map(input => [input.dataset.field, input.value]))),
+    daty: { od: Number(f.dateFrom.value), do: Number(f.dateTo.value) },
+    uwagi: f.notes.value
+  };
+  
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'zaleszczyki-metrykalne.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  document.getElementById('status').textContent = 'Wyeksportowano dane formularza do pliku JSON.';
+});
+</script>
+
+<script>
+  (() => {
+    function updateSurface(surface) {
+      if (surface !== "inline" && surface !== "stage") return;
+      const root = document.documentElement;
+      const isDarkMode = root.classList.contains("dark");
+      const stageBackground = isDarkMode ? "#212121" : "#ffffff";
+      root.setAttribute("data-app-block-surface", surface);
+      root.style.backgroundColor = surface === "inline" ? "transparent" : "var(--main-surface-primary, " + stageBackground + ")";
+    }
+
+    window.addEventListener("openai:set_globals", (event) => {
+      const surface = event.detail?.globals?.__appBlockSurface;
+      if (surface != null) updateSurface(surface);
+    });
+
+    const initialSurface = window.openai?.__appBlockSurface ?? document.documentElement.getAttribute("data-app-block-surface") ?? "inline";
+    updateSurface(initialSurface);
+  })();
+</script>
+</body></html>
