@@ -71,7 +71,9 @@ args = [
 "-Y", "WYYY-WW-D hh:mm:ss",
 "--ignore-leading-dot",
 "-d", "./",
-"-p", "./{examples|tests|src|scripts}/**",
+"-p", "./{examples|tests|src|scripts|.github}/**",
 "-p", "./{Cargo|Trunk|Makefile}.toml",
-"--file-name", "snapshot_{VERSION}.md",
+"-p", "./index.html",
+"-p", "./{.gitattributes|.gitignore}",
+"--file-name", "OWN_4Gen_V_snapshot_{VERSION}.md",
 ]
