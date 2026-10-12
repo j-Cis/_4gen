@@ -1,0 +1,77 @@
+[config]
+default_to_workspace = false
+skip_core_tasks = true
+
+[tasks.check]
+description = "Sprawdza projekt"
+command = "cargo"
+args = ["check", "--all-targets"]
+
+[tasks.test]
+description = "Uruchamia testy"
+command = "cargo"
+args = ["test"]
+
+[tasks.fmt]
+description = "Sprawdza formatowanie kodu"
+command = "cargo"
+args = ["fmt", "--all", "--", "--check"]
+
+[tasks.clippy]
+description = "Uruchamia Clippy"
+command = "cargo"
+args = ["clippy", "--all-targets", "--", "-D", "warnings"]
+
+[tasks.run]
+description = "Uruchamia aplikację natywną"
+command = "cargo"
+args = ["run"]
+
+[tasks.wasm-target]
+description = "Dodaje target WASM"
+command = "rustup"
+args = ["target", "add", "wasm32-unknown-unknown"]
+
+[tasks.wasm-serve]
+description = "Buduje i uruchamia aplikację WASM w przeglądarce"
+dependencies = ["wasm-target"]
+command = "trunk"
+args = ["serve", "--address", "127.0.0.1", "--port", "8080", "--open"]
+
+[tasks.wasm-build]
+description = "Buduje wersję WASM w trybie release"
+dependencies = ["wasm-target"]
+command = "trunk"
+args = ["build", "--release"]
+
+[tasks.wasm-check]
+description = "Sprawdza kompilację dla WASM"
+dependencies = ["wasm-target"]
+command = "cargo"
+args = ["check", "--target", "wasm32-unknown-unknown"]
+
+[tasks.clean]
+description = "Czyści artefakty kompilacji"
+command = "cargo"
+args = ["clean"]
+
+[tasks.verify]
+description = "Pełna kontrola projektu"
+dependencies = ["fmt", "check", "test", "clippy"]
+
+[tasks.snapshot]
+description = "Generuje migawkę dokumentacyjną aktualnego stanu projektu"
+command = "cargo"
+args = [
+"plot",
+"-o", "./prompts",
+"--version-pattern", "WYYY-WW-DSSS-hhmmssttqq",
+"-c", "H W D P",
+"--dir-weight", "matched",
+"-Y", "WYYY-WW-D hh:mm:ss",
+"--ignore-leading-dot",
+"-d", "./",
+"-p", "./{examples|tests|src|scripts}/**",
+"-p", "./{Cargo|Trunk|Makefile}.toml",
+"--file-name", "snapshot_{VERSION}.md",
+]

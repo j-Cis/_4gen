@@ -1,3 +1,0 @@
-[https://github.com/googlefonts/noto-emoji/tree/main/svg]
-[https://github.com/googlefonts/noto-emoji/tree/main/png/128]
-[https://github.com/jdecked/twemoji/tree/master/assets/svg]

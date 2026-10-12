@@ -1,3 +1,4 @@
+
 [package]
 name = "_4gen"
 version = "0.1.0-dev.1"
@@ -9,11 +10,32 @@ resolver = "3"
 
 [lib]
 name = "x"
+crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-eframe = "0.36.2"
+eframe = { version = "0.36.2", features = ["glow"] }
 egui = "0.36.2"
-egui_extras = { version = "0.36.2", features = ["all_loaders"] }
-image = "0.25.10"
+egui_extras = { version = "0.36.2", features = ["svg", "image"] }
+image = { version = "0.25.10", default-features = false, features = ["jpeg", "png", "webp"] }
+palette = "0.7.7"
 quick-xml = { version = "0.42.0", features = ["serialize"] }
 serde = { version = "1.0.229", features = ["derive"] }
+
+[profile.release]
+opt-level = 2
+
+[profile.release.package."*"]
+opt-level = 2
+
+[lints.rust]
+unused_imports = "allow"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+web-sys = { version = "0.3", features = [
+    "Window",
+    "Document",
+    "Element",
+    "HtmlCanvasElement",
+] }
