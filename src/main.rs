@@ -1,3 +1,5 @@
+// src/main.rs
+
 #[cfg(not(target_arch = "wasm32"))]
 fn main() -> eframe::Result {
     x::run()
@@ -18,10 +20,13 @@ fn main() {
             .dyn_into::<web_sys::HtmlCanvasElement>()
             .expect("Element nie jest canvas");
 
+        let mut web_options = eframe::WebOptions::default();
+        web_options.renderer = eframe::Renderer::Glow;
+
         eframe::WebRunner::new()
             .start(
                 canvas,
-                eframe::WebOptions::default(),
+                web_options,
                 Box::new(|cc| Ok(Box::new(x::layout::frame::FrameApp::new(cc)))),
             )
             .await
