@@ -1,3 +1,8 @@
 /target
+/.xtask/target
 /temp
 /dist
+/.changes_temp
+.xtask_history
+.xtask_last
+*.tmp
