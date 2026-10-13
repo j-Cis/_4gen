@@ -1,22 +1,23 @@
-// src/layout/table_config_window.rs
+// src/layout/table/config/render.rs
 
-use crate::layout::table_types::{PinPosition, TableState};
-use crate::layout::window::{WindowType, WorkspaceWindow};
-use crate::theme::tab::TableIcons;
 use eframe::egui::{self, Color32, Frame, Id, Stroke, vec2};
+use crate::layout::frame::{ContainerWindow, ContainerWindowMode};
+use crate::layout::table::config::engine;
+use crate::layout::table::types::{PinPosition, TableState};
+use crate::theme::tab::TableIcons;
 
 pub struct TableConfigWindow {
-    pub window: WorkspaceWindow,
+    pub window: ContainerWindow,
 }
 
 impl Default for TableConfigWindow {
     fn default() -> Self {
         Self {
-            window: WorkspaceWindow::new(
+            window: ContainerWindow::new(
                 "table_col_config",
                 "Konfiguracja Kolumn",
                 TableIcons::CONFIG,
-                WindowType::Floating,
+                ContainerWindowMode::Floating,
             ),
         }
     }
@@ -24,7 +25,7 @@ impl Default for TableConfigWindow {
 
 impl TableConfigWindow {
     pub fn show(&mut self, ui: &mut egui::Ui, state: &mut TableState) {
-        self.window.show(ui, |ui, _content_open| {
+        self.window.show(ui, |ui| {
             ui.label("Zaznacz widoczność, przypięcie (Początek/Koniec) oraz kolejność:");
             ui.add_space(8.0);
 
@@ -46,11 +47,7 @@ impl TableConfigWindow {
                         if state.columns.contains_key(col_id) {
                             let mut is_visible = state.visible_columns.contains(col_id);
                             if ui.checkbox(&mut is_visible, "").changed() {
-                                if is_visible {
-                                    state.visible_columns.insert(col_id.clone());
-                                } else {
-                                    state.visible_columns.remove(col_id);
-                                }
+                                engine::toggle_column_visibility(state, col_id, is_visible);
                             }
                         }
 
@@ -90,7 +87,7 @@ impl TableConfigWindow {
                             }
                         }
 
-                        // 3. SEKCJA PRAWA: PRZYPIĘCIE ORAZ PRZYCISKI NEUWYSTĘPUJĄCE Z PRZESUNIĘCIEM
+                        // 3. SEKCJA PRAWA: PRZYPIĘCIE ORAZ PRZYCISKI GÓRA/DÓŁ
                         ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
                             // Przycisk DÓŁ
                             if row_idx + 1 < state.display_order.len() {
@@ -107,18 +104,11 @@ impl TableConfigWindow {
                                 }
                             }
 
-                            // PRZYCISKI PRZYPIĘCIA LEWO / PRAWO
-                            if let Some(col) = state.columns.get_mut(col_id) {
+                            // PRZYCISKI PRZYPIĘCIA LEWO
+                            if let Some(col) = state.columns.get(col_id) {
                                 let is_left = col.pinned == PinPosition::Left;
-
-                                // ZAKOMENTOWANE: Prawa kolumna
-                                // let is_right = col.pinned == PinPosition::Right;
-                                // if ui.selectable_label(is_right, "📌R").on_hover_text("Przypnij na końcu (prawo)").clicked() {
-                                //     col.pinned = if is_right { PinPosition::None } else { PinPosition::Right };
-                                // }
-
                                 if ui.selectable_label(is_left, "📌L").on_hover_text("Przypnij na początku (lewo)").clicked() {
-                                    col.pinned = if is_left { PinPosition::None } else { PinPosition::Left };
+                                    engine::toggle_pin_left(state, col_id);
                                 }
                             }
                         });
@@ -127,15 +117,8 @@ impl TableConfigWindow {
                 }
             });
 
-            if let (Some(from), Some(mut to)) = (from_idx, to_idx) {
-                if from != to {
-                    if from < to {
-                        to = to.saturating_sub(1);
-                    }
-                    let item = state.display_order.remove(from);
-                    let target_idx = to.min(state.display_order.len());
-                    state.display_order.insert(target_idx, item);
-                }
+            if let (Some(from), Some(to)) = (from_idx, to_idx) {
+                engine::reorder_columns(state, from, to);
             }
         });
     }

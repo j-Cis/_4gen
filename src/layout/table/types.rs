@@ -1,4 +1,4 @@
-// src/layout/table_types.rs
+// src/layout/table/types.rs
 
 use std::collections::{HashMap, HashSet};
 
@@ -13,6 +13,9 @@ pub enum TableAction {
     Duplicate,
     Tag,
     ConfigColumns,
+    ToggleShift, 
+    ToggleCtrl,  
+    ToggleAlt,   
 }
 
 #[derive(Clone, PartialEq, Debug)]
@@ -61,6 +64,11 @@ pub struct TableState {
     pub visible_columns: HashSet<String>,
     pub sort_rules: Vec<(String, SortDir)>,
     pub selected_rows: HashSet<usize>,
+
+    // Wirtualne modyfikatory dotykowe
+    pub simulated_shift: bool,
+    pub simulated_ctrl: bool,
+    pub simulated_alt: bool,
 }
 
 impl TableState {
@@ -81,13 +89,28 @@ impl TableState {
             visible_columns,
             sort_rules: Vec::new(),
             selected_rows: HashSet::new(),
+            simulated_shift: false,
+            simulated_ctrl: false,
+            simulated_alt: false,
         }
+    }
+
+    pub fn is_shift_active(&self, input: &eframe::egui::InputState) -> bool {
+        self.simulated_shift || input.modifiers.shift
+    }
+
+    pub fn is_ctrl_active(&self, input: &eframe::egui::InputState) -> bool {
+        self.simulated_ctrl || input.modifiers.command || input.modifiers.ctrl
+    }
+
+    pub fn is_alt_active(&self, input: &eframe::egui::InputState) -> bool {
+        self.simulated_alt || input.modifiers.alt
     }
 
     pub fn get_computed_columns_order(&self) -> Vec<String> {
         let mut left_pinned = Vec::new();
         let mut unpinned = Vec::new();
-        let mut right_pinned = Vec::new();
+        let right_pinned = Vec::new();
 
         for id in &self.display_order {
             if self.visible_columns.contains(id) {

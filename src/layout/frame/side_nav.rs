@@ -4,13 +4,13 @@ use crate::theme::{hue, ico};
 use eframe::egui::{self, Align, Align2, CursorIcon, Image, Layout, Sense, Ui, Vec2};
 
 #[derive(Clone, Copy, PartialEq)]
-pub enum FrameBarPlacement {
+pub enum SideNavPlacement {
     Left,
     Right,
 }
 
 #[derive(Clone)]
-pub enum FrameBarItem<'a> {
+pub enum SideNavItem<'a> {
     Action {
         id: &'static str,
         icon: Image<'a>,
@@ -19,22 +19,22 @@ pub enum FrameBarItem<'a> {
     Separator,
 }
 
-pub struct FrameBar<'a> {
-    pub placement: FrameBarPlacement,
-    pub items: Vec<FrameBarItem<'a>>,
+pub struct SideNav<'a> {
+    pub placement: SideNavPlacement,
+    pub items: Vec<SideNavItem<'a>>,
 }
 
-impl<'a> FrameBar<'a> {
-    pub fn left(items: Vec<FrameBarItem<'a>>) -> Self {
+impl<'a> SideNav<'a> {
+    pub fn left(items: Vec<SideNavItem<'a>>) -> Self {
         Self {
-            placement: FrameBarPlacement::Left,
+            placement: SideNavPlacement::Left,
             items,
         }
     }
 
-    pub fn right(items: Vec<FrameBarItem<'a>>) -> Self {
+    pub fn right(items: Vec<SideNavItem<'a>>) -> Self {
         Self {
-            placement: FrameBarPlacement::Right,
+            placement: SideNavPlacement::Right,
             items,
         }
     }
@@ -54,14 +54,14 @@ impl<'a> FrameBar<'a> {
         activated
     }
 
-    fn show_item(&self, ui: &mut Ui, item: &FrameBarItem, activated: &mut Vec<&'static str>) {
+    fn show_item(&self, ui: &mut Ui, item: &SideNavItem, activated: &mut Vec<&'static str>) {
         match item {
-            FrameBarItem::Separator => {
+            SideNavItem::Separator => {
                 ui.add_space(ico::ICON_PADDING_MAIN_AXIS);
                 ui.separator();
                 ui.add_space(ico::ICON_PADDING_MAIN_AXIS);
             }
-            FrameBarItem::Action { id, icon, tooltip } => {
+            SideNavItem::Action { id, icon, tooltip } => {
                 let (rect, mut response) =
                     ui.allocate_exact_size(Vec2::splat(ico::ICON_BUTTON_SIZE), Sense::click());
 
@@ -84,11 +84,11 @@ impl<'a> FrameBar<'a> {
 
                 if response.hovered() && !tooltip.is_empty() {
                     let (tooltip_pos, tooltip_pivot) = match self.placement {
-                        FrameBarPlacement::Left => (
+                        SideNavPlacement::Left => (
                             egui::pos2(rect.right() + 6.0, rect.center().y),
                             Align2::LEFT_CENTER,
                         ),
-                        FrameBarPlacement::Right => (
+                        SideNavPlacement::Right => (
                             egui::pos2(rect.left() - 6.0, rect.center().y),
                             Align2::RIGHT_CENTER,
                         ),

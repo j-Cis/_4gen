@@ -1,8 +1,8 @@
 // src/widget/records_individuals.rs
 
-use crate::layout::table::AdvancedTable;
-use crate::layout::table_config_window::TableConfigWindow;
-use crate::layout::table_types::{ColDef, PinPosition, TableAction, TableConfig, TableState};
+use crate::layout::table::{
+    AdvancedTable, ColDef, PinPosition, TableAction, TableConfig, TableConfigWindow, TableState,
+};
 use crate::theme::tab::TableTheme;
 use eframe::egui;
 use std::cmp::Ordering;
@@ -148,7 +148,7 @@ impl RecordsIndividualsWidget {
                     };
 
                     if cmp != Ordering::Equal {
-                        return if *dir == crate::layout::table_types::SortDir::Asc { cmp } else { cmp.reverse() };
+                        return if *dir == crate::layout::table::SortDir::Asc { cmp } else { cmp.reverse() };
                     }
                 }
                 Ordering::Equal

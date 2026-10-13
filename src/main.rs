@@ -27,7 +27,7 @@ fn main() {
             .start(
                 canvas,
                 web_options,
-                Box::new(|cc| Ok(Box::new(x::layout::frame::FrameApp::new(cc)))),
+                Box::new(|cc| Ok(Box::new(x::app::App4Gen::new(cc)))),
             )
             .await
             .expect("Błąd startu eframe");
