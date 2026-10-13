@@ -1,6 +1,5 @@
 // src/layout/table/tools/engine.rs
 
-use eframe::egui::{Image, Vec2};
 use crate::layout::table::types::{TableAction, TableState};
 
 #[derive(Clone)]
@@ -13,8 +12,7 @@ pub struct ToolbarButton<'a> {
 #[derive(Clone)]
 pub struct ModifierButton<'a> {
     pub action: TableAction,
-    pub icon: Image<'a>,
-    pub size: Vec2,
+    pub label: &'a str,
     pub tooltip: &'a str,
 }
 

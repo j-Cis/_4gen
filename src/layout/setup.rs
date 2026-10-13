@@ -112,22 +112,21 @@ pub fn build_table_toolbar<'a>() -> Vec<ToolbarItem<'a>> {
         
         ToolbarItem::Modifier(ModifierButton {
             action: TableAction::ToggleCtrl,
-            icon: ico::key_ctrl(),
-            size: eframe::egui::vec2(29.3, 22.0),
+            label: "Ctrl",
             tooltip: "Wirtualny Ctrl (multiselekcja wierszy)",
         }),
         ToolbarItem::Modifier(ModifierButton {
             action: TableAction::ToggleShift,
-            icon: ico::key_shift(),
-            size: eframe::egui::vec2(29.3, 22.0),
+            label: "Shift",
             tooltip: "Wirtualny Shift (sortowanie wielokolumnowe)",
         }),
-        // ToolbarItem::Modifier(ModifierButton {
-        //     action: TableAction::ToggleAlt,
-        //     icon: ico::key_alt(),
-        //     size: eframe::egui::vec2(24.6, 22.0),
-        //     tooltip: "Wirtualny Alt",
-        // }),
+        /*
+        ToolbarItem::Modifier(ModifierButton {
+            action: TableAction::ToggleAlt,
+            label: "Alt",
+            tooltip: "Wirtualny Alt",
+        }),
+        */
     ]
 }
 

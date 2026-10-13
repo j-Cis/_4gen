@@ -47,6 +47,3 @@ register_icon!(hatch, "twemoji_1faaa.svg");
 register_icon!(female, "twemoji_2640.svg");
 register_icon!(male, "twemoji_2642.svg");
 register_icon!(gear, "twemoji_2699.svg");
-register_icon!(key_shift, "key_shift.svg");
-register_icon!(key_ctrl, "key_ctrl.svg");
-register_icon!(key_alt, "key_alt.svg");

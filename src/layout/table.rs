@@ -3,12 +3,15 @@
 pub mod types;
 pub mod grid_engine;
 
+#[path = "table"]
 pub mod grid_render {
-    #[path = "../grid_render_header.rs"]
+    #[path = "grid_render_header.rs"]
     pub mod header;
-    #[path = "../grid_render_pinned.rs"]
+
+    #[path = "grid_render_pinned.rs"]
     pub mod pinned;
-    #[path = "../grid_render_scroll.rs"]
+
+    #[path = "grid_render_scroll.rs"]
     pub mod scroll;
 }
 
