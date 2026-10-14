@@ -231,12 +231,24 @@ dependencies = [
 
 [[package]]
 name = "querypath-fmt"
-version = "1.0.0"
+version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f39a6e2eaa02e79ec96c00986016548a042c6ae159cb2679100373642176fbc7"
+checksum = "38aeb5c61dce69396a27d66d730762ba732b8c3cb9c96e04686979b89f629802"
 dependencies = [
  "anyhow",
  "querypath",
+ "temporal-fmt",
+]
+
+[[package]]
+name = "querypath-snapshot"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "725801f3371c75a4bd7204b5c89ec884933140f8aeab18584c59936487ac8461"
+dependencies = [
+ "anyhow",
+ "querypath",
+ "querypath-fmt",
  "temporal-fmt",
 ]
 
@@ -480,5 +492,5 @@ dependencies = [
  "inquire",
  "querypath",
  "querypath-fmt",
- "temporal-fmt",
+ "querypath-snapshot",
 ]

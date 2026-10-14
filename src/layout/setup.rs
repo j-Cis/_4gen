@@ -1,7 +1,7 @@
-// src/layout/setup.rs
+// src\layout\setup.rs
 
 use crate::app::ViewRegistry;
-use crate::layout::frame::{SideNav, SideNavItem};
+use crate::layout::frame::{SideNav, SideNavItem, WindowClosePosition, WindowHeaderConfig, WindowMinimizePosition};
 use crate::layout::table::tools::engine::{ModifierButton, ToolbarButton, ToolbarItem};
 use crate::layout::table::types::TableAction;
 use crate::theme::{ico, tab::TableIcons};
@@ -135,4 +135,11 @@ pub fn build_view_registry() -> ViewRegistry {
     reg.register("search", Box::new(RecordsIndividualsWidget::default()));
     reg.register("files", Box::new(RecordsAssetsWidget));
     reg
+}
+
+pub fn build_window_header() -> WindowHeaderConfig {
+    WindowHeaderConfig {
+        close_pos: WindowClosePosition::Left,
+        minimize_pos: WindowMinimizePosition::BesideRight,
+    }
 }

@@ -29,14 +29,6 @@ pub mod widget {
 
 pub mod layout {
     pub mod setup; 
-
-    pub mod frame {
-        mod side_nav;
-        mod container;
-        
-        pub use side_nav::{SideNav, SideNavItem, SideNavPlacement};        
-        pub use container::{ContainerCanvas, ContainerWindow, ContainerWindowMode};
-    }
-    
+    pub mod frame;    
     pub mod table;
 }    

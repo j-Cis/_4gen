@@ -6,5 +6,5 @@ edition = "2024"
 [dependencies]
 inquire = "0.9.4"
 querypath = "1.0.0"
-querypath-fmt = "1.0.0"
-temporal-fmt = "0.1.1"
+querypath-fmt = "1.1.0"
+querypath-snapshot = "1.1.0"
