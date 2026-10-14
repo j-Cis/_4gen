@@ -40,11 +40,12 @@ impl TableGridEngine {
             .map(|id| state.columns.get(id).map(|c| c.width_px).unwrap_or(100.0))
             .sum();
 
-        let available_height = ui.available_height();
-
-        // Identyfikator w pamięci egui do synchronizacji przesunięcia w poziomie (X)
+        // Identyfikatory w pamięci egui do synchronizacji przesunięcia w poziomie (X) i pionie (Y)
         let scroll_x_id = ui.id().with("table_horizontal_scroll_sync");
         let mut scroll_x = ui.data(|d| d.get_temp::<f32>(scroll_x_id).unwrap_or(0.0));
+
+        let scroll_y_id = ui.id().with("table_vertical_scroll_sync");
+        let mut scroll_y = ui.data(|d| d.get_temp::<f32>(scroll_y_id).unwrap_or(0.0));
 
         // ==========================================
         // 1. NAGŁÓWKI (ZAMROŻONE W PIONIE)
@@ -72,57 +73,77 @@ impl TableGridEngine {
                         header::render_header_row(ui, &center_cols, state, theme, shift_pressed, false);
                     });
 
-                // Aktualizujemy globalny offset jeśli nagłówek został przeciągnięty/przewinięty
-                if header_scroll.state.offset.x != scroll_x {
+                // Synchronizacja przesunięcia poziomego z nagłówka
+                if (header_scroll.state.offset.x - scroll_x).abs() > 0.01 {
                     scroll_x = header_scroll.state.offset.x;
                 }
             }
         });
 
         // ==========================================
-        // 2. CIAŁO TABELI (PRZEWIJANE W PIONIE)
+        // 2. CIAŁO TABELI (W PEŁNI DWUOSIOWE)
         // ==========================================
-        egui::ScrollArea::vertical()
-            .id_salt("grid_vertical_scroll")
-            .max_height(available_height - theme.header_height)
-            .show(ui, |ui| {
-                ui.horizontal(|ui| {
-                    ui.spacing_mut().item_spacing.x = 0.0;
+        let body_height = ui.available_height().max(0.0);
 
-                    if !left_cols.is_empty() {
-                        ui.allocate_ui_with_layout(
-                            vec2(left_total_width, 0.0), // 0.0 = pozwól rosnąć do dołu
-                            egui::Layout::top_down(egui::Align::LEFT),
-                            |ui| {
+        ui.horizontal(|ui| {
+            ui.spacing_mut().item_spacing.x = 0.0;
+
+            // 2A. KOLUMNY PRZYPIĘTE (PRZEWIJANIE TYLKO W PIONIE)
+            if !left_cols.is_empty() {
+                ui.allocate_ui_with_layout(
+                    vec2(left_total_width, body_height),
+                    egui::Layout::top_down(egui::Align::LEFT),
+                    |ui| {
+                        let pinned_scroll = egui::ScrollArea::vertical()
+                            .id_salt("grid_pinned_vscroll")
+                            .vertical_scroll_offset(scroll_y)
+                            .max_height(body_height)
+                            .scroll_bar_visibility(egui::scroll_area::ScrollBarVisibility::AlwaysHidden)
+                            .show(ui, |ui| {
                                 pinned::render_pinned_body(
                                     ui, &left_cols, state, config, theme, row_indices, ctrl_pressed, &mut cell_renderer,
                                 );
-                            },
-                        );
-                        ui.separator();
-                    }
-
-                    if !center_cols.is_empty() {
-                        let body_scroll = egui::ScrollArea::horizontal()
-                            .id_salt("body_hscroll")
-                            .horizontal_scroll_offset(scroll_x)
-                            .show(ui, |ui| {
-                                ui.vertical(|ui| {
-                                    scroll::render_scroll_body(
-                                        ui, &center_cols, state, config, theme, row_indices, ctrl_pressed, &mut cell_renderer,
-                                    );
-                                });
                             });
 
-                        // Aktualizujemy globalny offset jeśli dolny pasek przewijania ruszył
-                        if body_scroll.state.offset.x != scroll_x {
-                            scroll_x = body_scroll.state.offset.x;
+                        // Rejestracja przewinięcia pionowego z obszaru przypiętego
+                        if (pinned_scroll.state.offset.y - scroll_y).abs() > 0.01 {
+                            scroll_y = pinned_scroll.state.offset.y;
                         }
-                    }
-                });
-            });
+                    },
+                );
+                ui.separator();
+            }
 
-        // Zapisujemy nowy stan scroll_x dla następnej klatki
-        ui.data_mut(|d| d.insert_temp(scroll_x_id, scroll_x));
+            // 2B. KOLUMNY GŁÓWNE (NATYWNE PRZEWIJANIE 2D: PION I POZIOM)
+            if !center_cols.is_empty() {
+                let body_scroll = egui::ScrollArea::both()
+                    .id_salt("grid_body_scroll")
+                    .horizontal_scroll_offset(scroll_x)
+                    .vertical_scroll_offset(scroll_y)
+                    .max_height(body_height)
+                    .show(ui, |ui| {
+                        ui.vertical(|ui| {
+                            scroll::render_scroll_body(
+                                ui, &center_cols, state, config, theme, row_indices, ctrl_pressed, &mut cell_renderer,
+                            );
+                        });
+                    });
+
+                // Rejestracja przewinięcia poziomego
+                if (body_scroll.state.offset.x - scroll_x).abs() > 0.01 {
+                    scroll_x = body_scroll.state.offset.x;
+                }
+                // Rejestracja przewinięcia pionowego z gestu dotykowego na kolumnach głównych
+                if (body_scroll.state.offset.y - scroll_y).abs() > 0.01 {
+                    scroll_y = body_scroll.state.offset.y;
+                }
+            }
+        });
+
+        // Zapisujemy zsynchronizowane stany dla następnej klatki
+        ui.data_mut(|d| {
+            d.insert_temp(scroll_x_id, scroll_x);
+            d.insert_temp(scroll_y_id, scroll_y);
+        });
     }
 }
