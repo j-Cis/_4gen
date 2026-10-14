@@ -8,6 +8,7 @@ mod window_header_action_size;
 mod window_header_action_drag;
 mod engine_window_header;
 mod engine_window;
+mod floating_nav_toggle;
 
 pub use side_nav::*;
 pub use container_canvas::*;
@@ -19,3 +20,4 @@ pub use window_header_action_size::*;
 pub use window_header_action_drag::*;
 pub use engine_window_header::*;
 pub use engine_window::*;
+pub use floating_nav_toggle::*;

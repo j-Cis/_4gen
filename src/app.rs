@@ -1,8 +1,8 @@
-// src/layout/frame.rs
-
 use std::collections::HashMap;
 use crate::layout::{
-    frame::{SideNav, ContainerCanvas, ContainerWindow, ContainerWindowMode},
+    frame::{
+        show_floating_nav_toggle, ContainerCanvas, ContainerWindow, ContainerWindowMode, SideNav,
+    },
     setup::{build_nav_side_left, build_nav_side_right, build_view_registry},
 };
 use crate::theme::{hue, ico};
@@ -10,7 +10,8 @@ use crate::widget::{
     records_assets::RecordsAssetsWidget,
     records_individuals::RecordsIndividualsWidget,
 };
-use eframe::egui::{self, Ui, Align, Layout, Panel};
+use eframe::egui::{self, Align, Layout, Panel, Ui};
+
 // ============================================================================
 // REJESTR WIDOKÓW CENTRALNYCH
 // ============================================================================
@@ -79,17 +80,13 @@ impl ViewRegistry {
 
 pub struct App4Gen<'a> {
     left_bar: SideNav<'a>,
-    // left_labels: 
-    // left_onoff: 
     right_bar: SideNav<'a>,
-    // right_labels: 
-    // right_onoff: 
     views: ViewRegistry,
     active_view_id: String,
     welcome_window: ContainerWindow,
     settings_modal: ContainerWindow,
     status: String,
-    
+    side_nav_visible: bool,
 }
 
 impl<'a> App4Gen<'a> {
@@ -119,6 +116,7 @@ impl<'a> App4Gen<'a> {
             welcome_window,
             settings_modal,
             status: "Gotowy".into(),
+            side_nav_visible: true,
         }
     }
 }
@@ -136,6 +134,7 @@ impl<'a> eframe::App for App4Gen<'a> {
 
         let ribbon_total_width = ico::ICON_BUTTON_SIZE + (ico::ICON_PADDING_CROSS_AXIS * 2.0);
 
+        // PASEK STANU (DÓŁ)
         Panel::bottom("status_bar")
             .resizable(false)
             .show(ui, |ui| {
@@ -147,40 +146,41 @@ impl<'a> eframe::App for App4Gen<'a> {
                 });
             });
 
-        // LEWY PASEK
-        Panel::left("left_ribbon")
-            .frame(ribbon_frame)
-            .default_size(ribbon_total_width)
-            .resizable(false)
-            .show(ui, |ui| {
-                for id in self.left_bar.show(ui) {
-                    if let Some(title) = self.views.title(id) {
-                        self.active_view_id = id.to_string();
-                        self.status = format!("Widok: {}", title);
-                    }
-                }
-            });
-
-        // PRAWY PASEK
-        Panel::right("right_ribbon")
-            .frame(ribbon_frame)
-            .default_size(ribbon_total_width)
-            .resizable(false)
-            .show(ui, |ui| {
-                for id in self.right_bar.show(ui) {
-                    self.status = match id {
-                        "layers" => "Warstwy".into(),
-                        "properties" => "Właściwości".into(),
-                        "settings" => {
-                            self.settings_modal.open();
-                            "Ustawienia".into()
+        // LEWY I PRAWY PASEK (WARUNKOWANE WIDOCZNOŚCIĄ)
+        if self.side_nav_visible {
+            Panel::left("left_ribbon")
+                .frame(ribbon_frame)
+                .default_size(ribbon_total_width)
+                .resizable(false)
+                .show(ui, |ui| {
+                    for id in self.left_bar.show(ui) {
+                        if let Some(title) = self.views.title(id) {
+                            self.active_view_id = id.to_string();
+                            self.status = format!("Widok: {}", title);
                         }
-                        _ => self.status.clone(),
-                    };
-                }
-            });
+                    }
+                });
 
-        // OBSZAR CENTRALNY
+            Panel::right("right_ribbon")
+                .frame(ribbon_frame)
+                .default_size(ribbon_total_width)
+                .resizable(false)
+                .show(ui, |ui| {
+                    for id in self.right_bar.show(ui) {
+                        self.status = match id {
+                            "layers" => "Warstwy".into(),
+                            "properties" => "Właściwości".into(),
+                            "settings" => {
+                                self.settings_modal.open();
+                                "Ustawienia".into()
+                            }
+                            _ => self.status.clone(),
+                        };
+                    }
+                });
+        }
+
+        // OBSZAR CENTRALNY (Automatycznie wypełnia 100% szerokości, gdy listwy są ukryte)
         egui::CentralPanel::default()
             .frame(egui::Frame::default().fill(hue::APP_BG))
             .show(ui, |ui| {
@@ -212,5 +212,8 @@ impl<'a> eframe::App for App4Gen<'a> {
                     self.settings_modal.close();
                 }
             });
+
+        // PŁYWAJĄCY GUZIK WIDOCZNOŚCI (Zawsze na wierzchu)
+        show_floating_nav_toggle(ui.ctx(), &mut self.side_nav_visible);
     }
 }
