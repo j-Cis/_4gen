@@ -164,7 +164,7 @@ impl<'a> eframe::App for App4Gen<'a> {
                 ui.horizontal(|ui| {
                     ui.label(&self.status);
                     ui.with_layout(Layout::right_to_left(Align::Center), |ui| {
-                        ui.label("_4gen · wersja rozwojowa");
+                        ui.label("_4gen · wersja rozwojowa · v:2026-42 3::23:09:26:18:02");
                     });
                 });
             });

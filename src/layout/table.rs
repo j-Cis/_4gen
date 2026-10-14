@@ -28,7 +28,7 @@ pub mod tools {
 use eframe::egui;
 use crate::theme::tab::TableTheme;
 
-pub use types::{ColDef, PinPosition, SortDir, TableAction, TableConfig, TableState};
+pub use types::{ColDef, PinPosition, RowPinPosition, SortDir, TableAction, TableConfig, TableState};
 pub use config::render::TableConfigWindow;
 
 pub struct AdvancedTable<'a> {

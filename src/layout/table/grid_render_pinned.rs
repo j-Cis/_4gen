@@ -1,7 +1,7 @@
 // src/layout/table/grid_render_pinned.rs
 
-use eframe::egui::{self, Color32, Sense, UiBuilder, vec2};
-use crate::layout::table::types::{TableConfig, TableState};
+use eframe::egui::{self, Color32, Rect, Sense, UiBuilder, vec2};
+use crate::layout::table::types::{RowPinPosition, TableConfig, TableState};
 use crate::theme::tab::TableTheme;
 
 pub fn render_pinned_body<F>(
@@ -11,13 +11,16 @@ pub fn render_pinned_body<F>(
     config: &TableConfig,
     theme: &TableTheme,
     row_indices: &[usize],
+    shift_pressed: bool,
     ctrl_pressed: bool,
+    alt_pressed: bool,
     cell_renderer: &mut F,
 ) where
     F: FnMut(usize, &str, &mut egui::Ui),
 {
     for (display_idx, &true_idx) in row_indices.iter().enumerate() {
         let is_selected = state.selected_rows.contains(&true_idx);
+        let pin_pos = state.row_pin(true_idx);
         let row_bg = if is_selected {
             theme.row_selected_bg
         } else if display_idx % 2 == 0 {
@@ -28,18 +31,47 @@ pub fn render_pinned_body<F>(
 
         ui.horizontal(|ui| {
             ui.spacing_mut().item_spacing.x = 0.0;
-            for col_id in col_ids {
+            for (col_idx, col_id) in col_ids.iter().enumerate() {
                 let width_px = state.columns.get(col_id).map(|c| c.width_px).unwrap_or(100.0);
-                let (rect, response) = ui.allocate_exact_size(
+                let (rect, mut response) = ui.allocate_exact_size(
                     vec2(width_px, theme.row_height),
                     Sense::click(),
                 );
 
-                if response.hovered() && config.allow_selection {
+                if response.hovered() {
                     ui.ctx().set_cursor_icon(egui::CursorIcon::PointingHand);
+                    if shift_pressed {
+                        let msg = if pin_pos == RowPinPosition::Top {
+                            "Kliknij, aby odpiąć wiersz z góry"
+                        } else {
+                            "Kliknij, aby przypiąć wiersz u góry"
+                        };
+                        response = response.on_hover_text(msg);
+                    } else if alt_pressed {
+                        let msg = if pin_pos == RowPinPosition::Bottom {
+                            "Kliknij, aby odpiąć wiersz z dołu"
+                        } else {
+                            "Kliknij, aby przypiąć wiersz u dołu"
+                        };
+                        response = response.on_hover_text(msg);
+                    }
                 }
 
                 ui.painter().rect_filled(rect, 0.0, row_bg);
+
+                // Subtelny pasek akcentujący przypięcie na pierwszej kolumnie
+                if col_idx == 0 && pin_pos != RowPinPosition::None {
+                    let accent_color = match pin_pos {
+                        RowPinPosition::Top => Color32::from_rgb(0, 150, 255),
+                        RowPinPosition::Bottom => Color32::from_rgb(255, 170, 0),
+                        _ => Color32::TRANSPARENT,
+                    };
+                    ui.painter().rect_filled(
+                        Rect::from_min_size(rect.left_top(), vec2(3.0, theme.row_height)),
+                        0.0,
+                        accent_color,
+                    );
+                }
 
                 let mut cell_ui = ui.new_child(
                     UiBuilder::new()
@@ -50,7 +82,13 @@ pub fn render_pinned_body<F>(
                 cell_renderer(true_idx, col_id, &mut cell_ui);
 
                 if response.clicked() {
-                    state.toggle_selection(true_idx, config, ctrl_pressed);
+                    if shift_pressed {
+                        state.toggle_pin_row_top(true_idx);
+                    } else if alt_pressed {
+                        state.toggle_pin_row_bottom(true_idx);
+                    } else {
+                        state.toggle_selection(true_idx, config, ctrl_pressed);
+                    }
                 }
 
                 ui.painter().line_segment(

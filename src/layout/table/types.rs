@@ -25,6 +25,13 @@ pub enum PinPosition {
 	Right, // TODO: Tymczasowo wyłączone do czasu wdrożenia pełnego wsparcia
 }
 
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
+pub enum RowPinPosition {
+    None,
+    Top,
+    Bottom,
+}
+
 #[derive(Clone, PartialEq, Debug)]
 pub enum SortDir {
 	Asc,
@@ -64,6 +71,7 @@ pub struct TableState {
 	pub visible_columns: HashSet<String>,
 	pub sort_rules: Vec<(String, SortDir)>,
 	pub selected_rows: HashSet<usize>,
+	pub pinned_rows: HashMap<usize, RowPinPosition>,
 
 	// Wirtualne modyfikatory dotykowe
 	pub simulated_shift: bool,
@@ -89,6 +97,7 @@ impl TableState {
 			visible_columns,
 			sort_rules: Vec::new(),
 			selected_rows: HashSet::new(),
+			pinned_rows: HashMap::new(),
 			simulated_shift: false,
 			simulated_ctrl: false,
 			simulated_alt: false,
@@ -149,6 +158,40 @@ impl TableState {
                 col.pinned = PinPosition::Right;
             }
             // Jeśli jest Left - nic nie robimy (najpierw trzeba odpiąć)
+        }
+    }
+
+	pub fn row_pin(&self, row_idx: usize) -> RowPinPosition {
+        self.pinned_rows.get(&row_idx).copied().unwrap_or(RowPinPosition::None)
+    }
+
+    pub fn toggle_pin_row_top(&mut self, row_idx: usize) {
+        let current = self.row_pin(row_idx);
+        match current {
+            RowPinPosition::Top => {
+                self.pinned_rows.remove(&row_idx);
+            }
+            RowPinPosition::None => {
+                self.pinned_rows.insert(row_idx, RowPinPosition::Top);
+            }
+            RowPinPosition::Bottom => {
+                // Zablokowane: aby przypiąć u góry, wiersz musi najpierw zostać odpięty z dołu
+            }
+        }
+    }
+
+    pub fn toggle_pin_row_bottom(&mut self, row_idx: usize) {
+        let current = self.row_pin(row_idx);
+        match current {
+            RowPinPosition::Bottom => {
+                self.pinned_rows.remove(&row_idx);
+            }
+            RowPinPosition::None => {
+                self.pinned_rows.insert(row_idx, RowPinPosition::Bottom);
+            }
+            RowPinPosition::Top => {
+                // Zablokowane: aby przypiąć u dołu, wiersz musi najpierw zostać odpięty z góry
+            }
         }
     }
 
