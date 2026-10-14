@@ -18,6 +18,9 @@ impl TableGridEngine {
 	) where
 		F: FnMut(usize, &str, &mut egui::Ui),
 	{
+		// Wyłączenie zaznaczania tekstu w całej tabeli
+		ui.style_mut().interaction.selectable_labels = false;
+		
 		let active_order = state.get_computed_columns_order();
 
 		let mut left_cols = Vec::new();

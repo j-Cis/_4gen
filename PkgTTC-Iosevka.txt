@@ -1,0 +1,1816 @@
+PkgTTC-Iosevka-34.9.0.zip
+sha256:31013220cfa0cc275a986a514d89785ef698f1a9f410465d5699d2d8eac70d7a
+136 MB
+3 weeks ago
+PkgTTC-IosevkaAile-34.9.0.zip
+sha256:aa4a7231d3656ea9bd6ff872d0317a7b0701753bbb8934aa6b8b385964c8cbf6
+64.2 MB
+3 weeks ago
+PkgTTC-IosevkaCurly-34.9.0.zip
+sha256:a2d38c2bad07289461dcd56cfcceb844cd421af2895df8c404a7c543261d39c2
+137 MB
+3 weeks ago
+PkgTTC-IosevkaCurlySlab-34.9.0.zip
+sha256:3765ccbeef08b1bd2036e48a4b9c6f6e8bfbd9b0812a0626c3174a9fa3fb7f5f
+139 MB
+3 weeks ago
+PkgTTC-IosevkaEtoile-34.9.0.zip
+sha256:da78150adc17bd0bdc7f486f912a59f112a035d899619c32122237dfc6aba5c7
+69.6 MB
+3 weeks ago
+PkgTTC-IosevkaSlab-34.9.0.zip
+sha256:f27bc22172b734883dd59a56206abc705b23556acdd6f11ab46fb0255e7a1b5f
+139 MB
+3 weeks ago
+PkgTTC-IosevkaSS01-34.9.0.zip
+sha256:966b2422209ad92cc6ec91fc6b3895d8c150d60f6a75a48e6885ff39e3605a39
+30.8 MB
+3 weeks ago
+PkgTTC-IosevkaSS02-34.9.0.zip
+sha256:6d872e084073b26ec3c726e902b1b1d727ee17e6b3f143dd034e565957abe293
+30.9 MB
+3 weeks ago
+PkgTTC-IosevkaSS03-34.9.0.zip
+sha256:2255e875ad585d0c3415c5e4c350c90f3f47044c091c57c049b4dc2415d0795e
+31.4 MB
+3 weeks ago
+PkgTTC-IosevkaSS04-34.9.0.zip
+sha256:137ef36ad7f342311169cb5ec3c4ad3f08c1a9481167033a87b8483c107dc3ea
+30 MB
+3 weeks ago
+PkgTTC-IosevkaSS05-34.9.0.zip
+sha256:614d03efefb2565ca466bdb6937646d994d58edf7115f421ba2ed785b01aa7ec
+31.1 MB
+3 weeks ago
+PkgTTC-IosevkaSS06-34.9.0.zip
+sha256:5296e5fc3738219148455d5e679baf3f856f9586facacac4941132da870d1718
+30.8 MB
+3 weeks ago
+PkgTTC-IosevkaSS07-34.9.0.zip
+sha256:a6f138e97d8b248305113aeb285e3e8fba8aa20562fde8f5f96662435e70d0f4
+30.2 MB
+3 weeks ago
+PkgTTC-IosevkaSS08-34.9.0.zip
+sha256:ca3cdf3113aae6c3ca0eb6499ca8460bcaac969711669600fc38fb4d2e7181ed
+31.9 MB
+3 weeks ago
+PkgTTC-IosevkaSS09-34.9.0.zip
+sha256:593a359a5d71581564e3aa542d81edc088d5ca7d1b30269ad410c56e5bf0d3ea
+31.5 MB
+3 weeks ago
+PkgTTC-IosevkaSS10-34.9.0.zip
+sha256:9ab002630900a02ab650f526b379263f2b2a5a0667a5c752a2b63aa3f7a81442
+31.8 MB
+3 weeks ago
+PkgTTC-IosevkaSS11-34.9.0.zip
+sha256:2218697a8d638d8b89bd76cb70e0bac0b5c7b94e3116d8ae2e3aa7c6a4006294
+32.9 MB
+3 weeks ago
+PkgTTC-IosevkaSS12-34.9.0.zip
+sha256:3784e7c211558de839944d3ff22cc3efb735364421983da661a46e4c0c2fb38f
+31.8 MB
+3 weeks ago
+PkgTTC-IosevkaSS13-34.9.0.zip
+sha256:c04e6e1d6976a2bc527fbbe9c1db50a907a794582dcc2a0da820a0c3d2b72e80
+30.7 MB
+3 weeks ago
+PkgTTC-IosevkaSS14-34.9.0.zip
+sha256:7e1afbeb6830c160cd5e270544e6b1d66b0cc339cfa920db8815e3acc0160d04
+30.7 MB
+3 weeks ago
+PkgTTC-IosevkaSS15-34.9.0.zip
+sha256:5ee4a8e8019fcced32caffd452ae69821624f55579a408d3b12fea7941b94e97
+35.2 MB
+3 weeks ago
+PkgTTC-IosevkaSS16-34.9.0.zip
+sha256:5e043751aa038726233af94e1a08f53ed72e96d4e8af685cd22ffcc7a2cf8acf
+30.5 MB
+3 weeks ago
+PkgTTC-IosevkaSS17-34.9.0.zip
+sha256:970de02cf14f19cf0721864446bf16642d3f1e7357fe6d8a8a73bf5df539c2c9
+36.8 MB
+3 weeks ago
+PkgTTC-IosevkaSS18-34.9.0.zip
+sha256:0d83fd26c6d4e7d9fc6c97255d1b1ff81f570551e8e0a84282fc902411c624e5
+30.9 MB
+3 weeks ago
+PkgTTC-SGr-Iosevka-34.9.0.zip
+sha256:f179bf93214f81120d4d148227cdc05656280efc76f653a66ba65faf0435a123
+127 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaCurly-34.9.0.zip
+sha256:dad810628513b4ac931c5594713b9a3ec86c48da8b8021c10facf6a73f2bd09b
+128 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaCurlySlab-34.9.0.zip
+sha256:6429fa6750c009e7bfd5b233b720c5999a866123c58deec682eca36c2ef0f100
+131 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaFixed-34.9.0.zip
+sha256:d837960b93104d28cffbd18d016ff4130dcebf9ff359d5ffe50351fbb2d4938a
+127 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaFixedCurly-34.9.0.zip
+sha256:a11fde8a644ffe3230ab6cb3affd6b4d61fc1a0dce29c424d9c30d397b3e8186
+127 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaFixedCurlySlab-34.9.0.zip
+sha256:85ff719c11c5437785fa8db149ec86b0ebd4beaeb0fd096edc176519e15cd630
+131 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaFixedSlab-34.9.0.zip
+sha256:4b4b9f1a2db9499d42f7da92f20b78923fe943ed611cfc4b058c8be08770b101
+131 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaFixedSS01-34.9.0.zip
+sha256:98e72569aaae63fe32eac741a232a004a0a2cced2d7d50fa6bd60f5473b3bada
+30.2 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaFixedSS02-34.9.0.zip
+sha256:b07a10aefac4d300ed1bc6bdb294f57392d7bb27d3f91c30e3f3b8e6de7f2609
+30.3 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaFixedSS03-34.9.0.zip
+sha256:3a93d0161d1df609d71b964ef1443f2af9951cb83d36c368faeac11ddc341d9c
+30.8 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaFixedSS04-34.9.0.zip
+sha256:6317f715e11a74fc9b580c13c8968cccf3b0776616ba1e667195712b33de2d14
+29.4 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaFixedSS05-34.9.0.zip
+sha256:5648dbb48c22e05922c324048e3c88331f8fe7d6ed6eedb1f9ab273d3cd4d0d5
+30.4 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaFixedSS06-34.9.0.zip
+sha256:c9e9341cb534a57753f55459d0d2319abcf7dff2fe708d1079a898447f86014c
+30.1 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaFixedSS07-34.9.0.zip
+sha256:1212b8a0fe749e867998f2e462f15042ea6a080e9b514ea228e876f050b83c58
+29.6 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaFixedSS08-34.9.0.zip
+sha256:4af8f1dc92e512df9e5dc839f25cdb16392c00a23d9c4d8dca722026c9434f13
+31.2 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaFixedSS09-34.9.0.zip
+sha256:3b367afa0f4d0b1674eff4f98ffbbcdfefb29b9896e95ab1a962a47d02a14139
+30.9 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaFixedSS10-34.9.0.zip
+sha256:13cd1c7a614d3bf5d9abf82b57fcd47b30fb5a052c31325eb665ee8c81be33d3
+31 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaFixedSS11-34.9.0.zip
+sha256:7be2acb9d7cf3ccb02c39572e6f184627836b2ec06f21480ef9d4c16c4428e7d
+31.9 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaFixedSS12-34.9.0.zip
+sha256:fe6e41c5927b2a319d06cf8b335890c3be6f554e4ae76ff60a2851718c965281
+31.1 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaFixedSS13-34.9.0.zip
+sha256:216114b0d4f18a6cee44ad0c9072b539e2a08bc1795fcf895ca0c72e7bf97019
+30.1 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaFixedSS14-34.9.0.zip
+sha256:6e69beaa0d3ebf8c31605a894617dbea60977cb382bcd898e2baa5db933b5b91
+30.1 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaFixedSS15-34.9.0.zip
+sha256:da13cce1328272f00a50bc65e8e523811c6b7fe373424d5570768d2a3d49e82d
+34 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaFixedSS16-34.9.0.zip
+sha256:c155e5e9525edeee50bdefcea39dff19ca97ae43d91554c955da7cbbba825b1c
+29.9 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaFixedSS17-34.9.0.zip
+sha256:fb5f22b92fc156bf98ac1de6fd7a4fa29e9312ec62b1bed85bb64342236612d1
+35.6 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaFixedSS18-34.9.0.zip
+sha256:f03b807b87a836ff1fc451fba2d617610c9d90803cfd104e413162d17165a022
+30.3 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaSlab-34.9.0.zip
+sha256:e24443686bfb83ccba951fe9e1377c5553b1da66cf1decd64da69f40887302f7
+131 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaSS01-34.9.0.zip
+sha256:31b2c030f5e21bb189d01c1a4746336639562c347ba4e235dec43e313c354375
+30.2 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaSS02-34.9.0.zip
+sha256:0e33b2961dd15855f11b3327c0bc0e833256b0dbf90dbe672dafad4dc53984eb
+30.3 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaSS03-34.9.0.zip
+sha256:b9c22e0f38d593ca8831da4c2c8bef3378a378461a17f148d63c1f06c8c21dff
+30.8 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaSS04-34.9.0.zip
+sha256:c64a27e6313f9c4df89a4d33feedc78aec8a8d83fd7971afc28e3704a8d7a7ed
+29.4 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaSS05-34.9.0.zip
+sha256:58409669065996816f9d3c01c27951d0582d543e931a481ba6c9102813ed0253
+30.5 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaSS06-34.9.0.zip
+sha256:9b5f389649d07b9e5ed21b28f78780318923487bfc9a55b3cb74da623e6f92df
+30.2 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaSS07-34.9.0.zip
+sha256:d092550215ab017c031d0f6a6205dcc13603fe49707e65a4de22847a73abbf18
+29.6 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaSS08-34.9.0.zip
+sha256:4bf36ca1e7cee0148af4ec63663687198479b94b57d4050ababc12ab9f7e986c
+31.3 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaSS09-34.9.0.zip
+sha256:6f82a35f538278eda6039a3559720a091c5e2e9a8a8d71f29cefd7622e76cb01
+30.9 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaSS10-34.9.0.zip
+sha256:6a96e1bb71a7c583a7b4f44aa11342a85056d78c6f2c5c0ee889fcd6c5af100d
+31 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaSS11-34.9.0.zip
+sha256:03c184267a4396de5eee3767a7d34456f215cbf398bdc1ba03e138dc92ea6820
+31.9 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaSS12-34.9.0.zip
+sha256:4723905a5bc12bc568802ab2f071e470bc071be977d62d1daf8b19f648f64656
+31.2 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaSS13-34.9.0.zip
+sha256:12f5d707a1b7c5d64d9bce0f63f3fed542ead31e8e878611667c8e3211ace884
+30.1 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaSS14-34.9.0.zip
+sha256:52300f40bf12e4f32064bcff10b970d153c75bf3ef45ba4d50d1014f9d6bde1f
+30.1 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaSS15-34.9.0.zip
+sha256:b4ca3f2a4bd757f6e553c7b916414d41753f0be0cecc44f7ba4362d05eabb85f
+34.1 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaSS16-34.9.0.zip
+sha256:8d0c1f978881d472c6e33807f3d38101d362236ae870aa85dfca1a528bd5c9f8
+29.9 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaSS17-34.9.0.zip
+sha256:57c363f04430fea537596dd32ee24e7b3f5b78c6b8d3320ad17f0fa13f5255c7
+35.6 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaSS18-34.9.0.zip
+sha256:fa448c982adcc0f9ff38e3d7bbbc112691505998d4527c87efe7eeea175550d7
+30.3 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaTerm-34.9.0.zip
+sha256:5f9cbd4f0e35f3961f9f3a7a0b6adab90c5b2e2f558513d87b980c8d302c7c6e
+127 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaTermCurly-34.9.0.zip
+sha256:58082991651cd5d96bf5d1cfbe893360f7ba5700efde563af79240a62aa7b54b
+127 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaTermCurlySlab-34.9.0.zip
+sha256:cc15b615f25ff8805b7a39c0a6e9c2d17c47eae939e8b6611356c99bd15f3777
+131 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaTermSlab-34.9.0.zip
+sha256:724db688b7ecbf7f690f22abe1aed339a21188e8e9e5450dcfcc33f9fcc11474
+131 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaTermSS01-34.9.0.zip
+sha256:1e26b1ac28495e8c476f366c93e77860be913d1e779b64a6be66353f40e56766
+30.2 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaTermSS02-34.9.0.zip
+sha256:b1d52d2b0dde72eab0b88dcc83d9cd82185755dcd8f23c506e2c793a04960972
+30.3 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaTermSS03-34.9.0.zip
+sha256:b50fe6340cdbf9200faa60affe60a97aa5b3e48097ceedaebd607a8176ccf42a
+30.8 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaTermSS04-34.9.0.zip
+sha256:fa60d9046fe5a416a2cdb62d9744a4ef52facd6da99f3652bef79221102d5c35
+29.4 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaTermSS05-34.9.0.zip
+sha256:b8138fbf768785715104d244c589c984905cea4e44bf1ccb914c80e006dc1901
+30.5 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaTermSS06-34.9.0.zip
+sha256:424bee68e76ff169d96c6b4ead5a287bc8b6dcb1b037bd2c709276796dc7f6b7
+30.2 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaTermSS07-34.9.0.zip
+sha256:0bc4398b5c0b017d609376d6424e8d1dc68d29f6784787567587c9bb5cbe9130
+29.6 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaTermSS08-34.9.0.zip
+sha256:b73a0c6a2ca7f0c5be851bcfdd0a10787e4e8edb8e0f9258f3204cfb6b98b481
+31.3 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaTermSS09-34.9.0.zip
+sha256:38121ba2a6dcca5729d411313b057911ef37663c74f2e13ea0d7bf3e17e8d485
+30.9 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaTermSS10-34.9.0.zip
+sha256:af8742dd6cf9bde5036033a24050c1bbfda61bd0ccca7755517a431d8477db9c
+31 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaTermSS11-34.9.0.zip
+sha256:2129ea4209725a567295d401555ca61ed70e0ec7dd0806a0200865bb5e904a56
+31.9 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaTermSS12-34.9.0.zip
+sha256:1a00ac7a0a141c72264159246e36b1065d10c53b65879f2e1c95374639327386
+31.2 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaTermSS13-34.9.0.zip
+sha256:889bda345f11fa3e7fcb6fd2b7d971fd5a4c575688b482cb46b273ec8c43d9f8
+30.1 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaTermSS14-34.9.0.zip
+sha256:7580f36d5efd744d22413bd36dd91df118986b5a40727d65bde41d6d6641fe7d
+30.1 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaTermSS15-34.9.0.zip
+sha256:ee86deb981142993eb97a3a3efb8b16c003120d0255600b260c6a9b285af0f15
+34 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaTermSS16-34.9.0.zip
+sha256:5125e54509411de173ad14415fe2b35a09a3afcf1675d202d2d5aa5886468f3b
+29.9 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaTermSS17-34.9.0.zip
+sha256:098ab130bba86a27629625973ccba221fca2ea19b55c5a7f5bd15787b80ca432
+35.6 MB
+3 weeks ago
+PkgTTC-SGr-IosevkaTermSS18-34.9.0.zip
+sha256:a23aef07d3d1093e73f26d2ea45057807fb7e634c51dc335cb4e8a84249d2baf
+30.3 MB
+3 weeks ago
+PkgTTF-Iosevka-34.9.0.zip
+sha256:c61a10b880bf3087f982217423fa2876a93803bd2a1901fbc52ab80c7329f716
+169 MB
+3 weeks ago
+PkgTTF-IosevkaAile-34.9.0.zip
+sha256:88ce8445d6a05899c897596e329621b422154f4baef98bd50e3afbe4c90dcff4
+85.3 MB
+3 weeks ago
+PkgTTF-IosevkaCurly-34.9.0.zip
+sha256:123aa08bf337f51491c977d30c01a8e9c5a13c5cc20d2d4c5d98eb0a5c9795f8
+169 MB
+3 weeks ago
+PkgTTF-IosevkaCurlySlab-34.9.0.zip
+sha256:beed8b476f00a7dac3c5ee53120f58106ed16678d512c8dec67ad9700c02d335
+171 MB
+3 weeks ago
+PkgTTF-IosevkaEtoile-34.9.0.zip
+sha256:f25b34ffea64e2ecea90df13c075f11defd85708106128235837dfa039f446bb
+86.8 MB
+3 weeks ago
+PkgTTF-IosevkaFixed-34.9.0.zip
+sha256:c3204f46863af9e7f0ae06f0bd0b3414697c424dba8573daf37c3053a76213b7
+141 MB
+3 weeks ago
+PkgTTF-IosevkaFixedCurly-34.9.0.zip
+sha256:4c0c24174de7af4742405408f5c7abf989e54c77089e7be804314c75b6e6405a
+142 MB
+3 weeks ago
+PkgTTF-IosevkaFixedCurlySlab-34.9.0.zip
+sha256:cb362f240364a98ee3dc57589c3d7ca87d6c0c92ea072cdb1947fb47a5d1c915
+144 MB
+3 weeks ago
+PkgTTF-IosevkaFixedSlab-34.9.0.zip
+sha256:0dfe9139efbad5df302c1c2be9b9493a690db39d692211218385a821bdbd0cf0
+144 MB
+3 weeks ago
+PkgTTF-IosevkaFixedSS01-34.9.0.zip
+sha256:684438e0cd9640eae065b52c8468ab14ae0f6ea96ed4ffc5920aca3732d8eead
+33.5 MB
+3 weeks ago
+PkgTTF-IosevkaFixedSS02-34.9.0.zip
+sha256:b044331a6f0d94e1c73e27af55d18110c99843808f41b831b66e8c8414060057
+33.7 MB
+3 weeks ago
+PkgTTF-IosevkaFixedSS03-34.9.0.zip
+sha256:7df8eea839f54dc1c2b5c405af767c14f993337b4c2766c1d26bc285bb066764
+33.4 MB
+3 weeks ago
+PkgTTF-IosevkaFixedSS04-34.9.0.zip
+sha256:a1e584534cbcc44db17a8ec8b2bfbb0b0c4782b405a4c9b44b64c640d3c0c883
+32.9 MB
+3 weeks ago
+PkgTTF-IosevkaFixedSS05-34.9.0.zip
+sha256:8d031c806cc7badad70dc473c939dc9c30eb877fd00c91b6aa2d5597bf366eab
+33.9 MB
+3 weeks ago
+PkgTTF-IosevkaFixedSS06-34.9.0.zip
+sha256:0ce9c6fe73285c23bbe48fd1e17f0311849703c9b827471aa2a4bc09fa023c74
+33.5 MB
+3 weeks ago
+PkgTTF-IosevkaFixedSS07-34.9.0.zip
+sha256:9be5cfce2340ea76ec72845286b9cf205ae33f9b3538cb39302cf4f5dc4e60e6
+33 MB
+3 weeks ago
+PkgTTF-IosevkaFixedSS08-34.9.0.zip
+sha256:9d0b8369306456bb3863fa99e1a6d815c6c033bcc5525b5200016f5e77ffaeff
+34.7 MB
+3 weeks ago
+PkgTTF-IosevkaFixedSS09-34.9.0.zip
+sha256:ebf9c13d2cf329fd099e7049f1744f5a58240a3ed970b02220f0efc8fec0479c
+33.8 MB
+3 weeks ago
+PkgTTF-IosevkaFixedSS10-34.9.0.zip
+sha256:e21be91a886531984d2577a07ff8e766e10abb849dc1df197ab11fc5de2b4241
+33.1 MB
+3 weeks ago
+PkgTTF-IosevkaFixedSS11-34.9.0.zip
+sha256:c9afbde2d005308ef1b3b1263642e663aba6e3e7e9e7d607f14145dfecf83029
+33.7 MB
+3 weeks ago
+PkgTTF-IosevkaFixedSS12-34.9.0.zip
+sha256:02fa57816200cd0e255b70cff4f963fcf480721767a725e4cb9cccaf41129f55
+33.8 MB
+3 weeks ago
+PkgTTF-IosevkaFixedSS13-34.9.0.zip
+sha256:0acea7fd27ed5a07557c1955927e1ddb07ed52f953cf8503f5dbd8c5517d4ae1
+33.4 MB
+3 weeks ago
+PkgTTF-IosevkaFixedSS14-34.9.0.zip
+sha256:f540889c20a89ea829ae419af49c0e5ce63fbc02238c0fe8c38a0bedbdf2f0c5
+33.2 MB
+3 weeks ago
+PkgTTF-IosevkaFixedSS15-34.9.0.zip
+sha256:f785521e95137249f944a947eb12668025d7f9aa0107307f94c9971b818df5c0
+34.3 MB
+3 weeks ago
+PkgTTF-IosevkaFixedSS16-34.9.0.zip
+sha256:23db4360561fcdf261b163f41966e1a25c63e69501e43a573a519057efe113d2
+33.7 MB
+3 weeks ago
+PkgTTF-IosevkaFixedSS17-34.9.0.zip
+sha256:fa3a62c17bc52786b964557c864d02b671f269a79c0ab98193a28864247e6005
+33.8 MB
+3 weeks ago
+PkgTTF-IosevkaFixedSS18-34.9.0.zip
+sha256:d0e23230fff9f8d94f7831780b763c532219e024e6a61a3ce4414ec5951b83bb
+33.6 MB
+3 weeks ago
+PkgTTF-IosevkaSlab-34.9.0.zip
+sha256:0d6bcb9cf59c2c9649a2cee2fa583e78392cad5719efac642308d3d289b17b46
+171 MB
+3 weeks ago
+PkgTTF-IosevkaSS01-34.9.0.zip
+sha256:729224414f5dd5b73c3a0092e9f86b404012c2f94a19dad2e35e31c9d620ba3d
+44.5 MB
+3 weeks ago
+PkgTTF-IosevkaSS02-34.9.0.zip
+sha256:9392474d63820f7de2fad2b97b7ab1b62d89f5ebd6d171a12438e2a7509b2fa0
+44.6 MB
+3 weeks ago
+PkgTTF-IosevkaSS03-34.9.0.zip
+sha256:0c31bee16418c29cb3f13a251f9a8a628f6ecfd1cd567080402d181ade2eb94b
+44 MB
+3 weeks ago
+PkgTTF-IosevkaSS04-34.9.0.zip
+sha256:2a2168e5c67142ce6ae2c92a6cfab10aa38d71ad4af515b4ae6c5f4eea559bd1
+43.5 MB
+3 weeks ago
+PkgTTF-IosevkaSS05-34.9.0.zip
+sha256:3ad86201aa3b369a4ea5639d3f53a8089d5a45c1aea4f27275315351a7914c87
+44.9 MB
+3 weeks ago
+PkgTTF-IosevkaSS06-34.9.0.zip
+sha256:f9514be7931179ad36314eb6513876df2c7f3fb0e8f9b8ad92f3cfb6a3da7188
+44.5 MB
+3 weeks ago
+PkgTTF-IosevkaSS07-34.9.0.zip
+sha256:221aa7fc13f74f503938bbd1d53c420d9f50a6c788ca37515a1234210092e10a
+43.7 MB
+3 weeks ago
+PkgTTF-IosevkaSS08-34.9.0.zip
+sha256:521de0d2ec1aeb4af997686e51d52662df96f13dd8a31dddebf5ba5dbd2e77c0
+45.9 MB
+3 weeks ago
+PkgTTF-IosevkaSS09-34.9.0.zip
+sha256:0cdd0abf13d2ffd18aeefa334a0b41a2b1933689d562b37b7dc1b90b822a7e4f
+44.9 MB
+3 weeks ago
+PkgTTF-IosevkaSS10-34.9.0.zip
+sha256:baa2d7fa9a88ff50acce1cb9d27f7e4d18e8591d276d653b6485ad258b42c848
+43.7 MB
+3 weeks ago
+PkgTTF-IosevkaSS11-34.9.0.zip
+sha256:dcd6841d023e31106b6acdd8f932c049b83cc67634517c8aae97ae249784c9a9
+44.7 MB
+3 weeks ago
+PkgTTF-IosevkaSS12-34.9.0.zip
+sha256:da55c4b910861af18cd646744f5e74920300b0d7c8b55101bcde81d4b8429712
+44.8 MB
+3 weeks ago
+PkgTTF-IosevkaSS13-34.9.0.zip
+sha256:c27b9251d4aa94a87d30ff607321221567be084f446964a89677c95b45ec1278
+44.3 MB
+3 weeks ago
+PkgTTF-IosevkaSS14-34.9.0.zip
+sha256:8da2bcdda76b8a9912e5f403b96a40b45f09ef0878f20d4f5a2a7d5dfea0b50c
+44 MB
+3 weeks ago
+PkgTTF-IosevkaSS15-34.9.0.zip
+sha256:4eb208b652f5613b9f4aecfe6c73bd52b331e77e72483af5247e6734e4519e94
+45.3 MB
+3 weeks ago
+PkgTTF-IosevkaSS16-34.9.0.zip
+sha256:582f6b0380ad48edc5986f359176c1a55cd26dda21e116ed4ec4647ea62e22f9
+44.4 MB
+3 weeks ago
+PkgTTF-IosevkaSS17-34.9.0.zip
+sha256:87e0aa612b025bad0ae2a93d3a72e828729621b7475b3d44298d9eb32a672897
+44.6 MB
+3 weeks ago
+PkgTTF-IosevkaSS18-34.9.0.zip
+sha256:34fda51d02737b043e380ffc3a3e2bcadb13adfb03ad1ebeff11ac9befb70651
+44.6 MB
+3 weeks ago
+PkgTTF-IosevkaTerm-34.9.0.zip
+sha256:1c0b8ac68ca210cc253c1833619d37ed2227d96fbdda0a36231375828b7bd6fb
+169 MB
+3 weeks ago
+PkgTTF-IosevkaTermCurly-34.9.0.zip
+sha256:322a0b2e0f2d412dce8eaf2d4a80a728025c46f6111e447e211e83747dd05aca
+169 MB
+3 weeks ago
+PkgTTF-IosevkaTermCurlySlab-34.9.0.zip
+sha256:689c72e664853e211e3fe68a1cd8fc0d4c4c91ab046dbdd75f07fb27284a91f5
+171 MB
+3 weeks ago
+PkgTTF-IosevkaTermSlab-34.9.0.zip
+sha256:6c743634c7f5d0cde41755fc2621f14b6cfe1aae316bdc6b30a06fbbd9dbe80d
+171 MB
+3 weeks ago
+PkgTTF-IosevkaTermSS01-34.9.0.zip
+sha256:dac7f4af5d8a96a111d33283a5c6dcdf1a3cfe4a267da038562138a13094b5e8
+44.4 MB
+3 weeks ago
+PkgTTF-IosevkaTermSS02-34.9.0.zip
+sha256:01a531155c0005369f0f2bceb5964fb816537c5ff47b5eba6244ed9d6338ac6a
+44.5 MB
+3 weeks ago
+PkgTTF-IosevkaTermSS03-34.9.0.zip
+sha256:e492ebdadb81cc7b500f8ee9e57c9f8c7711a110d18355ceaf0c754415fdf1c9
+43.9 MB
+3 weeks ago
+PkgTTF-IosevkaTermSS04-34.9.0.zip
+sha256:6d166cffc9bd9c7f5c59b9bc0157f31a83c6b7191191a93b7b0af2dd7619f7df
+43.4 MB
+3 weeks ago
+PkgTTF-IosevkaTermSS05-34.9.0.zip
+sha256:f1cf472e2552477b71cb397a770e41ae78035e24bca4c7235c4324137b314835
+44.9 MB
+3 weeks ago
+PkgTTF-IosevkaTermSS06-34.9.0.zip
+sha256:647675b8b9f31148012501b79e8c932486fb74861cfadfc4a3a6b6f48ff0439a
+44.4 MB
+3 weeks ago
+PkgTTF-IosevkaTermSS07-34.9.0.zip
+sha256:6e33b21444dcb5eb2a057f16f2b1dd79b50bde34ea225aae2b28701296239431
+43.6 MB
+3 weeks ago
+PkgTTF-IosevkaTermSS08-34.9.0.zip
+sha256:a3080b45b4482975e8e22cdd34d28147e3e20c49e3da72e120e8050d30c335f7
+45.8 MB
+3 weeks ago
+PkgTTF-IosevkaTermSS09-34.9.0.zip
+sha256:044de776025f567f0f1074ce8818c23e1fce9a67820e98bf1e8be1c437a2cb20
+44.9 MB
+3 weeks ago
+PkgTTF-IosevkaTermSS10-34.9.0.zip
+sha256:ffe397625086ca56d90b47b833412969cca0e98b6f0f7249e7b8d697fe1d79d6
+43.6 MB
+3 weeks ago
+PkgTTF-IosevkaTermSS11-34.9.0.zip
+sha256:94d4ac9a8618d211deec4e2f0fe0cc209f795bd143bea434267e08069036f6f5
+44.6 MB
+3 weeks ago
+PkgTTF-IosevkaTermSS12-34.9.0.zip
+sha256:133cafc093657615d84b4d4128e558b59f22274202b5b96ed869c98e04a00ebf
+44.8 MB
+3 weeks ago
+PkgTTF-IosevkaTermSS13-34.9.0.zip
+sha256:c3ae2e113c4983d0f26da962c816043a08f880a4e67f5d5a365a275f79776188
+44.3 MB
+3 weeks ago
+PkgTTF-IosevkaTermSS14-34.9.0.zip
+sha256:c91ebc52839735e2f4f611f36a55bcc701e4ee4dc6a76fb4a0f8e27b4c98c36c
+44 MB
+3 weeks ago
+PkgTTF-IosevkaTermSS15-34.9.0.zip
+sha256:e071579fe9dcac619d55e9854e8f59442e2501a0f008bf44ae864b772336051c
+45.3 MB
+3 weeks ago
+PkgTTF-IosevkaTermSS16-34.9.0.zip
+sha256:6eb962ef8d0dbfb2e344cd6a3dbfb3d7f2106678216826ef8b615685d9b78c25
+44.3 MB
+3 weeks ago
+PkgTTF-IosevkaTermSS17-34.9.0.zip
+sha256:997438a4d10eb915a2b01c466a8247bc1e16af24dddf38d52bce9624df0a2690
+44.5 MB
+3 weeks ago
+PkgTTF-IosevkaTermSS18-34.9.0.zip
+sha256:ddc7b8ac9f87b35fc7c720deb85115b91d0d565e8b3dd355277a2f53aaf88d04
+44.5 MB
+3 weeks ago
+PkgTTF-Unhinted-Iosevka-34.9.0.zip
+sha256:cd28a627773e4b5fc7a3ca07e388ed046af8ee9b05f0fa1dc2a2fa52bae5a66e
+117 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaAile-34.9.0.zip
+sha256:f10a2b94f93b3c120ba07e462088275dd34a563454f0fb492778eaba7784ca45
+59 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaCurly-34.9.0.zip
+sha256:a0ccc05d0e5823cd61a616080e6a9959cb367fe7b7a420d6990cae313764ed00
+117 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaCurlySlab-34.9.0.zip
+sha256:fb33ea6d42376d8014cca985b3d9fb74c0f14bb61e5f71d0cebbf2017b598f3f
+118 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaEtoile-34.9.0.zip
+sha256:83b0e262eecbf4bc3016ba659fcba57d130c62efa8261a48d6b6806adcde008f
+59.9 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaFixed-34.9.0.zip
+sha256:d89f5705b5be44572b83e3f482ac9575383effedd605e838f919ce91f031f56a
+99 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaFixedCurly-34.9.0.zip
+sha256:0b8ff42aa9b95aef11141f1333bb547f322256b2009340dc93fbb50d2f3ddfd0
+99.4 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaFixedCurlySlab-34.9.0.zip
+sha256:b3bb940bd719e5716a9a599505dab408ab78d779e3c53c4728c24abb7b1fd91f
+100 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaFixedSlab-34.9.0.zip
+sha256:22ac90a69dac0b07185b824b6c0c06247b92aca6d1ccde11f288a9f6ed8a83de
+100 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaFixedSS01-34.9.0.zip
+sha256:0e4b5fb8b5346272b9751340dae8ca61eddf9f1b390d6d429834987f552871e1
+23.4 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaFixedSS02-34.9.0.zip
+sha256:ffcc01726b44bdf7da1d4eeeda19ece605d948bd3a29e99c89b1432b9cd57bb4
+23.3 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaFixedSS03-34.9.0.zip
+sha256:1be88bbcdc5a075031998ab69e29ae7cfb27c42c0eeb9d90d13c25d688a2f54f
+23.4 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaFixedSS04-34.9.0.zip
+sha256:373b14f42cde5634b9e586995b15074b362565d9818aa1924833c62d89d80bf7
+23 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaFixedSS05-34.9.0.zip
+sha256:59dcd7707e9abbc6155ecf256dddbdbf6545cb4b582587faec389e41a8c98dc0
+23.7 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaFixedSS06-34.9.0.zip
+sha256:4ab6a683608f3df7d4b2a11a82e8258d5a8a2b7b55a899c645741ff10e0a7e75
+23.4 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaFixedSS07-34.9.0.zip
+sha256:7b822a7f3617cd6a284894ab0d442fcaa9b35c349a55c3314622c397de6fd3f8
+23.2 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaFixedSS08-34.9.0.zip
+sha256:245ec4aa1400255d63cdbe767300164fd96e6226fc05ad3a65af800718118c71
+24.3 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaFixedSS09-34.9.0.zip
+sha256:f8375a20c6fafa5554b662b6ffd4f9b0fff592b58c1009e83d989a5867e4e809
+23.6 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaFixedSS10-34.9.0.zip
+sha256:2807210b849e28d3d581447304f5d1afcda9770de4c2bcb9b9678f8c620c2f9e
+23.2 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaFixedSS11-34.9.0.zip
+sha256:a4311c7faa2c2081e7a331dc3d95929cd16514a093b7fe93be371bc54e6fe6c1
+23.5 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaFixedSS12-34.9.0.zip
+sha256:a705558626677c19f3a4094b03ff536604f826637192c72ef282caab9cfe04df
+23.8 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaFixedSS13-34.9.0.zip
+sha256:6e251b4ee4a923882e4a96634a8e2d7c65bd2d8c8d570cad20672c35b07ed27b
+23.4 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaFixedSS14-34.9.0.zip
+sha256:ec7dbdd60b5d52d8a624b76fdc473415b50a26d163bf0ed65952435bb3f1e8fa
+23.2 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaFixedSS15-34.9.0.zip
+sha256:05fc71310a6f47d6559b20dd5ea4922d15d35c7db637e97b67de7714a3166454
+23.9 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaFixedSS16-34.9.0.zip
+sha256:739ebd068aa397e9581d25131e95e674c085c4c68b26f45bf77bf05f9593626f
+23.4 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaFixedSS17-34.9.0.zip
+sha256:4e28b508ea9d87c9b9133a13a1ee18f7283a5169ffa930f734f3ecdcc095834d
+23.5 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaFixedSS18-34.9.0.zip
+sha256:af2233ae33632e6c8d95c640ee5a4423bab33ec4a1eb2349d087a998738263a9
+23.5 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaSlab-34.9.0.zip
+sha256:5461eb03adb4db3ab74a12ab9f59a0b6094c1dd5ad419e61df5b817e7e67d8c0
+118 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaSS01-34.9.0.zip
+sha256:61b3c111e47196581fb95ed5949557feeb72522b72437ce8b07fd36d713fe1a2
+30.4 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaSS02-34.9.0.zip
+sha256:01b7a87b8a8ebd9446b00043681e8ebe435363a13d1bab5c08f82b2160a28588
+30.1 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaSS03-34.9.0.zip
+sha256:f7d3145b02915cf20f4da45bd6f87d566fed908c43450d279aab5e6ece789640
+30.2 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaSS04-34.9.0.zip
+sha256:7f720210e6df4262387785e4e73bb5f8d8626daaf098017f907efe98bdb316de
+29.7 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaSS05-34.9.0.zip
+sha256:6a46d40dffcb0944b11686d10f5e2da33aab1c4980129aadd7054135d797da67
+30.7 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaSS06-34.9.0.zip
+sha256:a7019aa9389bf81e01a006533097b389ec1dbc1decf42355cd6bce99b2a9df82
+30.3 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaSS07-34.9.0.zip
+sha256:091d614c78e551358071960fc30630104fe0547a4bf52c6d3b1a70d6717e0f2e
+30 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaSS08-34.9.0.zip
+sha256:f0bc2f6d2012f37bff5b5f4acb79bbebe4403b742646b4d511b0cd2c87e8b209
+31.4 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaSS09-34.9.0.zip
+sha256:2730cac70c1b37da530fd25b13385192c2f0bfcb35646460c0ca94e15e36af42
+30.6 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaSS10-34.9.0.zip
+sha256:8ef35a81b8dcfed7b0601491fb2b07d896792bde1189d128aab52d73eb6b67f3
+30 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaSS11-34.9.0.zip
+sha256:4d31be12844657334033e3bb7830b51c9f739833629e22295b2a187f49bdafc0
+30.4 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaSS12-34.9.0.zip
+sha256:33ecca9a3bb920f3d3f77cd4fa3f6bb0b20adf34e29ecaa3d2569f9c6435c76d
+30.8 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaSS13-34.9.0.zip
+sha256:8d469dde54f230f99fb7f02014ff34b4f69a74026def2df649adba624e5ed732
+30.3 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaSS14-34.9.0.zip
+sha256:ba568982131ccac911b430cc19d798bcb604534064d6c5e55a1c062246d91f8f
+30 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaSS15-34.9.0.zip
+sha256:0c7d8adeb35216671bef3d20f4fcfa8d2f74975dd2f0f83fb0e3431252997118
+30.9 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaSS16-34.9.0.zip
+sha256:b02ddd85c429452273641989eecefe2aefa6b43eb8f5ebe6fc72e407400552b5
+30.2 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaSS17-34.9.0.zip
+sha256:34ddd4d8a650074fab1d245d2f786e07b0a11e11e795f12a822861f77af448ce
+30.3 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaSS18-34.9.0.zip
+sha256:dd1a086e57aa335f5c6c344c2a71a0e02842fc828066f2873a47d87bb3b7b955
+30.4 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaTerm-34.9.0.zip
+sha256:b11472aab68b01d5936758962af8da5902ebbb7f8311303236f5e1023a4bee45
+117 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaTermCurly-34.9.0.zip
+sha256:84416e0677052bb1bee263af9d9ad3fcc1c176b06aff706ccbe43245fae3ee99
+117 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaTermCurlySlab-34.9.0.zip
+sha256:5717e9ae28df5c17eff1888b6ce43640184102c6be6de4df39ecd5c0e6bc07f4
+118 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaTermSlab-34.9.0.zip
+sha256:b55007dfc2f308578507cd355852c76de7b5affc455941d15d664f6b93ef52b1
+118 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaTermSS01-34.9.0.zip
+sha256:8dfd69582e6677800ee094785c6d6c7deed2319463be4fc22a6a744921985d78
+30.3 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaTermSS02-34.9.0.zip
+sha256:757a8de8408881a94dac217d6a577f528d04d49b95fe9dc1cadba393d25b752a
+30 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaTermSS03-34.9.0.zip
+sha256:85c9a8c325f707b1ba4a97b34552958d8ed3f04a0c0511161faa2d8621e3d15e
+30.1 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaTermSS04-34.9.0.zip
+sha256:a0b057628a06828297a30d1230dba656e379a1fb3117b0fe727b92dc7849c775
+29.7 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaTermSS05-34.9.0.zip
+sha256:9a7881f5dda77eacbbb1832805eabf4eea16ebf47dc2d4e96dd33821cec5ba5d
+30.7 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaTermSS06-34.9.0.zip
+sha256:3960eca251f8b6e2a90616fc5c331040cf3cfd0154f0b89273ba6d5d6b59469f
+30.3 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaTermSS07-34.9.0.zip
+sha256:0c641ad0f8f91ee8908821e8f71539923d89e919375cb93fb823b1337b3ce377
+29.9 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaTermSS08-34.9.0.zip
+sha256:2b230d5e91c57cfb3d55d3a8b85dd86c95ab926ef8ec401b844fbc9472a5f9c6
+31.3 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaTermSS09-34.9.0.zip
+sha256:99acdbf01f5a74f495a22dc8f810d05b33efaafddd585d516ea3b34220fe4355
+30.6 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaTermSS10-34.9.0.zip
+sha256:dd8fdb48b72eb7a4d29ba8350db498d1a7accbc3afb2d79d2ce0f4894d87db16
+29.9 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaTermSS11-34.9.0.zip
+sha256:28e1e6bdcde1329cdfabf5a6d723811e891dc0e753028323414a33db75530e61
+30.4 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaTermSS12-34.9.0.zip
+sha256:328a1fa096c7f8e173e30c52f5cd720563dae25dc500d2d5309076213253900d
+30.8 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaTermSS13-34.9.0.zip
+sha256:b905395952de8af5439ac7eca9a13060013f53e2441a81cf18abaa49146ed594
+30.3 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaTermSS14-34.9.0.zip
+sha256:1b92306700e6b949fa0b9d3d7991396422a6e6f2dde5dc78383c09cd91b2627c
+30 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaTermSS15-34.9.0.zip
+sha256:a02206045a9d5771eef4a89ecb4e9c1a1046409820c0159405a8b905873a08a7
+30.8 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaTermSS16-34.9.0.zip
+sha256:efbbc85feffb7e384142e030fc704a79e642989dfdef2efb9883498956a442ae
+30.1 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaTermSS17-34.9.0.zip
+sha256:17ca79d50fa0a15f3e3a0a35057c7c8c3de59e33dbd2c0ae886173c1292d01dc
+30.2 MB
+3 weeks ago
+PkgTTF-Unhinted-IosevkaTermSS18-34.9.0.zip
+sha256:1c62b3ddc439ad1c04489cd6395d2b0af963f6e0e78ad1377b63af236b65b4b8
+30.4 MB
+3 weeks ago
+PkgWebFont-Iosevka-34.9.0.zip
+sha256:7a34422774336d5851102f2c80e8c282d1bdae3b944cc6d083ead2b20b3af69d
+258 MB
+3 weeks ago
+PkgWebFont-IosevkaAile-34.9.0.zip
+sha256:c3828bfee08f65aedc232e5a863207c50e35d3242d71a794e0dce3c75faa262d
+132 MB
+3 weeks ago
+PkgWebFont-IosevkaCurly-34.9.0.zip
+sha256:fb81b63c450d3b1ffb2569b789820cd77fce77e1e4bba4fac7000de2fc75dab3
+259 MB
+3 weeks ago
+PkgWebFont-IosevkaCurlySlab-34.9.0.zip
+sha256:0652a629339d1dffde5b1f09892dc008731629119cd24b97ee4c9fe29a0eccea
+264 MB
+3 weeks ago
+PkgWebFont-IosevkaEtoile-34.9.0.zip
+sha256:23459aa666de541e3df855b82e35b3974ccf7ad5594966380b858d01b9afda36
+135 MB
+3 weeks ago
+PkgWebFont-IosevkaFixed-34.9.0.zip
+sha256:ffe4d1c6aa4570250609ff6be18583c6ff165ac6dda7824e2bda9a86a78fe726
+217 MB
+3 weeks ago
+PkgWebFont-IosevkaFixedCurly-34.9.0.zip
+sha256:c7cb4247464b1a2e16f44250f05060e267ce816393e92ed348ae6110b21a399a
+218 MB
+3 weeks ago
+PkgWebFont-IosevkaFixedCurlySlab-34.9.0.zip
+sha256:2254306cb5e18e136950c5a451fdedeb87ef766b432ea61e45a69ac9e1d3a4f6
+223 MB
+3 weeks ago
+PkgWebFont-IosevkaFixedSlab-34.9.0.zip
+sha256:fabc029e1f4810dafa221a0bebfb80da51c870f0a84c3b7ba9124584ee690690
+222 MB
+3 weeks ago
+PkgWebFont-IosevkaFixedSS01-34.9.0.zip
+sha256:6cd134b7ef4fd5f44b82084aa1e1495db3129966bebbc62038d4622d16fcc860
+55.4 MB
+3 weeks ago
+PkgWebFont-IosevkaFixedSS02-34.9.0.zip
+sha256:37f04602b9070867bcdeeb39f934ca3b69b0ce68738527fe4093fca99c8eb144
+55.9 MB
+3 weeks ago
+PkgWebFont-IosevkaFixedSS03-34.9.0.zip
+sha256:e2885d39704c9ae43e0eb0cf4edd306c4890457ecb86c32da6c75cd3c177706c
+55.2 MB
+3 weeks ago
+PkgWebFont-IosevkaFixedSS04-34.9.0.zip
+sha256:55fc5cd03ac3593cbd93a1896cbd4d37769cf6294bdb9222948503b3023f0371
+54.4 MB
+3 weeks ago
+PkgWebFont-IosevkaFixedSS05-34.9.0.zip
+sha256:29a6f803dea30a30666f9539216c3cd39ff8999d7dfcbb60a2366971ed40db1c
+56 MB
+3 weeks ago
+PkgWebFont-IosevkaFixedSS06-34.9.0.zip
+sha256:6b923ffbff572377c4f371b70b722b5f488393f2a321cf0d46245f4351577589
+55.3 MB
+3 weeks ago
+PkgWebFont-IosevkaFixedSS07-34.9.0.zip
+sha256:8fe53f4c7a9e8d8e1d23684c59687737bda80606e41b6ff8acf487554546e429
+54.7 MB
+3 weeks ago
+PkgWebFont-IosevkaFixedSS08-34.9.0.zip
+sha256:ea93dd05582e38dc2871cb33d5244ad3ee6bd64ecba14435cda1f99257839431
+57 MB
+3 weeks ago
+PkgWebFont-IosevkaFixedSS09-34.9.0.zip
+sha256:72354573c3f21221846107d88da54911cdca4b9fd94169fdfba73308cd17d8ad
+55.9 MB
+3 weeks ago
+PkgWebFont-IosevkaFixedSS10-34.9.0.zip
+sha256:52ba4997a983bb896f03dfeb3da7e9f8fbd94f96805af8a08cf320ac82a8630e
+54.8 MB
+3 weeks ago
+PkgWebFont-IosevkaFixedSS11-34.9.0.zip
+sha256:130c061b317e061396aaf054ab5cf550cd11c0211dffe4b764ad63c932c73795
+55.6 MB
+3 weeks ago
+PkgWebFont-IosevkaFixedSS12-34.9.0.zip
+sha256:3cf58e1f45e38f5c1f5ff6adb96fd8bd03890eddb39f155a22057272dc291041
+55.8 MB
+3 weeks ago
+PkgWebFont-IosevkaFixedSS13-34.9.0.zip
+sha256:0ac07f3d7c6c6c99ffd4c2a3d958d12912ddaefcd8e98c300674f70f613757bd
+55.1 MB
+3 weeks ago
+PkgWebFont-IosevkaFixedSS14-34.9.0.zip
+sha256:7f5f24b2def8ad5c7e5f59745cefebbf53022ec22852729638d3e7108396f695
+54.8 MB
+3 weeks ago
+PkgWebFont-IosevkaFixedSS15-34.9.0.zip
+sha256:1b11cb7bab1ddd69b98cf56d15a93d8f655ed850528a9b9bc5770570ac961565
+56.6 MB
+3 weeks ago
+PkgWebFont-IosevkaFixedSS16-34.9.0.zip
+sha256:ffbffabed8fcb96efd8a6deebc7ead1a43c9f4a34a0cfec8adfb600362dbcb3d
+55.9 MB
+3 weeks ago
+PkgWebFont-IosevkaFixedSS17-34.9.0.zip
+sha256:851da6508b255e1e3b7205e054e385a30503adaccfa85d9e6334a6d504f5b4e6
+56 MB
+3 weeks ago
+PkgWebFont-IosevkaFixedSS18-34.9.0.zip
+sha256:88ef2320afb135d611454819c8c10883d899cabbd260fa074710543f84b23bb5
+55.5 MB
+3 weeks ago
+PkgWebFont-IosevkaSlab-34.9.0.zip
+sha256:4664ed99dcef8c8947227ea6b306ef7b87ff04ad6ac8ff7ccc16beca08debe77
+264 MB
+3 weeks ago
+PkgWebFont-IosevkaSS01-34.9.0.zip
+sha256:b6851338b151e26d923d6d4d3da4d072a4ff9e98d041ff66d947e02e5070cf7d
+72.8 MB
+3 weeks ago
+PkgWebFont-IosevkaSS02-34.9.0.zip
+sha256:1a4a9e548f65ccf1a7b73c5ba57586f17e27693a1b0f4149c0a6694afdf74a2f
+73.2 MB
+3 weeks ago
+PkgWebFont-IosevkaSS03-34.9.0.zip
+sha256:fc2b2bfc494d46ba7c396bad8f5a3900874c15ca25b48ce112bf06bd16fd1707
+72.1 MB
+3 weeks ago
+PkgWebFont-IosevkaSS04-34.9.0.zip
+sha256:4c53c30dadcb5a93d84eb194fd1112286e7e51ae1391e381f42e393f6bcc4da3
+71.2 MB
+3 weeks ago
+PkgWebFont-IosevkaSS05-34.9.0.zip
+sha256:646fdd9a20564057f10eae3221eaadca34c30634cf6b50f909f2f45ea8f77d03
+73.5 MB
+3 weeks ago
+PkgWebFont-IosevkaSS06-34.9.0.zip
+sha256:8bd57ee59ac603dc7c75cb7829d7314c9644e6e70f786ae910403c90255938d8
+72.7 MB
+3 weeks ago
+PkgWebFont-IosevkaSS07-34.9.0.zip
+sha256:200d2551e423a1467ae590190f1fdce37b140426fd039fd06e921919bd9f7227
+71.6 MB
+3 weeks ago
+PkgWebFont-IosevkaSS08-34.9.0.zip
+sha256:bd5e73fe45c7b2eddbb293330dea195fb5d34b6b21a82daf3277afa224f42cd5
+74.6 MB
+3 weeks ago
+PkgWebFont-IosevkaSS09-34.9.0.zip
+sha256:89839c2e638b77162ab43831d9a76bc237d1f98dd150350439ecb7a95bed9ed4
+73.4 MB
+3 weeks ago
+PkgWebFont-IosevkaSS10-34.9.0.zip
+sha256:9df28399c57781d2c9f10d12d029a64e9cdd10db71559d01a773eaaa875d7a14
+71.6 MB
+3 weeks ago
+PkgWebFont-IosevkaSS11-34.9.0.zip
+sha256:3d9d7241da72a312a703d4d65a3c23cd43a7cabc7ff0182eca62d14507a2296f
+73 MB
+3 weeks ago
+PkgWebFont-IosevkaSS12-34.9.0.zip
+sha256:9cf12baf7caae2abf94147ecc98c5795db9fc127746fa0d4a47965003269840c
+73.3 MB
+3 weeks ago
+PkgWebFont-IosevkaSS13-34.9.0.zip
+sha256:bc396094f03c5e8cf828c82da8be763d0f1d78456877c6f0a29d24d741ed6c97
+72.5 MB
+3 weeks ago
+PkgWebFont-IosevkaSS14-34.9.0.zip
+sha256:75486720ca440333ffbd9f4011b22f5c2d40aaf86ef112cc8de8fde5589aa547
+72 MB
+3 weeks ago
+PkgWebFont-IosevkaSS15-34.9.0.zip
+sha256:55b0054d6e2a4aadee9e2c7e06158a95d86b78381f03b3e1926fdf7f7386d7c3
+74.2 MB
+3 weeks ago
+PkgWebFont-IosevkaSS16-34.9.0.zip
+sha256:6e9f1e2b9d13a6e4c63e217cbf2bc57ff2d554569e2b7e75a4a71a95c2eab3c8
+72.9 MB
+3 weeks ago
+PkgWebFont-IosevkaSS17-34.9.0.zip
+sha256:0ee5ec80b50365caaebd7332759c43e7341258409c15329e760bb1b58d17af27
+73.1 MB
+3 weeks ago
+PkgWebFont-IosevkaSS18-34.9.0.zip
+sha256:71c67e4550a10bc7e92a772c0d6885d41692b64e76f4b944fecae9f2f0d37f73
+72.9 MB
+3 weeks ago
+PkgWebFont-IosevkaTerm-34.9.0.zip
+sha256:249ad573bbddb26311956b1c6138035dd1d457bae13017b173b182fe59324ba5
+258 MB
+3 weeks ago
+PkgWebFont-IosevkaTermCurly-34.9.0.zip
+sha256:7ac026401a54b1f7834d7edb689d8e02c112056c6135760a346f037cc5acf2e2
+259 MB
+3 weeks ago
+PkgWebFont-IosevkaTermCurlySlab-34.9.0.zip
+sha256:31fadee98781438312e8c1dc74f649a96c2afae7d4ec7031d679007d24d220fc
+264 MB
+3 weeks ago
+PkgWebFont-IosevkaTermSlab-34.9.0.zip
+sha256:b4848b47beda7c3851b6a67aa2cf0e1d2bf32b99c2f8d72f988e97b615634d1e
+263 MB
+3 weeks ago
+PkgWebFont-IosevkaTermSS01-34.9.0.zip
+sha256:dea458e8f714d099fe501077666a885244658a138dff12e90cda2d4c7c974566
+72.6 MB
+3 weeks ago
+PkgWebFont-IosevkaTermSS02-34.9.0.zip
+sha256:8c0311bd12519e89177221394881ce4a07515166182cdc63a746eee8f1232e30
+73.1 MB
+3 weeks ago
+PkgWebFont-IosevkaTermSS03-34.9.0.zip
+sha256:db7dfe90051b04f4a725ef14dc3235b75397e3a3016dfb45c7979bfe818708b4
+72 MB
+3 weeks ago
+PkgWebFont-IosevkaTermSS04-34.9.0.zip
+sha256:78279b62bda3e677efdc10954f5518ddb59a02f0dfcf0851aa1d7fbadfd9f842
+71.1 MB
+3 weeks ago
+PkgWebFont-IosevkaTermSS05-34.9.0.zip
+sha256:fae0abc389ec45fac8fef4113e1ef27612ec24f11e0bd712ebfdd662e8ee29ae
+73.4 MB
+3 weeks ago
+PkgWebFont-IosevkaTermSS06-34.9.0.zip
+sha256:165388f60b4a31abc4971d8a4f07a2539d8e6f99a6a058161b5d5960c686076e
+72.6 MB
+3 weeks ago
+PkgWebFont-IosevkaTermSS07-34.9.0.zip
+sha256:6f5c94ea3692e4daeaacad90096e33f7649199aaa20cb258207dd3b5e3558f9e
+71.5 MB
+3 weeks ago
+PkgWebFont-IosevkaTermSS08-34.9.0.zip
+sha256:b6309099a67f42bfe1251915230be00023060c20485430cfdff2fbe1f8a334d0
+74.5 MB
+3 weeks ago
+PkgWebFont-IosevkaTermSS09-34.9.0.zip
+sha256:a124f9b178622bfbed168e055c22cb4df336271233a892b58e7a08badffab947
+73.3 MB
+3 weeks ago
+PkgWebFont-IosevkaTermSS10-34.9.0.zip
+sha256:6beca3575e51c1749131f5aac4ad6dd0f6503180a5f5de0838d5eb02604e6fe2
+71.5 MB
+3 weeks ago
+PkgWebFont-IosevkaTermSS11-34.9.0.zip
+sha256:0f779cf9fb7f0482d004d3d10cab33312ce59fb5128299f8b80da89272796f1d
+72.9 MB
+3 weeks ago
+PkgWebFont-IosevkaTermSS12-34.9.0.zip
+sha256:886cd6f2cdd7e213834f38adb27d087c7b0a829f1ddd3afe9b35ac6c8cf9741b
+73.2 MB
+3 weeks ago
+PkgWebFont-IosevkaTermSS13-34.9.0.zip
+sha256:02546fa385747eef4b470d5b85ebd7ade93814e7ed9e5c7b4c96229f76022ba2
+72.4 MB
+3 weeks ago
+PkgWebFont-IosevkaTermSS14-34.9.0.zip
+sha256:1635ee06e071b71ee164c04b30e32a13f2f3e817cb1064d4d61353183b8dbc87
+71.9 MB
+3 weeks ago
+PkgWebFont-IosevkaTermSS15-34.9.0.zip
+sha256:27c9b3cb8edcc11e471f1391aeca56779ac197c3cb13875d9b70c0b199891782
+74.1 MB
+3 weeks ago
+PkgWebFont-IosevkaTermSS16-34.9.0.zip
+sha256:722d0f54d8d7b0291259574a69d2fd4bb9c65768b7cf8f96a019a72699d059d3
+72.7 MB
+3 weeks ago
+PkgWebFont-IosevkaTermSS17-34.9.0.zip
+sha256:cd5914a85af0a4541dbb6e90c7b164db456cbbe3280f4be2dcc7120880911624
+72.9 MB
+3 weeks ago
+PkgWebFont-IosevkaTermSS18-34.9.0.zip
+sha256:719d98e6cbc775f57d1c6e4f0dbbdfce0691844cf30fb3390fd033fb62553a64
+72.8 MB
+3 weeks ago
+PkgWebFont-Unhinted-Iosevka-34.9.0.zip
+sha256:06dcbcf3ea7f2ca34281ac5026eafffffcc3960641e1ea74c56b0a372846cc63
+177 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaAile-34.9.0.zip
+sha256:22209c136c1019c863264f7de9eb0490d47a3d45632c3ba050949423f9d7a8d5
+90.1 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaCurly-34.9.0.zip
+sha256:f87d0251570dd65d8e787dd2b2c0737e50535c2e9097aa66934efc2ec29d1e14
+177 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaCurlySlab-34.9.0.zip
+sha256:e09419141fabe8389409e1cde0816ad7d7261a9fb991d79f2e12f663274a70e8
+180 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaEtoile-34.9.0.zip
+sha256:a6b2a299b4863e57906485abb26d20ae049b2c827fda68e0355a32fe718e2c06
+92.1 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaFixed-34.9.0.zip
+sha256:450848de4cfcbc1124671e0fab7daaf45107cdea79535d535c2491ce2d7e83de
+150 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaFixedCurly-34.9.0.zip
+sha256:2c78751afcf67f1b6e4f2c27cf787f2c769d1b1b3d3335d675c92bdc1179ce0c
+151 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaFixedCurlySlab-34.9.0.zip
+sha256:23e46da7da198803854350c01f84454fb5b2cf3efd6350c57f8e1d1334215fbd
+154 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaFixedSlab-34.9.0.zip
+sha256:8d54886961d9a95e4a3404f42adaf4536c1cdfb3f55a5c9b91dba12eb743c981
+153 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaFixedSS01-34.9.0.zip
+sha256:49f27d6c369e8b80b0fa74b3166ac6bf81696ad16e9283adb83b30e40f219848
+38.3 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaFixedSS02-34.9.0.zip
+sha256:3936704fd8e3a0bebdd92fdfccd7eca6c8524037b0bc548501507a5c31a29fc5
+38.2 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaFixedSS03-34.9.0.zip
+sha256:f819ae6a18cc16ffb530f680ccc3cd03076adcedc5191fc46928b223854bc43b
+38.3 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaFixedSS04-34.9.0.zip
+sha256:91ae5dd11d60b24dc5451f5ad58746ab37b80b5ab786c5eeca06632636b055a5
+37.7 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaFixedSS05-34.9.0.zip
+sha256:74b9a75c42dbb50b667bd36f044053d8660bd5162e53900a9019da267addef2c
+38.8 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaFixedSS06-34.9.0.zip
+sha256:344d2bd1035f2db8c6336d18ad150c10709b776f5d433fcedb8e13a4ba880c43
+38.2 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaFixedSS07-34.9.0.zip
+sha256:c57195595c9b38244530a2c6615b7cc8e08305e71ccaf36f91833d23e8b68e6e
+38 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaFixedSS08-34.9.0.zip
+sha256:dc986d1386b1b8482eae8378d09e1c7d41595238a730b9ad5b5e53920d751c75
+39.6 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaFixedSS09-34.9.0.zip
+sha256:ab281a2bbb11354098d7be6bd937c754abf1420603147901c059e6bb2b882520
+38.6 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaFixedSS10-34.9.0.zip
+sha256:cc7f799067be2366c613f7d9806700565e7f6e7f02f695f95f2722ef58936120
+38 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaFixedSS11-34.9.0.zip
+sha256:480f6b4c5a25b005d7532606baec036574d122c1ff74a9b5a33b66bd8bae40ff
+38.5 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaFixedSS12-34.9.0.zip
+sha256:e4b0b32d444d5b477443d3643a1ebd9759c02e15556fef64f3507d37a2b30783
+38.9 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaFixedSS13-34.9.0.zip
+sha256:0ac9937a73106a2037b30d75daffe8e611aa6ccee779abc8ce397cda99ee9d51
+38.2 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaFixedSS14-34.9.0.zip
+sha256:9f78fe39899a6bddc637e00fb9b8efdf23b311d0c63bf67bb3a0201ca1850ec8
+37.9 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaFixedSS15-34.9.0.zip
+sha256:e557e02fad044e3826f25697ba979240f1d933bcf60cfd1a658237e99d3586a9
+39.1 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaFixedSS16-34.9.0.zip
+sha256:338449267efbf89331f7b678f4e1a236e1ff4c5310b919230c3a6057ce4874a8
+38.5 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaFixedSS17-34.9.0.zip
+sha256:713629c36de7c771531af386126c6af26719979f29d7f682c4a3d92d510b676b
+38.5 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaFixedSS18-34.9.0.zip
+sha256:7f400aeacfdbe41da8927ea9669d37d2580f565563d02efde34cbaecb823edec
+38.4 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaSlab-34.9.0.zip
+sha256:24b3346c87ee9e5bf8a6aafbc5f60109d4ded7fec405cb2bbecb2bc8f9d63c50
+180 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaSS01-34.9.0.zip
+sha256:a074ecbe02e0a269867b2ba1b54e66c749f0de1d8169b730304bbf8873de3902
+49.4 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaSS02-34.9.0.zip
+sha256:19fe13cd90e277588848f0f3762f162627c15202d28e13c098aef9229aa1a952
+49.1 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaSS03-34.9.0.zip
+sha256:e67f7a37cc2d267a50a26b68201b1250e75fe3782767035ab82e457375b55669
+49.2 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaSS04-34.9.0.zip
+sha256:e930b0dd69476dac1d1e53b797455a1bf91f6e21857d657f809dac2ff6ef4f49
+48.5 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaSS05-34.9.0.zip
+sha256:ed285c0faeff27a8660d47901a7c10df6562ae08aa8887a7c13f4fb20fbda1a5
+50 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaSS06-34.9.0.zip
+sha256:fd618e2737c15839532f9d0a077d12d3ec35328bfa3eb5e470c48a396571c0f5
+49.4 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaSS07-34.9.0.zip
+sha256:5018e87c5ef7fe1de62dfec8b95affb26b65a309fd02120378ecd91a7a833a94
+48.9 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaSS08-34.9.0.zip
+sha256:6f05f9c504258c85cbd50e92b3d967fb4797f0d2f950b014ea4d8603e98c46be
+51 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaSS09-34.9.0.zip
+sha256:cb4b966c539a9aee742d21e03327335b017d0e8aaf995d10c680b91ac423a671
+49.9 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaSS10-34.9.0.zip
+sha256:a89a0b5493902890cdafed6916f2e1bec1988dc968daea3f7d5501cbd364cc7d
+48.9 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaSS11-34.9.0.zip
+sha256:9d1aea2a267f6749a627417a988fcac0d8107eadecaf7e9bfadcf8b856d189ab
+49.6 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaSS12-34.9.0.zip
+sha256:4c08b44d99a46084fe68477a954537cf3bbbdfd149f9f92b4a2694a562d21c8d
+50.1 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaSS13-34.9.0.zip
+sha256:c48f7c6874b75bfcad52d2e99b37fb860ae8c495cd7f597d12fe809f879bdab7
+49.4 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaSS14-34.9.0.zip
+sha256:6d6eebc7bb8d820d367811f5313a64abec3322d3b373fe0ddfc8bbb2c94c4e74
+48.9 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaSS15-34.9.0.zip
+sha256:a814b421daa96bde37547d0f3c94f9efb57983159207fc967b32107e2ede9ccd
+50.3 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaSS16-34.9.0.zip
+sha256:509e085aa08c749571cb2d80375e78cb1a95f44eb8b17d6c654e1c38eafb9b85
+49.4 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaSS17-34.9.0.zip
+sha256:db8b878f91548e8c4a814cab289c7b7af1afa8afbf82e752b99575d18c255d0a
+49.5 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaSS18-34.9.0.zip
+sha256:f5f09919de4040e1f30aa144d4628643f9a209ba72a59709e252786a0bda4af9
+49.5 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaTerm-34.9.0.zip
+sha256:b0a218e619b261ddcc4428c35d6828ede737d3de1ecd052c67a34b9d7e8327da
+177 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaTermCurly-34.9.0.zip
+sha256:840ef2cf90102b8dfdfaa00a0bb59772063a1c26fb05ebe06b18e9b30a70d987
+177 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaTermCurlySlab-34.9.0.zip
+sha256:d10623f79ac8cf4ecfcf3ae390a06818af284e054f850431d51754947cf073e0
+180 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaTermSlab-34.9.0.zip
+sha256:5cd0535fa372180cc8484024021a3be17bebbeb32a653dfc56c53eaadac767ca
+180 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaTermSS01-34.9.0.zip
+sha256:59ce0e548e0dc2e52909e6db34d13df8acc4e6afb94a96ded377199d964d4710
+49.3 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaTermSS02-34.9.0.zip
+sha256:c9effd6b69d0837acd416d9fed9c4502f4835987ba71f5c86e916dfb0f7ce76a
+49.1 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaTermSS03-34.9.0.zip
+sha256:0cc28b71eac881b55940df88e1a187c86a31fe05e9410a3d202f8298f6e93f64
+49.1 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaTermSS04-34.9.0.zip
+sha256:cfca4bb0c56f7db271b4a05674fa480c6fa980ec96a371bbdf176fa369ee4f8d
+48.4 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaTermSS05-34.9.0.zip
+sha256:9b17da4f28e668fb14a6df51aeeb5b231e58a1e12a163c8f4d9c6c51fbe1acb0
+49.9 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaTermSS06-34.9.0.zip
+sha256:aa1f175a4f4029969f64b2ad6185dabf3158d5328052b129cb5bcc83fb5101bb
+49.3 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaTermSS07-34.9.0.zip
+sha256:d40febdd4c9b24cdbf6f312fdb0cdfe051589c4f3d9b4c1460108226e95598d9
+48.8 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaTermSS08-34.9.0.zip
+sha256:84e88c9fa1ed83f4255515799dc61dcb7e23bd6503a14fab90c8da95e88762a6
+50.9 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaTermSS09-34.9.0.zip
+sha256:9febcd892043b2cc789a76e56e044788205f9b50a0e83afc986fa21807c1ac8f
+49.8 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaTermSS10-34.9.0.zip
+sha256:042a9f1d4c9004406e9c6225ec880b1ad2d0b0a53211d3d5e55a5bb1829003e7
+48.8 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaTermSS11-34.9.0.zip
+sha256:8aa09d0099baf0adc16c7922f2f6b1523e29ffc827cc5caa2871852b7008253c
+49.5 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaTermSS12-34.9.0.zip
+sha256:cd8476384ca31ff1a655c08c56bcae55799536204c8ba8dd7e73bdbf6a5bd5c9
+50 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaTermSS13-34.9.0.zip
+sha256:fc9fa1141bf485da383528515e057e019633ccda7b8328935d796a520ab3338c
+49.3 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaTermSS14-34.9.0.zip
+sha256:11a68d26122c813a72930858adf38544e4825914c9f859a54525e39c9b5e570a
+48.8 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaTermSS15-34.9.0.zip
+sha256:7b5c2b0c4367f8003986120d1d25740ac15a2b7ec8f96516138f18271ca09ab6
+50.2 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaTermSS16-34.9.0.zip
+sha256:13ccb9efcf7ad6bc6bb4ba28866653ae4f9d8e579b1846f46c66ab9e90c81126
+49.3 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaTermSS17-34.9.0.zip
+sha256:3479ea9e06ec9ef50c6da5b20fdf77df79b3415ccc84b961378f512c5a4b83a5
+49.4 MB
+3 weeks ago
+PkgWebFont-Unhinted-IosevkaTermSS18-34.9.0.zip
+sha256:ff5ea222c1cd912c626b08e8399180fa96973dbf50de0f189593d82f34678316
+49.4 MB
+3 weeks ago
+SHA-256.txt
+sha256:ab6f22d02ad71d168617e54db7524475808348375b74e7f4ce243a34f382f929
+46 KB
+3 weeks ago
+SuperTTC-Iosevka-34.9.0.zip
+sha256:e29ad0728e56adb3e02dd27e37dff6eb1a40026f562f1808a8cf7ccc56545414
+128 MB
+3 weeks ago
+SuperTTC-IosevkaAile-34.9.0.zip
+sha256:cc903fe2e67470cc96b11085a50ee4a8508d9228305c6fe84dac45e2bb56da4b
+59.3 MB
+3 weeks ago
+SuperTTC-IosevkaCurly-34.9.0.zip
+sha256:abe70124571a2cdce9c755091f8ba568b5c03dbc357a6695d99ec29d3a02eac3
+129 MB
+3 weeks ago
+SuperTTC-IosevkaCurlySlab-34.9.0.zip
+sha256:57fc06b527979e278e1f21ea7669da9567e16a9fb72f947f0bd3f05ce097ea4d
+132 MB
+3 weeks ago
+SuperTTC-IosevkaEtoile-34.9.0.zip
+sha256:6fe35af31f153907a4e14ae01862cf382e2cfcdaca4a91a0b2d6ae16028e6618
+66.3 MB
+3 weeks ago
+SuperTTC-IosevkaSlab-34.9.0.zip
+sha256:9d683be3aa2ae250b843dd5c25076b3270875406589dd84668b4ce0f3f2f8a9a
+131 MB
+3 weeks ago
+SuperTTC-IosevkaSS01-34.9.0.zip
+sha256:d3a2cc5a57eda667cbd871574c8f7988050a6e1c2562f00f7db4c061e39ddaa5
+29 MB
+3 weeks ago
+SuperTTC-IosevkaSS02-34.9.0.zip
+sha256:ed72ccff9365e2f3b74b040c278a9188449d6cff230da83171bbe9211b648fa8
+29.1 MB
+3 weeks ago
+SuperTTC-IosevkaSS03-34.9.0.zip
+sha256:6283b3e6ee80372e46d066b1f9424328720fc4ef7e6e1f56a25072bc99256b33
+29.7 MB
+3 weeks ago
+SuperTTC-IosevkaSS04-34.9.0.zip
+sha256:70b50f723a2136a4d16ff4f8353227391d01d6ac4bfe5d0653a3d3a32e61500b
+28.2 MB
+3 weeks ago
+SuperTTC-IosevkaSS05-34.9.0.zip
+sha256:98e40f127d06a9560353e08207c5ec976fc6bdcda249249d3fe179f42457f0e5
+29.3 MB
+3 weeks ago
+SuperTTC-IosevkaSS06-34.9.0.zip
+sha256:5112d62af591bdc812e96eca16f5baaeec741025f54ce1c1f8e2a35b3ed50578
+29 MB
+3 weeks ago
+SuperTTC-IosevkaSS07-34.9.0.zip
+sha256:ac3f1d40758b85ebb8c1b9db088126ec6dcc6571241b26342273fdab7c4222c2
+28.5 MB
+3 weeks ago
+SuperTTC-IosevkaSS08-34.9.0.zip
+sha256:8f6121c1e1251d1d7828ee24b2aaa99bf0d6220ab02ef0271efe2aa291a47e14
+30.1 MB
+3 weeks ago
+SuperTTC-IosevkaSS09-34.9.0.zip
+sha256:7e04bb03fe72c4687db56d9979ab95c08a43c1e8905be6767ce2e6d44338d75f
+29.7 MB
+3 weeks ago
+SuperTTC-IosevkaSS10-34.9.0.zip
+sha256:560f192b2a8e5c408d2b00f7fc9796045ebf8fc9fef2ebdd96c8f98a6ed4b74c
+30.2 MB
+3 weeks ago
+SuperTTC-IosevkaSS11-34.9.0.zip
+sha256:0950f3e51073ed204fa70b70a97b0b9e3c55458bcdd1d420ac6da20fbf1b8d75
+31.3 MB
+3 weeks ago
+SuperTTC-IosevkaSS12-34.9.0.zip
+sha256:af5f483d815e5fdc675c12d338c0b65635e7fce0f1e1785f331438f67c9f9c7c
+30.1 MB
+3 weeks ago
+SuperTTC-IosevkaSS13-34.9.0.zip
+sha256:711ea67ee933a848c8a1a07c29da3bf1b4c97b2c2f0d99bf5a9331e1e9c8b1fa
+28.9 MB
+3 weeks ago
+SuperTTC-IosevkaSS14-34.9.0.zip
+sha256:ab5131c1cf3bd999f89813b2ae8699da338137f917a368a7d3f215a5ef49cf41
+28.9 MB
+3 weeks ago
+SuperTTC-IosevkaSS15-34.9.0.zip
+sha256:6b2771f152a2230b6574c12c069ad7f89a6c6f3b790c6a6da24ef6b7ca326d73
+34.5 MB
+3 weeks ago
+SuperTTC-IosevkaSS16-34.9.0.zip
+sha256:005e4b87d18e051e79e0f1116552793078d7cb68171e1cc5bf0eb0ff31b21b57
+28.8 MB
+3 weeks ago
+SuperTTC-IosevkaSS17-34.9.0.zip
+sha256:3b5614c93f96f3c8a1006d447e02d54c62719b4e96cdfc628b521dfb61d34104
+36.1 MB
+3 weeks ago
+SuperTTC-IosevkaSS18-34.9.0.zip
+sha256:d4d6002c4deb764a303efe8d709f87d5e969447cd9d7260c7d481e221f649f6a
+29.2 MB
+3 weeks ago
+SuperTTC-SGr-Iosevka-34.9.0.zip
+sha256:e0caa35f7c182c334d58dde28f5ef7356a935e3fc2c4c2b9abebacde993ba1c3
+122 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaCurly-34.9.0.zip
+sha256:2c7c4cf0e567d86b375af1d58cc2975958577585dc50c2f47214250a3fb5174b
+123 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaCurlySlab-34.9.0.zip
+sha256:13e3fe43131152ef051e3116d5cb1e07e69636fc664d7881ac1ead2219041320
+126 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaFixed-34.9.0.zip
+sha256:561dca4d48efb8c18816c82cda32555aa691c7a587f299902310cb831d0b01e6
+122 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaFixedCurly-34.9.0.zip
+sha256:c073df7f71ed9095a08b6b118fe32c8e9c9add41427251ea87883e1d037bca35
+123 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaFixedCurlySlab-34.9.0.zip
+sha256:5b852c4c8afbcf673cd800a038ff0453d15ceb07728a2e698936097b3c031792
+126 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaFixedSlab-34.9.0.zip
+sha256:6295ca1445321c31e09d28862fd32c1828a8b053eb1a7ec5aa6dccc9dae7ca91
+126 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaFixedSS01-34.9.0.zip
+sha256:be8c910b7713a8b4bb8c5e14eee4d7466441f60ba259fb1a0ce9f0f87f519a75
+28.9 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaFixedSS02-34.9.0.zip
+sha256:ff95cb4315937a08906e3283a6506b7a9775692112c6db65b926fc40c3966988
+29 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaFixedSS03-34.9.0.zip
+sha256:4903332662ad8cf74c0f85adc305b984449cda0b21bc6230903870e49d83c798
+29.6 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaFixedSS04-34.9.0.zip
+sha256:ede62b53f10b96f3ddc410f28d66ff03ac357a1c8ee38aeaf898eafa9914e935
+28.1 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaFixedSS05-34.9.0.zip
+sha256:0dac8eab91d3fc1dcd458e5f2de597d633e3cabac4840098571c9ed6766b9f78
+29.2 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaFixedSS06-34.9.0.zip
+sha256:d2cad2eaf0190c4fea1f81fbc95e72b307f6c19fa14c1b81c70450f99b07925b
+28.9 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaFixedSS07-34.9.0.zip
+sha256:409a7d61898206701bf04b45e4131bea51404489cce2b89cd4b03dd4ed63f1df
+28.4 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaFixedSS08-34.9.0.zip
+sha256:a6042c778124bcae6a0e13f68a582275bdd7b32d6caaac2b663cca8b07a73984
+30 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaFixedSS09-34.9.0.zip
+sha256:780551cac2e1ab80f71482e5def84c073b3637dba68bfb218e98f6f1b85c378a
+29.6 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaFixedSS10-34.9.0.zip
+sha256:4d07874f194ce2c789944cc4687450dcf78a93831984cccd3bcd402752cc6cbd
+29.8 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaFixedSS11-34.9.0.zip
+sha256:f89def3fc118530eb781764bf919f8aebf5a864bad63e2bfae69212f37018ad6
+30.8 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaFixedSS12-34.9.0.zip
+sha256:c31324cf337f5105b8ba3d44a6474a0a12eeadd08378dbd07736f00673dc3962
+29.9 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaFixedSS13-34.9.0.zip
+sha256:6ac4990b56509be85ab461f744c818b31ed58baab454ca4f87dcd06d88ee2fc6
+28.8 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaFixedSS14-34.9.0.zip
+sha256:14df9bbde86da7d67e39aaca8e7ff7f21798a560757587a1be5f821cfbb3f03b
+28.8 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaFixedSS15-34.9.0.zip
+sha256:52562134a7ac363cf0626eae2ff313ef6b8e42c2f6493b0411241fe182dd9a98
+33.6 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaFixedSS16-34.9.0.zip
+sha256:b64dba2682cfd98e13df48437fcc13049721974ef2d15e718bb13fbcb288374f
+28.7 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaFixedSS17-34.9.0.zip
+sha256:7b94826cbb67eb4d02275c2e352995d08d56198e777a2c976ae6213240c5f7d5
+35.1 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaFixedSS18-34.9.0.zip
+sha256:d2ebb13ddb7e055fbdf0574c57609412ab90710110d4aa680dfab2fb5cb73499
+29.1 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaSlab-34.9.0.zip
+sha256:48196aa18c7be796b35589ce76c945aafe3f8085b4572cc01fb3d1cedc10d530
+126 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaSS01-34.9.0.zip
+sha256:0d64caeb4f5a3f8ff7135904c47cdf5a78eb72317b58fe3498210f82bb58b75a
+28.9 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaSS02-34.9.0.zip
+sha256:e14db1801b46d8672fb3f5db0727e429ddf57246fac48a08e38a061d04ab83a2
+29 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaSS03-34.9.0.zip
+sha256:c134ef93498d9f5e2a257d4f7ef425ae1f32821807d2b7e257de7f00dff53cfa
+29.6 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaSS04-34.9.0.zip
+sha256:0f60050f1e4c218bd24a449cf57873ef13529ad887c4edb91f9527cfd460c363
+28.2 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaSS05-34.9.0.zip
+sha256:33be49a8a3c339d90a489d4d20d97714c67ac5ba088eb95589abda0dbc1bc304
+29.2 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaSS06-34.9.0.zip
+sha256:a81a60dc83f8e554b7d86ccefe54f5ecaea14a8f51c99379dfd22868060a4b77
+28.9 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaSS07-34.9.0.zip
+sha256:4c50302ddbee322a0d3af720b336018f1785d7764128f588620be72726b24cc2
+28.4 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaSS08-34.9.0.zip
+sha256:d89f094731df69a7ffbda8f2af85c1bc996dae1d8021e54947d4f7ba99563b16
+30 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaSS09-34.9.0.zip
+sha256:67b89bb6e44727fafe4b52c4f11ff555045e6dc43b46e10f52b585569f41500b
+29.6 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaSS10-34.9.0.zip
+sha256:b01cbb26130f17ef0bb79e18e3516c8fcbe504613a8b8244c0739418bb72961e
+29.9 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaSS11-34.9.0.zip
+sha256:08fa34f37d45266eeefa3ee9e8fb5f71e3160f8bf1dd19a149878e4b5e24bfe5
+30.8 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaSS12-34.9.0.zip
+sha256:0d213c5a1204d467c1fce8b41020cecbc1d75d440e07d430ec66cba0cc44dfb6
+29.9 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaSS13-34.9.0.zip
+sha256:5831117683beb6ad02c89180ec331f837cc88108106bf8905cb06bcc8f1fc3c2
+28.8 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaSS14-34.9.0.zip
+sha256:50f8ce1c8bf5b814eec05781ca6e73236f53a38aaf070a2d26267f1e0a3e58a4
+28.8 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaSS15-34.9.0.zip
+sha256:f99342f40e232079e08be011610f9b419412c87b15ef59e3b1321728d5df31ca
+33.6 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaSS16-34.9.0.zip
+sha256:2dcac19d6519679f1379aa8a841a2778a79dc85a3e9f24e173155bd73847a7b8
+28.7 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaSS17-34.9.0.zip
+sha256:ce364dc1db5eda1a0d04d3d9859216d2749261bcf05b7b6a71b6798df7b10b9a
+35.1 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaSS18-34.9.0.zip
+sha256:353190e1e8cb064fa63b444194184bc592119eb27e399654f9af87f2c5779a6f
+29.1 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaTerm-34.9.0.zip
+sha256:daba270fcf8c471bf7a3d27055e90dbe64ea11205d44f1ec1061892d089bbe92
+122 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaTermCurly-34.9.0.zip
+sha256:42334b2e5f159e7685188fe7b1dd3c64dffda9adaf2584254a4948cbb5794519
+123 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaTermCurlySlab-34.9.0.zip
+sha256:7b1657e5b1d35051521e1d6ca5f7bfe43ca08b9e645a748d464f67bcba69d3d4
+126 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaTermSlab-34.9.0.zip
+sha256:4a8a88630cb46fa4b7f9ce90fdaf9d26fcfefc360ea5c58c7e51c4535b2d8e39
+126 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaTermSS01-34.9.0.zip
+sha256:5875f2915a1cb32db476a6a09009ca03436302c376829efc2258008aaa4b8ad9
+28.9 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaTermSS02-34.9.0.zip
+sha256:25ebbec883955a5084a25df44ed6b18a4438dcdda4c16b5fe3d4b3f3af4d269b
+29 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaTermSS03-34.9.0.zip
+sha256:14d83c7ebb09a4ef8a5280e6478e289e7736d0dd6dee10e4b11d1492b9d52298
+29.6 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaTermSS04-34.9.0.zip
+sha256:799197245622f7e2b2fc4f5d11a2577db67602313c35a67e1df1033d6199d1a6
+28.1 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaTermSS05-34.9.0.zip
+sha256:11e030a04d64c754fe1710d673ccc2e9bd552fd8abb3c2f6181e2cabd04dc9ff
+29.2 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaTermSS06-34.9.0.zip
+sha256:7b980b85673608b415d1d51ef98edaec64a7c24b2a69f12d0c14952253d65354
+28.9 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaTermSS07-34.9.0.zip
+sha256:9d04ae710da691cdbc1f20e31981aadf548034e7ad30c2baed3daa51c8ba52b0
+28.4 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaTermSS08-34.9.0.zip
+sha256:b2e7b737ec801792dfead53a72aadd055de587925e1cca38d6a08d587139c873
+30 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaTermSS09-34.9.0.zip
+sha256:96543b798d7c2e34db9bfb88208952cbabd751836a93c9f248c0527d393766a3
+29.6 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaTermSS10-34.9.0.zip
+sha256:255298c414a8f4aab75a8d4ab79c4ee0bab275978e2e55a15aeb255ff3d392f5
+29.8 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaTermSS11-34.9.0.zip
+sha256:87793b707359994258a507ad2809348aeec561ca40a0d3b260cdb1feff403c62
+30.8 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaTermSS12-34.9.0.zip
+sha256:540ce70ea29adf3041195529fd88ce982b09b49d9253676d3c4a930fc7f16fcf
+29.9 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaTermSS13-34.9.0.zip
+sha256:a6215be13ed84f7f9c0b161f887a1c95ac23bb6612d42cb585a4e72f57cd36f7
+28.8 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaTermSS14-34.9.0.zip
+sha256:a9616615e3e608b13a997fec172c10d31c8f15369a33ff924ca85fcf669ca685
+28.8 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaTermSS15-34.9.0.zip
+sha256:a50fd92bb367ed7bdc04a66d9a3135e8e1bcbefb84f74f3e32fc91f768ca76c4
+33.6 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaTermSS16-34.9.0.zip
+sha256:72bf85afb2ed1eb567fa85ed3fe45864281e5e62d3793b13a8649c85d6b774aa
+28.7 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaTermSS17-34.9.0.zip
+sha256:0e955ccbdcc00f20bfb72f77adc546a7dea3915d76021b93028db22011937fb4
+35.1 MB
+3 weeks ago
+SuperTTC-SGr-IosevkaTermSS18-34.9.0.zip
+sha256:e1e076b51a9c9175ca311f830441c6fea3737223703a35eb175ba4edc55af425
+29.1 MB
+3 weeks ago
+Source code (zip)
+3 weeks ago
+Source code (tar.gz)
+3 weeks ago

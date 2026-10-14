@@ -35,6 +35,10 @@ pub fn render_pinned_body<F>(
                     Sense::click(),
                 );
 
+                if response.hovered() && config.allow_selection {
+                    ui.ctx().set_cursor_icon(egui::CursorIcon::PointingHand);
+                }
+
                 ui.painter().rect_filled(rect, 0.0, row_bg);
 
                 let mut cell_ui = ui.new_child(
@@ -42,6 +46,7 @@ pub fn render_pinned_body<F>(
                         .max_rect(rect.shrink(4.0))
                         .layout(egui::Layout::left_to_right(egui::Align::Center)),
                 );
+                cell_ui.style_mut().interaction.selectable_labels = false;
                 cell_renderer(true_idx, col_id, &mut cell_ui);
 
                 if response.clicked() {

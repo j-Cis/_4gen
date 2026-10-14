@@ -21,8 +21,13 @@ pub fn render_header_row(
 
             let (rect, response) = ui.allocate_exact_size(
                 vec2(width_px, theme.header_height),
-                Sense::click_and_drag(),
+                Sense::click(),
             );
+
+            // Kursor rączki nad nagłówkiem kolumny
+            if response.hovered() {
+                ui.ctx().set_cursor_icon(egui::CursorIcon::PointingHand);
+            }
 
             ui.painter().rect_filled(rect, 0.0, theme.header_bg);
 

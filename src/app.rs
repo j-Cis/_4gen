@@ -93,6 +93,29 @@ impl<'a> App4Gen<'a> {
     pub fn new(_cc: &eframe::CreationContext<'_>) -> Self {
         egui_extras::install_image_loaders(&_cc.egui_ctx);
 
+        // --- REJESTRACJA CZCIONKI IOSEVKA ETOILE ---
+        let mut fonts = egui::FontDefinitions::default();
+
+        fonts.font_data.insert(
+            "iosevka_etoile".to_owned(),
+            egui::FontData::from_static(include_bytes!("../assets/font/IosevkaEtoile-Regular.ttf")).into(),
+        );
+
+        fonts
+            .families
+            .entry(egui::FontFamily::Proportional)
+            .or_default()
+            .insert(0, "iosevka_etoile".to_owned());
+
+        fonts
+            .families
+            .entry(egui::FontFamily::Monospace)
+            .or_default()
+            .insert(0, "iosevka_etoile".to_owned());
+
+        _cc.egui_ctx.set_fonts(fonts);
+        // --------------------------------------------
+
         let mut welcome_window = ContainerWindow::new(
             "welcome_win",
             "Witaj w _4gen",

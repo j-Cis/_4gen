@@ -3,7 +3,7 @@
 use crate::app::ViewRegistry;
 use crate::layout::frame::{SideNav, SideNavItem, WindowClosePosition, WindowHeaderConfig, WindowMinimizePosition};
 use crate::layout::table::tools::engine::{ModifierButton, ToolbarButton, ToolbarItem};
-use crate::layout::table::types::TableAction;
+use crate::layout::table::types::{TableAction,ConfigColItem};
 use crate::theme::{ico, tab::TableIcons};
 use crate::widget::{
     records_assets::RecordsAssetsWidget,
@@ -112,21 +112,19 @@ pub fn build_table_toolbar<'a>() -> Vec<ToolbarItem<'a>> {
         
         ToolbarItem::Modifier(ModifierButton {
             action: TableAction::ToggleCtrl,
-            label: "Ctrl",
-            tooltip: "Wirtualny Ctrl (multiselekcja wierszy)",
+            label: "⌘ Ctrl",
+            tooltip: "Wirtualny Ctrl",
         }),
         ToolbarItem::Modifier(ModifierButton {
             action: TableAction::ToggleShift,
-            label: "Shift",
-            tooltip: "Wirtualny Shift (sortowanie wielokolumnowe)",
+            label: "⇧ Shift",
+            tooltip: "Wirtualny Shift",
         }),
-        /*
         ToolbarItem::Modifier(ModifierButton {
             action: TableAction::ToggleAlt,
-            label: "Alt",
+            label: "⌥ Alt",
             tooltip: "Wirtualny Alt",
         }),
-        */
     ]
 }
 
@@ -142,4 +140,13 @@ pub fn build_window_header() -> WindowHeaderConfig {
         close_pos: WindowClosePosition::Left,
         minimize_pos: WindowMinimizePosition::BesideRight,
     }
+}
+
+pub fn build_table_config_record() -> Vec<ConfigColItem> {
+    vec![
+        ConfigColItem::Pinned,    // przyciski 📌
+        ConfigColItem::Position,  // strzałki góra/dół
+        ConfigColItem::Title,     // tekst i uchwyt drag
+        ConfigColItem::Visible,   // checkbox
+    ]
 }

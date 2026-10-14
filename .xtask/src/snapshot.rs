@@ -75,6 +75,7 @@ pub fn generate_snapshot() {
 		.max_single_file_size(524288) // 512 KiB
 		.content_skip(["./assets/**", "*.svg"])
 		.add_footer_summary_setups(true)
+		.add_header_customize_text("\n[github.com/j-Cis/_4gen](https://github.com/j-Cis/_4gen/commits/main/)\n")
 		.add_fotter_customize_text(
 			"\n---\n*Generated automatically by 4gen xtask via j-Cis/{querypath,querypath-fmt,querypath-snapshot} (crates.io|github.com)*\n",
 		);

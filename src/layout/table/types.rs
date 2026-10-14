@@ -199,3 +199,12 @@ impl TableState {
 		}
 	}
 }
+
+// Dodaj pod istniejącymi definicjami w src/layout/table/types.rs
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
+pub enum ConfigColItem {
+    Visible,
+    Title,
+    Pinned,
+    Position,
+}
