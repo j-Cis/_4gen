@@ -22,11 +22,9 @@ pub fn toggle_column_visibility(state: &mut TableState, col_id: &str, is_visible
 }
 
 pub fn toggle_pin_left(state: &mut TableState, col_id: &str) {
-    if let Some(col) = state.columns.get_mut(col_id) {
-        col.pinned = if col.pinned == PinPosition::Left {
-            PinPosition::None
-        } else {
-            PinPosition::Left
-        };
-    }
+    state.toggle_pin_left(col_id);
+}
+
+pub fn toggle_pin_right(state: &mut TableState, col_id: &str) {
+    state.toggle_pin_right(col_id);
 }

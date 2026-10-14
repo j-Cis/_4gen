@@ -1,5 +1,5 @@
 use eframe::egui::{self, Color32, Rect, Sense, vec2};
-use crate::layout::table::types::{SortDir, TableState};
+use crate::layout::table::types::{PinPosition, SortDir, TableState};
 use crate::theme::tab::TableTheme;
 
 pub fn render_header_row(
@@ -9,13 +9,13 @@ pub fn render_header_row(
     theme: &TableTheme,
     shift_pressed: bool,
     ctrl_pressed: bool,
-    is_pinned: bool,
+    alt_pressed: bool,
 ) {
     ui.horizontal(|ui| {
         ui.spacing_mut().item_spacing.x = 0.0;
         for col_id in col_ids {
-            let (title, sortable, width_px) = match state.columns.get(col_id) {
-                Some(c) => (c.title.clone(), c.sortable, c.width_px),
+            let (title, sortable, width_px, pinned_pos) = match state.columns.get(col_id) {
+                Some(c) => (c.title.clone(), c.sortable, c.width_px, c.pinned.clone()),
                 None => continue,
             };
 
@@ -24,14 +24,18 @@ pub fn render_header_row(
                 Sense::click(),
             );
 
-            // Kursor rączki nad nagłówkiem kolumny
             if response.hovered() {
                 ui.ctx().set_cursor_icon(egui::CursorIcon::PointingHand);
             }
 
             ui.painter().rect_filled(rect, 0.0, theme.header_bg);
 
-            let mut display_title = if is_pinned { format!("📌 {}", title) } else { title };
+            let mut display_title = if pinned_pos != PinPosition::None {
+                format!("📌 {}", title)
+            } else {
+                title
+            };
+
             if let Some((idx, (_, dir))) = state
                 .sort_rules
                 .iter()
@@ -58,16 +62,18 @@ pub fn render_header_row(
                 Color32::WHITE,
             );
 
-            let tooltip_text = if is_pinned {
-                "Kliknij z Shift, aby odpiąć.\nKliknij z Ctrl, aby sortować po wielu."
-            } else {
-                "Kliknij z Shift, aby przypiąć.\nKliknij z Ctrl, aby sortować po wielu."
+            let tooltip_text = match pinned_pos {
+                PinPosition::Left => "Przypięta z lewej.\nKliknij z Shift, aby odpiąć.\nKliknij z Ctrl, aby sortować po wielu.",
+                PinPosition::Right => "Przypięta z prawej.\nKliknij z Alt, aby odpiąć.\nKliknij z Ctrl, aby sortować po wielu.",
+                PinPosition::None => "Kliknij z Shift, aby przypiąć z lewej.\nKliknij z Alt, aby przypiąć z prawej.\nKliknij z Ctrl, aby sortować po wielu.",
             };
             let response = response.on_hover_text(tooltip_text);
 
             if response.clicked() {
                 if shift_pressed {
-                    state.toggle_pin_column(col_id);
+                    state.toggle_pin_left(col_id);
+                } else if alt_pressed {
+                    state.toggle_pin_right(col_id);
                 } else if sortable {
                     state.handle_sort_click(col_id, ctrl_pressed);
                 }

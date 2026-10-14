@@ -35,7 +35,7 @@ impl TableToolbar {
                                         let is_active = match m.action {
                                             TableAction::ToggleShift => state.simulated_shift,
                                             TableAction::ToggleCtrl => state.simulated_ctrl,
-                                            //TableAction::ToggleAlt => state.simulated_alt,
+                                            TableAction::ToggleAlt => state.simulated_alt,
                                             _ => false,
                                         };
 
@@ -46,7 +46,7 @@ impl TableToolbar {
                                             match m.action {
                                                 TableAction::ToggleShift => engine::toggle_shift(state),
                                                 TableAction::ToggleCtrl => engine::toggle_ctrl(state),
-                                                // TableAction::ToggleAlt => engine::toggle_alt(state),
+                                                TableAction::ToggleAlt => engine::toggle_alt(state),
                                                 _ => {}
                                             }
                                         }

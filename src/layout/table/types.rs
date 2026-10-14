@@ -22,7 +22,7 @@ pub enum TableAction {
 pub enum PinPosition {
 	None,
 	Left,
-	// Right, // TODO: Tymczasowo wyłączone do czasu wdrożenia pełnego wsparcia
+	Right, // TODO: Tymczasowo wyłączone do czasu wdrożenia pełnego wsparcia
 }
 
 #[derive(Clone, PartialEq, Debug)]
@@ -108,36 +108,49 @@ impl TableState {
 	}
 
 	pub fn get_computed_columns_order(&self) -> Vec<String> {
-		let mut left_pinned = Vec::new();
-		let mut unpinned = Vec::new();
-		let right_pinned = Vec::new();
+        let mut left_pinned = Vec::new();
+        let mut unpinned = Vec::new();
+        let mut right_pinned = Vec::new();
 
-		for id in &self.display_order {
-			if self.visible_columns.contains(id) {
-				if let Some(col) = self.columns.get(id) {
-					match col.pinned {
-						PinPosition::Left => left_pinned.push(id.clone()),
-						PinPosition::None => unpinned.push(id.clone()),
-						// PinPosition::Right => right_pinned.push(id.clone()),
-					}
-				}
-			}
-		}
+        for id in &self.display_order {
+            if self.visible_columns.contains(id) {
+                if let Some(col) = self.columns.get(id) {
+                    match col.pinned {
+                        PinPosition::Left => left_pinned.push(id.clone()),
+                        PinPosition::None => unpinned.push(id.clone()),
+                        PinPosition::Right => right_pinned.push(id.clone()),
+                    }
+                }
+            }
+        }
 
-		let mut final_order = left_pinned;
-		final_order.extend(unpinned);
-		final_order.extend(right_pinned);
-		final_order
-	}
+        let mut final_order = left_pinned;
+        final_order.extend(unpinned);
+        final_order.extend(right_pinned);
+        final_order
+    }
 
-	pub fn toggle_pin_column(&mut self, col_id: &str) {
-		if let Some(col) = self.columns.get_mut(col_id) {
-			col.pinned = match col.pinned {
-				PinPosition::Left => PinPosition::None,
-				PinPosition::None => PinPosition::Left,
-			};
-		}
-	}
+    pub fn toggle_pin_left(&mut self, col_id: &str) {
+        if let Some(col) = self.columns.get_mut(col_id) {
+            if col.pinned == PinPosition::Left {
+                col.pinned = PinPosition::None;
+            } else if col.pinned == PinPosition::None {
+                col.pinned = PinPosition::Left;
+            }
+            // Jeśli jest Right - nic nie robimy (najpierw trzeba odpiąć)
+        }
+    }
+
+    pub fn toggle_pin_right(&mut self, col_id: &str) {
+        if let Some(col) = self.columns.get_mut(col_id) {
+            if col.pinned == PinPosition::Right {
+                col.pinned = PinPosition::None;
+            } else if col.pinned == PinPosition::None {
+                col.pinned = PinPosition::Right;
+            }
+            // Jeśli jest Left - nic nie robimy (najpierw trzeba odpiąć)
+        }
+    }
 
 	pub fn handle_sort_click(&mut self, col_id: &str, ctrl_pressed: bool) {
 		if let Some(col) = self.columns.get(col_id) {
