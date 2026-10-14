@@ -1,5 +1,3 @@
-// src/layout/table/grid_render_header.rs
-
 use eframe::egui::{self, Color32, Rect, Sense, vec2};
 use crate::layout::table::types::{SortDir, TableState};
 use crate::theme::tab::TableTheme;
@@ -10,6 +8,7 @@ pub fn render_header_row(
     state: &mut TableState,
     theme: &TableTheme,
     shift_pressed: bool,
+    ctrl_pressed: bool,
     is_pinned: bool,
 ) {
     ui.horizontal(|ui| {
@@ -54,8 +53,19 @@ pub fn render_header_row(
                 Color32::WHITE,
             );
 
-            if sortable && response.clicked() {
-                state.handle_sort_click(col_id, shift_pressed);
+            let tooltip_text = if is_pinned {
+                "Kliknij z Shift, aby odpiąć.\nKliknij z Ctrl, aby sortować po wielu."
+            } else {
+                "Kliknij z Shift, aby przypiąć.\nKliknij z Ctrl, aby sortować po wielu."
+            };
+            let response = response.on_hover_text(tooltip_text);
+
+            if response.clicked() {
+                if shift_pressed {
+                    state.toggle_pin_column(col_id);
+                } else if sortable {
+                    state.handle_sort_click(col_id, ctrl_pressed);
+                }
             }
 
             let resize_rect = Rect::from_min_max(

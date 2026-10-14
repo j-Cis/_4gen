@@ -4,189 +4,198 @@ use std::collections::{HashMap, HashSet};
 
 #[derive(PartialEq, Clone, Copy, Debug)]
 pub enum TableAction {
-    Prev,
-    Next,
-    Add,
-    Edit,
-    Delete,
-    Merge,
-    Duplicate,
-    Tag,
-    ConfigColumns,
-    ToggleShift, 
-    ToggleCtrl,  
-    ToggleAlt,   
+	Prev,
+	Next,
+	Add,
+	Edit,
+	Delete,
+	Merge,
+	Duplicate,
+	Tag,
+	ConfigColumns,
+	ToggleShift, 
+	ToggleCtrl,  
+	ToggleAlt,   
 }
 
 #[derive(Clone, PartialEq, Debug)]
 pub enum PinPosition {
-    None,
-    Left,
-    // Right, // TODO: Tymczasowo wyłączone do czasu wdrożenia pełnego wsparcia
+	None,
+	Left,
+	// Right, // TODO: Tymczasowo wyłączone do czasu wdrożenia pełnego wsparcia
 }
 
 #[derive(Clone, PartialEq, Debug)]
 pub enum SortDir {
-    Asc,
-    Desc,
+	Asc,
+	Desc,
 }
 
 #[derive(Clone)]
 pub struct ColDef {
-    pub id: String,
-    pub title: String,
-    pub width_px: f32, // Sztywna szerokość w px do resizowania i zamrażania
-    pub sortable: bool,
-    pub regex_filter: String,
-    pub pinned: PinPosition,
+	pub id: String,
+	pub title: String,
+	pub width_px: f32, // Sztywna szerokość w px do resizowania i zamrażania
+	pub sortable: bool,
+	pub regex_filter: String,
+	pub pinned: PinPosition,
 }
 
 #[derive(Clone)]
 pub struct TableConfig {
-    pub allow_selection: bool,
-    pub multi_select: bool,
-    pub max_selection: Option<usize>,
+	pub allow_selection: bool,
+	pub multi_select: bool,
+	pub max_selection: Option<usize>,
 }
 
 impl Default for TableConfig {
-    fn default() -> Self {
-        Self {
-            allow_selection: true,
-            multi_select: true,
-            max_selection: None,
-        }
-    }
+	fn default() -> Self {
+		Self {
+			allow_selection: true,
+			multi_select: true,
+			max_selection: None,
+		}
+	}
 }
 
 pub struct TableState {
-    pub columns: HashMap<String, ColDef>,
-    pub display_order: Vec<String>,
-    pub visible_columns: HashSet<String>,
-    pub sort_rules: Vec<(String, SortDir)>,
-    pub selected_rows: HashSet<usize>,
+	pub columns: HashMap<String, ColDef>,
+	pub display_order: Vec<String>,
+	pub visible_columns: HashSet<String>,
+	pub sort_rules: Vec<(String, SortDir)>,
+	pub selected_rows: HashSet<usize>,
 
-    // Wirtualne modyfikatory dotykowe
-    pub simulated_shift: bool,
-    pub simulated_ctrl: bool,
-    pub simulated_alt: bool,
+	// Wirtualne modyfikatory dotykowe
+	pub simulated_shift: bool,
+	pub simulated_ctrl: bool,
+	pub simulated_alt: bool,
 }
 
 impl TableState {
-    pub fn new(cols: Vec<ColDef>) -> Self {
-        let mut columns = HashMap::new();
-        let mut display_order = Vec::new();
-        let mut visible_columns = HashSet::new();
+	pub fn new(cols: Vec<ColDef>) -> Self {
+		let mut columns = HashMap::new();
+		let mut display_order = Vec::new();
+		let mut visible_columns = HashSet::new();
 
-        for col in cols {
-            display_order.push(col.id.clone());
-            visible_columns.insert(col.id.clone());
-            columns.insert(col.id.clone(), col);
-        }
+		for col in cols {
+			display_order.push(col.id.clone());
+			visible_columns.insert(col.id.clone());
+			columns.insert(col.id.clone(), col);
+		}
 
-        Self {
-            columns,
-            display_order,
-            visible_columns,
-            sort_rules: Vec::new(),
-            selected_rows: HashSet::new(),
-            simulated_shift: false,
-            simulated_ctrl: false,
-            simulated_alt: false,
-        }
-    }
+		Self {
+			columns,
+			display_order,
+			visible_columns,
+			sort_rules: Vec::new(),
+			selected_rows: HashSet::new(),
+			simulated_shift: false,
+			simulated_ctrl: false,
+			simulated_alt: false,
+		}
+	}
 
-    pub fn is_shift_active(&self, input: &eframe::egui::InputState) -> bool {
-        self.simulated_shift || input.modifiers.shift
-    }
+	pub fn is_shift_active(&self, input: &eframe::egui::InputState) -> bool {
+		self.simulated_shift || input.modifiers.shift
+	}
 
-    pub fn is_ctrl_active(&self, input: &eframe::egui::InputState) -> bool {
-        self.simulated_ctrl || input.modifiers.command || input.modifiers.ctrl
-    }
+	pub fn is_ctrl_active(&self, input: &eframe::egui::InputState) -> bool {
+		self.simulated_ctrl || input.modifiers.command || input.modifiers.ctrl
+	}
 
-    pub fn is_alt_active(&self, input: &eframe::egui::InputState) -> bool {
-        self.simulated_alt || input.modifiers.alt
-    }
+	pub fn is_alt_active(&self, input: &eframe::egui::InputState) -> bool {
+		self.simulated_alt || input.modifiers.alt
+	}
 
-    pub fn get_computed_columns_order(&self) -> Vec<String> {
-        let mut left_pinned = Vec::new();
-        let mut unpinned = Vec::new();
-        let right_pinned = Vec::new();
+	pub fn get_computed_columns_order(&self) -> Vec<String> {
+		let mut left_pinned = Vec::new();
+		let mut unpinned = Vec::new();
+		let right_pinned = Vec::new();
 
-        for id in &self.display_order {
-            if self.visible_columns.contains(id) {
-                if let Some(col) = self.columns.get(id) {
-                    match col.pinned {
-                        PinPosition::Left => left_pinned.push(id.clone()),
-                        PinPosition::None => unpinned.push(id.clone()),
-                        // PinPosition::Right => right_pinned.push(id.clone()),
-                    }
-                }
-            }
-        }
+		for id in &self.display_order {
+			if self.visible_columns.contains(id) {
+				if let Some(col) = self.columns.get(id) {
+					match col.pinned {
+						PinPosition::Left => left_pinned.push(id.clone()),
+						PinPosition::None => unpinned.push(id.clone()),
+						// PinPosition::Right => right_pinned.push(id.clone()),
+					}
+				}
+			}
+		}
 
-        let mut final_order = left_pinned;
-        final_order.extend(unpinned);
-        final_order.extend(right_pinned);
-        final_order
-    }
+		let mut final_order = left_pinned;
+		final_order.extend(unpinned);
+		final_order.extend(right_pinned);
+		final_order
+	}
 
-    pub fn handle_sort_click(&mut self, col_id: &str, shift_pressed: bool) {
-        if let Some(col) = self.columns.get(col_id) {
-            if !col.sortable {
-                return;
-            }
-        } else {
-            return;
-        }
+	pub fn toggle_pin_column(&mut self, col_id: &str) {
+		if let Some(col) = self.columns.get_mut(col_id) {
+			col.pinned = match col.pinned {
+				PinPosition::Left => PinPosition::None,
+				PinPosition::None => PinPosition::Left,
+			};
+		}
+	}
 
-        let existing_idx = self.sort_rules.iter().position(|(id, _)| id == col_id);
+	pub fn handle_sort_click(&mut self, col_id: &str, ctrl_pressed: bool) {
+		if let Some(col) = self.columns.get(col_id) {
+			if !col.sortable {
+				return;
+			}
+		} else {
+			return;
+		}
 
-        if shift_pressed {
-            if let Some(idx) = existing_idx {
-                self.sort_rules[idx].1 = match self.sort_rules[idx].1 {
-                    SortDir::Asc => SortDir::Desc,
-                    SortDir::Desc => SortDir::Asc,
-                };
-            } else {
-                self.sort_rules.push((col_id.to_string(), SortDir::Asc));
-            }
-        } else {
-            let new_dir = if let Some(idx) = existing_idx {
-                if self.sort_rules.len() == 1 {
-                    match self.sort_rules[idx].1 {
-                        SortDir::Asc => SortDir::Desc,
-                        SortDir::Desc => SortDir::Asc,
-                    }
-                } else {
-                    SortDir::Asc
-                }
-            } else {
-                SortDir::Asc
-            };
-            self.sort_rules.clear();
-            self.sort_rules.push((col_id.to_string(), new_dir));
-        }
-    }
+		let existing_idx = self.sort_rules.iter().position(|(id, _)| id == col_id);
 
-    pub fn toggle_selection(&mut self, row_idx: usize, config: &TableConfig, ctrl_pressed: bool) {
-        if !config.allow_selection {
-            return;
-        }
+		if ctrl_pressed {
+			if let Some(idx) = existing_idx {
+				self.sort_rules[idx].1 = match self.sort_rules[idx].1 {
+					SortDir::Asc => SortDir::Desc,
+					SortDir::Desc => SortDir::Asc,
+				};
+			} else {
+				self.sort_rules.push((col_id.to_string(), SortDir::Asc));
+			}
+		} else {
+			let new_dir = if let Some(idx) = existing_idx {
+				if self.sort_rules.len() == 1 {
+					match self.sort_rules[idx].1 {
+						SortDir::Asc => SortDir::Desc,
+						SortDir::Desc => SortDir::Asc,
+					}
+				} else {
+					SortDir::Asc
+				}
+			} else {
+				SortDir::Asc
+			};
+			self.sort_rules.clear();
+			self.sort_rules.push((col_id.to_string(), new_dir));
+		}
+	}
 
-        if ctrl_pressed && config.multi_select {
-            if self.selected_rows.contains(&row_idx) {
-                self.selected_rows.remove(&row_idx);
-            } else {
-                if let Some(limit) = config.max_selection {
-                    if self.selected_rows.len() >= limit {
-                        return;
-                    }
-                }
-                self.selected_rows.insert(row_idx);
-            }
-        } else {
-            self.selected_rows.clear();
-            self.selected_rows.insert(row_idx);
-        }
-    }
+	pub fn toggle_selection(&mut self, row_idx: usize, config: &TableConfig, ctrl_pressed: bool) {
+		if !config.allow_selection {
+			return;
+		}
+
+		if ctrl_pressed && config.multi_select {
+			if self.selected_rows.contains(&row_idx) {
+				self.selected_rows.remove(&row_idx);
+			} else {
+				if let Some(limit) = config.max_selection {
+					if self.selected_rows.len() >= limit {
+						return;
+					}
+				}
+				self.selected_rows.insert(row_idx);
+			}
+		} else {
+			self.selected_rows.clear();
+			self.selected_rows.insert(row_idx);
+		}
+	}
 }

@@ -68,15 +68,15 @@ pub fn generate_snapshot() {
 	println!("🏗️");
 	let snapshot = Snapshot::new()
 		.title("_4GEN (CODE DUMP / SNAPSHOT) v:")
-		.title_sufix_date_fmt("WYYY-WWAAA-D hh:mm:ss.zzz|tt:qq")
+		.title_sufix_date_fmt("WYYY-WW D::hh:mm:ss:tt:qq")
 		.name("_4Gen_")
-		.name_sufix_date_fmt("WYYY-WWAAA-Dhhmm-ssttqq")
+		.name_sufix_date_fmt("WYYYWW-Dhhmm-ssttqq")
 		.output_dir("./dump")
 		.max_single_file_size(524288) // 512 KiB
 		.content_skip(["./assets/**", "*.svg"])
 		.add_footer_summary_setups(true)
 		.add_fotter_customize_text(
-			"\n---\n*Generated automatically by 4gen xtask via j-Cis/{querypath,querypath-fmt,temporal-fmt} (crates.io|github.com)*\n",
+			"\n---\n*Generated automatically by 4gen xtask via j-Cis/{querypath,querypath-fmt,querypath-snapshot} (crates.io|github.com)*\n",
 		);
 
 	match snapshot.generate_and_save(&results, &idn, &fmt) {
