@@ -1,6 +1,7 @@
 // src/layout/table/types.rs
 
 use std::collections::{HashMap, HashSet};
+use crate::layout::input::chips::ChipItem;
 
 #[derive(PartialEq, Clone, Copy, Debug)]
 pub enum TableAction {
@@ -73,6 +74,12 @@ pub struct TableState {
 	pub selected_rows: HashSet<usize>,
 	pub pinned_rows: HashMap<usize, RowPinPosition>,
 
+	// Stan komponentu Chips (filtry)
+	pub filter_chips: Vec<ChipItem>,
+	pub chip_input: String,
+	pub chip_pool: Vec<String>,
+	pub selected_chip: Option<String>,
+
 	// Wirtualne modyfikatory dotykowe
 	pub simulated_shift: bool,
 	pub simulated_ctrl: bool,
@@ -84,12 +91,27 @@ impl TableState {
 		let mut columns = HashMap::new();
 		let mut display_order = Vec::new();
 		let mut visible_columns = HashSet::new();
+		let mut chip_pool = Vec::new();
 
 		for col in cols {
 			display_order.push(col.id.clone());
 			visible_columns.insert(col.id.clone());
+			chip_pool.push(col.title.clone());
 			columns.insert(col.id.clone(), col);
 		}
+
+		// Przykładowe chipy startowe do weryfikacji wyglądu
+		let filter_chips = vec![
+			ChipItem::Parametric {
+				id: "chip_sample_1".into(),
+				key: "Płeć".into(),
+				display_value: "Kobieta".into(),
+			},
+			ChipItem::Simple {
+				id: "chip_sample_2".into(),
+				label: "Warszawa".into(),
+			},
+		];
 
 		Self {
 			columns,
@@ -98,6 +120,10 @@ impl TableState {
 			sort_rules: Vec::new(),
 			selected_rows: HashSet::new(),
 			pinned_rows: HashMap::new(),
+			filter_chips,
+			chip_input: String::new(),
+			chip_pool,
+			selected_chip: None,
 			simulated_shift: false,
 			simulated_ctrl: false,
 			simulated_alt: false,

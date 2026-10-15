@@ -30,5 +30,6 @@ pub mod widget {
 pub mod layout {
     pub mod setup; 
     pub mod frame;    
-    pub mod table;
+    pub mod table; 
+    pub mod input;
 }    

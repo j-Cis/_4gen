@@ -12,6 +12,14 @@ impl TableToolbar {
     pub fn show(ui: &mut egui::Ui, theme: &TableTheme, state: &mut TableState) -> Option<TableAction> {
         let mut action_triggered = None;
 
+        // Odczytujemy stan aktywności modyfikatorów uwzględniający zarówno
+        // wirtualne kliknięcie (simulated), jak i fizyczne trzymanie klawisza na klawiaturze
+        let (shift_active, ctrl_active, alt_active) = ui.input(|i| (
+            state.is_shift_active(i),
+            state.is_ctrl_active(i),
+            state.is_alt_active(i),
+        ));
+
         egui::Frame::default()
             .fill(theme.toolbar_bg)
             .inner_margin(4.0)
@@ -33,13 +41,13 @@ impl TableToolbar {
                                     }
                                     ToolbarItem::Modifier(m) => {
                                         let is_active = match m.action {
-                                            TableAction::ToggleShift => state.simulated_shift,
-                                            TableAction::ToggleCtrl => state.simulated_ctrl,
-                                            TableAction::ToggleAlt => state.simulated_alt,
+                                            TableAction::ToggleShift => shift_active,
+                                            TableAction::ToggleCtrl => ctrl_active,
+                                            TableAction::ToggleAlt => alt_active,
                                             _ => false,
                                         };
 
-                                        // Renderowany DOKŁADNIE tak samo jak przyciski obok, z podświetleniem po kliknięciu
+                                        // Podświetlenie aktywuje się natychmiast przy wciśnięciu klawisza fizycznego
                                         let btn = egui::Button::new(m.label).selected(is_active);
 
                                         if ui.add(btn).on_hover_text(m.tooltip).clicked() {

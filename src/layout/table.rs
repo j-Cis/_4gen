@@ -27,6 +27,7 @@ pub mod tools {
 
 use eframe::egui;
 use crate::theme::tab::TableTheme;
+use crate::layout::input::chips::{ChipContainerMode, ChipOverflow, ChipsContainer};
 
 pub use types::{ColDef, PinPosition, RowPinPosition, SortDir, TableAction, TableConfig, TableState};
 pub use config::render::TableConfigWindow;
@@ -47,10 +48,26 @@ impl<'a> AdvancedTable<'a> {
     where
         F: FnMut(usize, &str, &mut egui::Ui),
     {
+        // 1. Pasek narzędzi (Toolbar)
         let action_triggered = tools::render::TableToolbar::show(ui, self.theme, self.state);
 
-        ui.add_space(4.0);
+        ui.add_space(3.0);
 
+        // 2. Komponent Chips (pomiędzy toolbarem a tabelą)
+        ChipsContainer::new(
+            ui.id().with("table_chips_filter"),
+            &mut self.state.filter_chips,
+            &mut self.state.chip_input,
+            &self.state.chip_pool,
+            &mut self.state.selected_chip,
+        )
+        .mode(ChipContainerMode::SingleLine)
+        .overflow(ChipOverflow::Scroll)
+        .show(ui);
+
+        ui.add_space(3.0);
+
+        // 3. Nagłówki i ciało tabeli
         grid_engine::TableGridEngine::render(
             ui,
             self.state,
