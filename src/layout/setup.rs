@@ -1,9 +1,9 @@
-// src\layout\setup.rs
+// src/layout/setup.rs
 
 use crate::app::ViewRegistry;
 use crate::layout::frame::{SideNav, SideNavItem, WindowClosePosition, WindowHeaderConfig, WindowMinimizePosition};
-use crate::layout::table::tools::engine::{ModifierButton, ToolbarButton, ToolbarItem};
-use crate::layout::table::types::{TableAction,ConfigColItem};
+use crate::layout::table::tools::engine::{ToolbarButton, ToolbarItem};
+use crate::layout::table::types::{TableAction, ConfigColItem};
 use crate::theme::{ico, tab::TableIcons};
 use crate::widget::{
     records_assets::RecordsAssetsWidget,
@@ -48,7 +48,6 @@ pub fn build_nav_side_right<'a>() -> SideNav<'a> {
 
 pub fn build_table_toolbar<'a>() -> Vec<ToolbarItem<'a>> {
     vec![
-        // Grupa nawigacji
         ToolbarItem::Button(ToolbarButton {
             action: TableAction::Prev,
             label_or_icon: TableIcons::PREV,
@@ -60,8 +59,6 @@ pub fn build_table_toolbar<'a>() -> Vec<ToolbarItem<'a>> {
             tooltip: "Następne zaznaczenie",
         }),
         ToolbarItem::Spacer(8.0),
-
-        // Grupa edycji / CRUD
         ToolbarItem::Button(ToolbarButton {
             action: TableAction::Add,
             label_or_icon: TableIcons::ADD,
@@ -78,8 +75,6 @@ pub fn build_table_toolbar<'a>() -> Vec<ToolbarItem<'a>> {
             tooltip: "Usuń pozycję",
         }),
         ToolbarItem::Spacer(8.0),
-
-        // Grupa zaawansowana
         ToolbarItem::Button(ToolbarButton {
             action: TableAction::Merge,
             label_or_icon: TableIcons::MERGE,
@@ -91,8 +86,6 @@ pub fn build_table_toolbar<'a>() -> Vec<ToolbarItem<'a>> {
             tooltip: "Duplikuj pozycję",
         }),
         ToolbarItem::Spacer(8.0),
-
-        // Grupa tagów i widoku
         ToolbarItem::Button(ToolbarButton {
             action: TableAction::Tag,
             label_or_icon: TableIcons::TAG,
@@ -103,27 +96,6 @@ pub fn build_table_toolbar<'a>() -> Vec<ToolbarItem<'a>> {
             action: TableAction::ConfigColumns,
             label_or_icon: TableIcons::CONFIG,
             tooltip: "Konfiguruj kolumny",
-        }),
-
-        // WIRTUALNE MODYFIKATORY
-        ToolbarItem::Spacer(10.0),
-        ToolbarItem::Separator,
-        ToolbarItem::Spacer(4.0),
-        
-        ToolbarItem::Modifier(ModifierButton {
-            action: TableAction::ToggleCtrl,
-            label: "⌘ Ctrl",
-            tooltip: "Wirtualny Ctrl",
-        }),
-        ToolbarItem::Modifier(ModifierButton {
-            action: TableAction::ToggleShift,
-            label: "⇧ Shift",
-            tooltip: "Wirtualny Shift",
-        }),
-        ToolbarItem::Modifier(ModifierButton {
-            action: TableAction::ToggleAlt,
-            label: "⌥ Alt",
-            tooltip: "Wirtualny Alt",
         }),
     ]
 }
@@ -144,9 +116,9 @@ pub fn build_window_header() -> WindowHeaderConfig {
 
 pub fn build_table_config_record() -> Vec<ConfigColItem> {
     vec![
-        ConfigColItem::Pinned,    // przyciski 📌
-        ConfigColItem::Position,  // strzałki góra/dół
-        ConfigColItem::Title,     // tekst i uchwyt drag
-        ConfigColItem::Visible,   // checkbox
+        ConfigColItem::Pinned,
+        ConfigColItem::Position,
+        ConfigColItem::Title,
+        ConfigColItem::Visible,
     ]
 }

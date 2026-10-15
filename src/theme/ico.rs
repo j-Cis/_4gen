@@ -13,15 +13,15 @@ pub const ICON_SIZE_VEC: Vec2 = Vec2::new(ICON_SIZE, ICON_SIZE);
 pub const ICON_BUTTON_SIZE_VEC: Vec2 = Vec2::new(ICON_BUTTON_SIZE, ICON_BUTTON_SIZE);
 
 macro_rules! register_icon {
-    ($func_name:ident, $file:literal) => {
-        pub fn $func_name<'a>() -> Image<'a> {
-            Image::new(egui::include_image!(concat!(
-                env!("CARGO_MANIFEST_DIR"),
-                "/assets/ico/",
-                $file
-            )))
-        }
-    };
+	($func_name:ident, $file:literal) => {
+		pub fn $func_name<'a>() -> Image<'a> {
+			Image::new(egui::include_image!(concat!(
+				env!("CARGO_MANIFEST_DIR"),
+				"/assets/ico/",
+				$file
+			)))
+		}
+	};
 }
 
 // --- CENTRALNY REJESTR IKON ---

@@ -1,9 +1,11 @@
 // src/widget/records_individuals.rs
 
 use crate::layout::table::{
-    AdvancedTable, ColDef, PinPosition, TableAction, TableConfig, TableConfigWindow, TableState,
+    AdvancedTable, TableAction, TableConfigWindow,
+    types::{ColDef, PinPosition, SortDir, TableConfig, TableState},
 };
 use crate::theme::tab::TableTheme;
+use crate::layout::system_status::SystemStatus;
 use eframe::egui;
 use std::cmp::Ordering;
 
@@ -125,11 +127,9 @@ impl Default for RecordsIndividualsWidget {
 }
 
 impl RecordsIndividualsWidget {
-    pub fn show(&mut self, ui: &mut egui::Ui) {
-        // 1. Tworzymy wektor z indeksami od 0 do liczby rekordów
+    pub fn show(&mut self, ui: &mut egui::Ui, sys: &mut SystemStatus) {
         let mut row_indices: Vec<usize> = (0..self.records.len()).collect();
 
-        // 2. Sortujemy indeksy w oparciu o stan tabeli (sort_rules)
         let sort_rules = self.state.sort_rules.clone();
         if !sort_rules.is_empty() {
             row_indices.sort_by(|&a_idx, &b_idx| {
@@ -148,7 +148,7 @@ impl RecordsIndividualsWidget {
                     };
 
                     if cmp != Ordering::Equal {
-                        return if *dir == crate::layout::table::SortDir::Asc { cmp } else { cmp.reverse() };
+                        return if *dir == SortDir::Asc { cmp } else { cmp.reverse() };
                     }
                 }
                 Ordering::Equal
@@ -161,8 +161,7 @@ impl RecordsIndividualsWidget {
             state: &mut self.state,
         };
 
-        // 3. Przekazujemy posortowaną tablicę indeksów `&row_indices` zamiast `self.records.len()`
-        let action = table.show(ui, &row_indices, |true_idx, col_id, cell_ui| {
+        let action = table.show(ui, &row_indices, &sys.modifiers, |true_idx, col_id, cell_ui| {
             let item = &self.records[true_idx];
             match col_id {
                 "id" => { cell_ui.label(item.id.to_string()); }

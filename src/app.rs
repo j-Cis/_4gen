@@ -1,9 +1,12 @@
+// src/app.rs
+
 use std::collections::HashMap;
 use crate::layout::{
     frame::{
         show_floating_nav_toggle, ContainerCanvas, ContainerWindow, ContainerWindowMode, SideNav,
     },
     setup::{build_nav_side_left, build_nav_side_right, build_view_registry},
+    system_status::SystemStatus,
 };
 use crate::theme::{hue, ico};
 use crate::widget::{
@@ -12,12 +15,9 @@ use crate::widget::{
 };
 use eframe::egui::{self, Align, Layout, Panel, Ui};
 
-// ============================================================================
-// REJESTR WIDOKÓW CENTRALNYCH
-// ============================================================================
 pub trait CanvasView {
     fn title(&self) -> &'static str;
-    fn show(&mut self, ui: &mut Ui);
+    fn show(&mut self, ui: &mut Ui, sys: &mut SystemStatus);
 }
 
 impl CanvasView for RecordsIndividualsWidget {
@@ -25,8 +25,8 @@ impl CanvasView for RecordsIndividualsWidget {
         "Rejestr Osobowy"
     }
 
-    fn show(&mut self, ui: &mut Ui) {
-        self.show(ui);
+    fn show(&mut self, ui: &mut Ui, sys: &mut SystemStatus) {
+        self.show(ui, sys);
     }
 }
 
@@ -35,7 +35,7 @@ impl CanvasView for RecordsAssetsWidget {
         "Zasoby i Pliki"
     }
 
-    fn show(&mut self, ui: &mut Ui) {
+    fn show(&mut self, ui: &mut Ui, _sys: &mut SystemStatus) {
         RecordsAssetsWidget::show(ui);
     }
 }
@@ -59,9 +59,9 @@ impl ViewRegistry {
         self.views.get(id).map(|v| v.title())
     }
 
-    pub fn show(&mut self, id: &str, ui: &mut Ui) {
+    pub fn show(&mut self, id: &str, ui: &mut Ui, sys: &mut SystemStatus) {
         if let Some(view) = self.views.get_mut(id) {
-            view.show(ui);
+            view.show(ui, sys);
         } else {
             ui.centered_and_justified(|ui| {
                 ui.label(
@@ -85,7 +85,7 @@ pub struct App4Gen<'a> {
     active_view_id: String,
     welcome_window: ContainerWindow,
     settings_modal: ContainerWindow,
-    status: String,
+    system: SystemStatus,
     side_nav_visible: bool,
 }
 
@@ -93,7 +93,6 @@ impl<'a> App4Gen<'a> {
     pub fn new(_cc: &eframe::CreationContext<'_>) -> Self {
         egui_extras::install_image_loaders(&_cc.egui_ctx);
 
-        // --- REJESTRACJA CZCIONKI IOSEVKA ETOILE ---
         let mut fonts = egui::FontDefinitions::default();
 
         fonts.font_data.insert(
@@ -114,7 +113,6 @@ impl<'a> App4Gen<'a> {
             .insert(0, "iosevka_etoile".to_owned());
 
         _cc.egui_ctx.set_fonts(fonts);
-        // --------------------------------------------
 
         let mut welcome_window = ContainerWindow::new(
             "welcome_win",
@@ -138,7 +136,7 @@ impl<'a> App4Gen<'a> {
             active_view_id: "search".into(),
             welcome_window,
             settings_modal,
-            status: "Gotowy".into(),
+            system: SystemStatus::default(),
             side_nav_visible: true,
         }
     }
@@ -161,15 +159,9 @@ impl<'a> eframe::App for App4Gen<'a> {
         Panel::bottom("status_bar")
             .resizable(false)
             .show(ui, |ui| {
-                ui.horizontal(|ui| {
-                    ui.label(&self.status);
-                    ui.with_layout(Layout::right_to_left(Align::Center), |ui| {
-                        ui.label("_4gen · wersja rozwojowa · v:2026-42 3::23:09:26:18:02");
-                    });
-                });
+                self.system.show(ui);
             });
 
-        // LEWY I PRAWY PASEK (WARUNKOWANE WIDOCZNOŚCIĄ)
         if self.side_nav_visible {
             Panel::left("left_ribbon")
                 .frame(ribbon_frame)
@@ -179,7 +171,7 @@ impl<'a> eframe::App for App4Gen<'a> {
                     for id in self.left_bar.show(ui) {
                         if let Some(title) = self.views.title(id) {
                             self.active_view_id = id.to_string();
-                            self.status = format!("Widok: {}", title);
+                            self.system.status_msg = format!("Widok: {}", title);
                         }
                     }
                 });
@@ -190,25 +182,25 @@ impl<'a> eframe::App for App4Gen<'a> {
                 .resizable(false)
                 .show(ui, |ui| {
                     for id in self.right_bar.show(ui) {
-                        self.status = match id {
+                        self.system.status_msg = match id {
                             "layers" => "Warstwy".into(),
                             "properties" => "Właściwości".into(),
                             "settings" => {
                                 self.settings_modal.open();
                                 "Ustawienia".into()
                             }
-                            _ => self.status.clone(),
+                            _ => self.system.status_msg.clone(),
                         };
                     }
                 });
         }
 
-        // OBSZAR CENTRALNY (Automatycznie wypełnia 100% szerokości, gdy listwy są ukryte)
+        // OBSZAR CENTRALNY
         egui::CentralPanel::default()
             .frame(egui::Frame::default().fill(hue::APP_BG))
             .show(ui, |ui| {
                 ContainerCanvas::show(ui, |ui| {
-                    self.views.show(&self.active_view_id, ui);
+                    self.views.show(&self.active_view_id, ui, &mut self.system);
                 });
 
                 let mut open_modal = false;
@@ -236,7 +228,6 @@ impl<'a> eframe::App for App4Gen<'a> {
                 }
             });
 
-        // PŁYWAJĄCY GUZIK WIDOCZNOŚCI (Zawsze na wierzchu)
         show_floating_nav_toggle(ui.ctx(), &mut self.side_nav_visible);
     }
 }

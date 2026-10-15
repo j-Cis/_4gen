@@ -28,8 +28,9 @@ pub mod tools {
 use eframe::egui;
 use crate::theme::tab::TableTheme;
 use crate::layout::input::chips::{ChipContainerMode, ChipOverflow, ChipsContainer};
+use crate::layout::system_status::SystemModifiers;
 
-pub use types::{ColDef, PinPosition, RowPinPosition, SortDir, TableAction, TableConfig, TableState};
+pub use types::{TableAction, TableConfig, TableState};
 pub use config::render::TableConfigWindow;
 
 pub struct AdvancedTable<'a> {
@@ -43,6 +44,7 @@ impl<'a> AdvancedTable<'a> {
         &mut self,
         ui: &mut egui::Ui,
         row_indices: &[usize],
+        sys_modifiers: &SystemModifiers,
         cell_renderer: F,
     ) -> Option<TableAction>
     where
@@ -74,6 +76,7 @@ impl<'a> AdvancedTable<'a> {
             self.config,
             self.theme,
             row_indices,
+            sys_modifiers,
             cell_renderer,
         );
 
