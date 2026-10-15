@@ -9,51 +9,51 @@ use crate::theme::tab::TableTheme;
 pub struct TableGridEngine;
 
 impl TableGridEngine {
-    pub fn render<F>(
-        ui: &mut egui::Ui,
-        state: &mut TableState,
-        config: &TableConfig,
-        theme: &TableTheme,
-        row_indices: &[usize],
-        sys_modifiers: &SystemModifiers,
-        mut cell_renderer: F,
-    ) where
-        F: FnMut(usize, &str, &mut egui::Ui),
-    {
-        ui.style_mut().interaction.selectable_labels = false;
-        
-        let active_order = state.get_computed_columns_order();
+	pub fn render<F>(
+		ui: &mut egui::Ui,
+		state: &mut TableState,
+		config: &TableConfig,
+		theme: &TableTheme,
+		row_indices: &[usize],
+		sys_modifiers: &SystemModifiers,
+		mut cell_renderer: F,
+	) where
+		F: FnMut(usize, &str, &mut egui::Ui),
+	{
+		ui.style_mut().interaction.selectable_labels = false;
+		
+		let active_order = state.get_computed_columns_order();
 
-        let mut left_cols = Vec::new();
-        let mut center_cols = Vec::new();
-        let mut right_cols = Vec::new();
+		let mut left_cols = Vec::new();
+		let mut center_cols = Vec::new();
+		let mut right_cols = Vec::new();
 
-        for id in &active_order {
-            if let Some(col) = state.columns.get(id) {
-                match col.pinned {
-                    PinPosition::Left => left_cols.push(id.clone()),
-                    PinPosition::None => center_cols.push(id.clone()),
-                    PinPosition::Right => right_cols.push(id.clone()),
-                }
-            }
-        }
+		for id in &active_order {
+			if let Some(col) = state.columns.get(id) {
+				match col.pinned {
+					PinPosition::Left => left_cols.push(id.clone()),
+					PinPosition::None => center_cols.push(id.clone()),
+					PinPosition::Right => right_cols.push(id.clone()),
+				}
+			}
+		}
 
-        let mut top_rows = Vec::new();
-        let mut middle_rows = Vec::new();
-        let mut bottom_rows = Vec::new();
+		let mut top_rows = Vec::new();
+		let mut middle_rows = Vec::new();
+		let mut bottom_rows = Vec::new();
 
-        for &idx in row_indices {
-            match state.row_pin(idx) {
-                RowPinPosition::Top => top_rows.push(idx),
-                RowPinPosition::None => middle_rows.push(idx),
-                RowPinPosition::Bottom => bottom_rows.push(idx),
-            }
-        }
+		for &idx in row_indices {
+			match state.row_pin(idx) {
+				RowPinPosition::Top => top_rows.push(idx),
+				RowPinPosition::None => middle_rows.push(idx),
+				RowPinPosition::Bottom => bottom_rows.push(idx),
+			}
+		}
 
-        // --- KLUCZOWA POPRAWKA Linii 55-57 ---
-        let shift_pressed = ui.input(|i| state.is_shift_active(i, sys_modifiers));
-        let ctrl_pressed = ui.input(|i| state.is_ctrl_active(i, sys_modifiers));
-        let alt_pressed = ui.input(|i| state.is_alt_active(i, sys_modifiers));
+		// --- KLUCZOWA POPRAWKA Linii 55-57 ---
+		let shift_pressed = ui.input(|i| state.is_shift_active(i, sys_modifiers));
+		let ctrl_pressed = ui.input(|i| state.is_ctrl_active(i, sys_modifiers));
+		let alt_pressed = ui.input(|i| state.is_alt_active(i, sys_modifiers));
 		
 		let left_total_width: f32 = left_cols
 			.iter()
