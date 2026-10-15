@@ -1,9 +1,9 @@
 // src/layout/input/chips/chip_container.rs
 
-use eframe::egui::{self, Color32, CursorIcon, Frame, Id, Key, Margin, Order, Rect, Stroke, Vec2};
+use eframe::egui::{self, Color32, CursorIcon, Frame, Id, Margin, Order, Stroke, Vec2};
 use crate::layout::input::chips::{
     render_autocomplete_input, render_chip, ChipAction, ChipContainerMode, ChipItem, ChipLimits,
-    ChipOverflow,
+    ChipOverflow, ChipSlot,
 };
 
 pub struct ChipsContainer<'a> {
@@ -61,14 +61,6 @@ impl<'a> ChipsContainer<'a> {
             .corner_radius(6.0)
             .inner_margin(Margin::same(4));
 
-        let edit_chip_id_key = self.id.with("active_param_edit_id");
-        let edit_anchor_rect_key = self.id.with("active_param_anchor_rect");
-        let edit_buffer_key = self.id.with("active_param_buffer");
-
-        let mut editing_chip_id = ui.data(|d| d.get_temp::<String>(edit_chip_id_key));
-        let mut editing_anchor_rect = ui.data(|d| d.get_temp::<Rect>(edit_anchor_rect_key));
-        let mut just_opened = false;
-
         container_frame.show(ui, |ui| {
             ui.style_mut().interaction.selectable_labels = false;
             ui.spacing_mut().item_spacing = Vec2::new(6.0, 6.0);
@@ -76,8 +68,8 @@ impl<'a> ChipsContainer<'a> {
             match (self.mode, self.overflow) {
                 (ChipContainerMode::MultiLine, ChipOverflow::Wrap) => {
                     ui.horizontal_wrapped(|ui| {
-                        self.render_chips_flow(ui, 0, self.items.len(), &mut actions, &mut editing_chip_id, &mut editing_anchor_rect, &mut just_opened);
-                        self.render_input_slot(ui, &mut actions, &mut editing_chip_id, &mut editing_anchor_rect, &mut just_opened);
+                        self.render_chips_flow(ui, 0, self.items.len(), &mut actions);
+                        self.render_input_slot(ui, &mut actions);
                     });
                 }
 
@@ -88,8 +80,8 @@ impl<'a> ChipsContainer<'a> {
                         .scroll_bar_visibility(egui::scroll_area::ScrollBarVisibility::AlwaysHidden)
                         .show(ui, |ui| {
                             ui.horizontal(|ui| {
-                                self.render_chips_flow(ui, 0, self.items.len(), &mut actions, &mut editing_chip_id, &mut editing_anchor_rect, &mut just_opened);
-                                self.render_input_slot(ui, &mut actions, &mut editing_chip_id, &mut editing_anchor_rect, &mut just_opened);
+                                self.render_chips_flow(ui, 0, self.items.len(), &mut actions);
+                                self.render_input_slot(ui, &mut actions);
                             });
                         });
                 }
@@ -101,8 +93,8 @@ impl<'a> ChipsContainer<'a> {
                         .max_height(80.0)
                         .show(ui, |ui| {
                             ui.horizontal_wrapped(|ui| {
-                                self.render_chips_flow(ui, 0, self.items.len(), &mut actions, &mut editing_chip_id, &mut editing_anchor_rect, &mut just_opened);
-                                self.render_input_slot(ui, &mut actions, &mut editing_chip_id, &mut editing_anchor_rect, &mut just_opened);
+                                self.render_chips_flow(ui, 0, self.items.len(), &mut actions);
+                                self.render_input_slot(ui, &mut actions);
                             });
                         });
                 }
@@ -113,7 +105,7 @@ impl<'a> ChipsContainer<'a> {
                     let hidden_count = total.saturating_sub(visible_count);
 
                     ui.horizontal(|ui| {
-                        self.render_chips_flow(ui, 0, visible_count, &mut actions, &mut editing_chip_id, &mut editing_anchor_rect, &mut just_opened);
+                        self.render_chips_flow(ui, 0, visible_count, &mut actions);
 
                         if hidden_count > 0 {
                             let popup_id = self.id.with("hidden_chips_popup");
@@ -142,7 +134,7 @@ impl<'a> ChipsContainer<'a> {
                                             .inner_margin(Margin::same(6))
                                             .show(pop_ui, |ui| {
                                                 ui.vertical(|ui| {
-                                                    self.render_chips_flow(ui, visible_count, total, &mut actions, &mut editing_chip_id, &mut editing_anchor_rect, &mut just_opened);
+                                                    self.render_chips_flow(ui, visible_count, total, &mut actions);
                                                 });
                                             });
                                     });
@@ -157,108 +149,20 @@ impl<'a> ChipsContainer<'a> {
                             }
                         }
 
-                        self.render_input_slot(ui, &mut actions, &mut editing_chip_id, &mut editing_anchor_rect, &mut just_opened);
+                        self.render_input_slot(ui, &mut actions);
                     });
                 }
 
                 _ => {
                     ui.horizontal(|ui| {
-                        self.render_chips_flow(ui, 0, self.items.len(), &mut actions, &mut editing_chip_id, &mut editing_anchor_rect, &mut just_opened);
-                        self.render_input_slot(ui, &mut actions, &mut editing_chip_id, &mut editing_anchor_rect, &mut just_opened);
+                        self.render_chips_flow(ui, 0, self.items.len(), &mut actions);
+                        self.render_input_slot(ui, &mut actions);
                     });
                 }
             }
         });
 
-        // 3. Obsługa okienka edycji parametru zakotwiczonego dokładnie pod chipem
-        if let Some(target_id) = &editing_chip_id {
-            let mut close_editor = false;
-            let mut new_val_to_apply = None;
-
-            if let Some(chip) = self.items.iter().find(|c| c.id() == target_id) {
-                let mut param_buf = ui.data(|d| d.get_temp::<String>(edit_buffer_key)).unwrap_or_else(|| {
-                    chip.param_value().unwrap_or("").to_string()
-                });
-
-                let anchor_rect = editing_anchor_rect.unwrap_or_else(|| ui.cursor());
-                let popup_pos = anchor_rect.left_bottom() + Vec2::new(0.0, 4.0);
-                let edit_area_id = self.id.with("param_edit_popup");
-
-                let area_resp = egui::Area::new(edit_area_id)
-                    .order(Order::Tooltip)
-                    .fixed_pos(popup_pos)
-                    .show(ui.ctx(), |pop_ui| {
-                        Frame::popup(pop_ui.style())
-                            .fill(Color32::from_rgb(36, 38, 44))
-                            .stroke(Stroke::new(1.0, Color32::from_rgb(0, 150, 255)))
-                            .inner_margin(Margin::same(8))
-                            .show(pop_ui, |p_ui| {
-                                p_ui.horizontal(|h_ui| {
-                                    h_ui.label(
-                                        egui::RichText::new(format!("{}:", chip.key_or_label()))
-                                            .strong()
-                                            .color(Color32::from_rgb(170, 190, 220)),
-                                    );
-                                    let edit_resp = h_ui.add(
-                                        egui::TextEdit::singleline(&mut param_buf)
-                                            .hint_text("Wpisz parametr...")
-                                            .desired_width(130.0),
-                                    );
-                                    if just_opened {
-                                        edit_resp.request_focus();
-                                    }
-
-                                    let enter_pressed = h_ui.input(|i| i.key_pressed(Key::Enter));
-                                    if h_ui.button("OK").clicked() || enter_pressed {
-                                        new_val_to_apply = Some(param_buf.trim().to_string());
-                                        close_editor = true;
-                                    }
-                                });
-                            });
-                    });
-
-                // Zamknięcie na Escape
-                if ui.input(|i| i.key_pressed(Key::Escape)) {
-                    close_editor = true;
-                }
-
-                // Zamknięcie po kliknięciu poza dymkiem (ignorujemy klatkę otwarcia!)
-                if !just_opened && ui.input(|i| i.pointer.any_pressed()) {
-                    if let Some(pos) = ui.input(|i| i.pointer.interact_pos()) {
-                        if !area_resp.response.rect.contains(pos) && !anchor_rect.contains(pos) {
-                            close_editor = true;
-                        }
-                    }
-                }
-
-                ui.data_mut(|d| d.insert_temp(edit_buffer_key, param_buf));
-            } else {
-                close_editor = true;
-            }
-
-            if let Some(val) = new_val_to_apply {
-                if let Some(chip) = self.items.iter_mut().find(|c| c.id() == target_id) {
-                    chip.set_param_value(val);
-                }
-            }
-
-            if close_editor {
-                editing_chip_id = None;
-                editing_anchor_rect = None;
-                ui.data_mut(|d| {
-                    d.remove::<String>(edit_buffer_key);
-                    d.remove::<Rect>(edit_anchor_rect_key);
-                });
-            }
-        }
-
-        ui.data_mut(|d| {
-            d.insert_temp(edit_chip_id_key, editing_chip_id);
-            if let Some(rect) = editing_anchor_rect {
-                d.insert_temp(edit_anchor_rect_key, rect);
-            }
-        });
-
+        // Obsługa akcji usunięcia z wektora
         for action in &actions {
             if let ChipAction::Removed(id) = action {
                 self.items.retain(|c| c.id() != id);
@@ -274,27 +178,27 @@ impl<'a> ChipsContainer<'a> {
         start_idx: usize,
         end_idx: usize,
         actions: &mut Vec<ChipAction>,
-        editing_chip_id: &mut Option<String>,
-        editing_anchor_rect: &mut Option<Rect>,
-        just_opened: &mut bool,
     ) {
         for idx in start_idx..end_idx {
             if idx >= self.items.len() {
                 break;
             }
-            let item = &self.items[idx];
+            let item = &mut self.items[idx];
             let is_selected = self.selected_chip.as_deref() == Some(item.id());
             let out = render_chip(ui, item, is_selected);
 
             if out.remove_clicked {
                 actions.push(ChipAction::Removed(item.id().to_string()));
-            } else if out.param_clicked {
-                *editing_chip_id = Some(item.id().to_string());
-                *editing_anchor_rect = Some(out.rect);
-                *just_opened = true;
-                let initial_val = item.param_value().unwrap_or("").to_string();
-                ui.data_mut(|d| d.insert_temp(self.id.with("active_param_buffer"), initial_val));
-                actions.push(ChipAction::ParamEditRequested(item.id().to_string()));
+            } else if out.add_param_clicked {
+                item.convert_to_parametric();
+                actions.push(ChipAction::Clicked(item.id().to_string()));
+            } else if out.param_changed {
+                if let Some(val) = item.param_value() {
+                    actions.push(ChipAction::ParamChanged {
+                        id: item.id().to_string(),
+                        display_value: val,
+                    });
+                }
             } else if out.clicked {
                 *self.selected_chip = Some(item.id().to_string());
                 actions.push(ChipAction::Clicked(item.id().to_string()));
@@ -302,14 +206,7 @@ impl<'a> ChipsContainer<'a> {
         }
     }
 
-    fn render_input_slot(
-        &mut self,
-        ui: &mut egui::Ui,
-        actions: &mut Vec<ChipAction>,
-        editing_chip_id: &mut Option<String>,
-        editing_anchor_rect: &mut Option<Rect>,
-        just_opened: &mut bool,
-    ) {
+    fn render_input_slot(&mut self, ui: &mut egui::Ui, actions: &mut Vec<ChipAction>) {
         let res = render_autocomplete_input(
             ui,
             self.id.with("autocomplete"),
@@ -319,36 +216,36 @@ impl<'a> ChipsContainer<'a> {
         );
 
         if let Some(text) = res.committed_text {
+            let id = format!("chip_{}", ui.input(|i| i.time));
+
             let new_chip = if let Some((key, val)) = text.split_once(':') {
                 let k = key.trim();
                 let v = val.trim();
-                let id = format!("chip_{}", ui.input(|i| i.time));
 
-                if v.is_empty() {
-                    *editing_chip_id = Some(id.clone());
-                    *editing_anchor_rect = Some(ui.cursor());
-                    *just_opened = true;
-                    ChipItem::Parametric {
-                        id,
-                        key: k.to_string(),
-                        display_value: String::new(),
-                    }
-                } else {
-                    ChipItem::Parametric {
-                        id,
-                        key: k.to_string(),
-                        display_value: v.to_string(),
-                    }
+                let slot = match k {
+                    "Płeć" => ChipSlot::select(
+                        if v.is_empty() { "Kobieta" } else { v },
+                        vec!["Kobieta".into(), "Mężczyzna".into()],
+                    ),
+                    "Wiek" => ChipSlot::range(18.0, 65.0, 0.0, 120.0),
+                    _ => ChipSlot::text(v),
+                };
+
+                ChipItem::Parametric {
+                    id,
+                    key: k.to_string(),
+                    slot,
+                    is_editing: v.is_empty(),
                 }
             } else {
                 ChipItem::Simple {
-                    id: format!("chip_{}", ui.input(|i| i.time)),
+                    id,
                     label: text.clone(),
                 }
             };
 
             if self.limits.can_add(new_chip.key_or_label(), self.items) {
-                actions.push(ChipAction::Added(new_chip.clone()));
+                actions.push(ChipAction::Added(new_chip.id().to_string()));
                 self.items.push(new_chip);
             }
         }

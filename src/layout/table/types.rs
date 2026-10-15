@@ -105,10 +105,23 @@ impl TableState {
 			ChipItem::Parametric {
 				id: "chip_sample_1".into(),
 				key: "Płeć".into(),
-				display_value: "Kobieta".into(),
+				slot: crate::layout::input::chips::ChipSlot::select("Kobieta", vec!["Kobieta".into(), "Mężczyzna".into()]),
+				is_editing: false,
+			},
+			ChipItem::Parametric {
+				id: "chip_sample_2".into(),
+				key: "Nazwisko".into(),
+				slot: crate::layout::input::chips::ChipSlot::text("Kowalski"),
+				is_editing: false,
+			},
+			ChipItem::Parametric {
+				id: "chip_sample_3".into(),
+				key: "Wiek".into(),
+				slot: crate::layout::input::chips::ChipSlot::range(20.0, 60.0, 0.0, 100.0),
+				is_editing: false,
 			},
 			ChipItem::Simple {
-				id: "chip_sample_2".into(),
+				id: "chip_sample_4".into(),
 				label: "Warszawa".into(),
 			},
 		];

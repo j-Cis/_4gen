@@ -22,12 +22,12 @@ where
 
     match window.mode {
         ContainerWindowMode::Floating => {
-            let pos_id = Id::new(&window.id).with("float_pos");
+            let pos_id = Id::unique(&window.id).with("float_pos");
             let mut current_pos = ui.data(|d| d.get_temp::<Pos2>(pos_id)).unwrap_or_else(|| {
                 window.default_pos.unwrap_or(bounds.center() - Vec2::new(180.0, 120.0))
             });
 
-            let window_id = Id::new(&window.id);
+            let window_id = Id::unique(&window.id);
             let mut drag_delta = Vec2::ZERO;
 
             let min_size = if is_minimized {
@@ -87,7 +87,7 @@ where
         }
 
         ContainerWindowMode::FloatingModal => {
-            egui::Area::new(Id::new(&window.id).with("floating_modal_shield"))
+            egui::Area::new(Id::unique(&window.id).with("floating_modal_shield"))
                 .order(egui::Order::Foreground)
                 .fixed_pos(screen_rect.min)
                 .show(ui.ctx(), |shield_ui| {
@@ -95,12 +95,12 @@ where
                     shield_ui.painter().rect_filled(screen_rect, 0.0, Color32::from_black_alpha(60));
                 });
 
-            let pos_id = Id::new(&window.id).with("float_modal_pos");
+            let pos_id = Id::unique(&window.id).with("float_modal_pos");
             let mut current_pos = ui.data(|d| d.get_temp::<Pos2>(pos_id)).unwrap_or_else(|| {
                 window.default_pos.unwrap_or(bounds.center() - Vec2::new(180.0, 120.0))
             });
 
-            let window_id = Id::new(&window.id).with("floating_modal_win");
+            let window_id = Id::unique(&window.id).with("floating_modal_win");
             let mut drag_delta = Vec2::ZERO;
 
             let min_size = if is_minimized {
@@ -159,7 +159,7 @@ where
         }
 
         ContainerWindowMode::ScreenModal => {
-            egui::Area::new(Id::new(&window.id).with("screen_backdrop"))
+            egui::Area::new(Id::unique(&window.id).with("screen_backdrop"))
                 .order(egui::Order::Foreground)
                 .fixed_pos(screen_rect.min)
                 .show(ui.ctx(), |backdrop_ui| {
@@ -167,7 +167,7 @@ where
                     backdrop_ui.painter().rect_filled(screen_rect, 0.0, Color32::from_black_alpha(180));
                 });
 
-            let window_id = Id::new(&window.id).with("screen_modal_body");
+            let window_id = Id::unique(&window.id).with("screen_modal_body");
 
             egui::Area::new(window_id)
                 .order(egui::Order::Tooltip)

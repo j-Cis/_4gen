@@ -94,7 +94,7 @@ impl<'a> SideNav<'a> {
                         ),
                     };
 
-                    egui::Area::new(ui.id().with(id).with("tooltip"))
+                    egui::Area::new(ui.scope_id().with(id).with("tooltip"))
                         .fixed_pos(tooltip_pos)
                         .pivot(tooltip_pivot)
                         .order(egui::Order::Tooltip)

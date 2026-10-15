@@ -63,10 +63,10 @@ impl TableGridEngine {
 			.map(|id| state.columns.get(id).map(|c| c.width_px).unwrap_or(100.0))
 			.sum();
 
-		let scroll_x_id = ui.id().with("table_horizontal_scroll_sync");
+		let scroll_x_id = ui.scope_id().with("table_horizontal_scroll_sync");
 		let mut scroll_x = ui.data(|d| d.get_temp::<f32>(scroll_x_id).unwrap_or(0.0));
 
-		let scroll_y_id = ui.id().with("table_vertical_scroll_sync");
+		let scroll_y_id = ui.scope_id().with("table_vertical_scroll_sync");
 		let mut scroll_y = ui.data(|d| d.get_temp::<f32>(scroll_y_id).unwrap_or(0.0));
 
 		// ==========================================
@@ -107,8 +107,8 @@ impl TableGridEngine {
 							header::render_header_row(ui, &center_cols, state, theme, shift_pressed, ctrl_pressed, alt_pressed);
 						});
 
-					if (header_scroll.state.offset.x - scroll_x).abs() > 0.01 {
-						scroll_x = header_scroll.state.offset.x;
+					if (header_scroll.state.clamped_offset().x - scroll_x).abs() > 0.01 {
+						scroll_x = header_scroll.state.clamped_offset().x;
 					}
 				}
 
@@ -171,8 +171,8 @@ impl TableGridEngine {
 								});
 							});
 
-						if (top_scroll.state.offset.x - scroll_x).abs() > 0.01 {
-							scroll_x = top_scroll.state.offset.x;
+						if (top_scroll.state.clamped_offset().x - scroll_x).abs() > 0.01 {
+							scroll_x = top_scroll.state.clamped_offset().x;
 						}
 					}
 
@@ -226,8 +226,8 @@ impl TableGridEngine {
 									);
 								});
 
-							if (pinned_scroll.state.offset.y - scroll_y).abs() > 0.01 {
-								scroll_y = pinned_scroll.state.offset.y;
+							if (pinned_scroll.state.clamped_offset().y - scroll_y).abs() > 0.01 {
+								scroll_y = pinned_scroll.state.clamped_offset().y;
 							}
 						},
 					);
@@ -256,11 +256,11 @@ impl TableGridEngine {
 							});
 						});
 
-					if (body_scroll.state.offset.x - scroll_x).abs() > 0.01 {
-						scroll_x = body_scroll.state.offset.x;
+					if (body_scroll.state.clamped_offset().x - scroll_x).abs() > 0.01 {
+						scroll_x = body_scroll.state.clamped_offset().x;
 					}
-					if (body_scroll.state.offset.y - scroll_y).abs() > 0.01 {
-						scroll_y = body_scroll.state.offset.y;
+					if (body_scroll.state.clamped_offset().y - scroll_y).abs() > 0.01 {
+						scroll_y = body_scroll.state.clamped_offset().y;
 					}
 				}
 
@@ -282,8 +282,8 @@ impl TableGridEngine {
 									);
 								});
 
-							if (pinned_scroll_right.state.offset.y - scroll_y).abs() > 0.01 {
-								scroll_y = pinned_scroll_right.state.offset.y;
+							if (pinned_scroll_right.state.clamped_offset().y - scroll_y).abs() > 0.01 {
+								scroll_y = pinned_scroll_right.state.clamped_offset().y;
 							}
 						},
 					);
@@ -338,8 +338,8 @@ impl TableGridEngine {
 								});
 							});
 
-						if (bottom_scroll.state.offset.x - scroll_x).abs() > 0.01 {
-							scroll_x = bottom_scroll.state.offset.x;
+						if (bottom_scroll.state.clamped_offset().x - scroll_x).abs() > 0.01 {
+							scroll_x = bottom_scroll.state.clamped_offset().x;
 						}
 					}
 

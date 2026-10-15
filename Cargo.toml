@@ -13,9 +13,9 @@ name = "x"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-eframe = { version = "0.36.2", features = ["glow"] }
-egui = "0.36.2"
-egui_extras = { version = "0.36.2", features = ["svg", "image"] }
+eframe = { version = "0.37.0", features = ["glow"] }
+egui = "0.37.0"
+egui_extras = { version = "0.37.0", features = ["svg", "image"] }
 image = { version = "0.25.10", default-features = false, features = ["jpeg", "png", "webp"] }
 palette = "0.7.7"
 quick-xml = { version = "0.42.0", features = ["serialize"] }

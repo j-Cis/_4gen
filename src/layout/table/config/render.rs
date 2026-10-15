@@ -49,7 +49,7 @@ impl TableConfigWindow {
                 let list_len = display_order.len();
 
                 for (row_idx, col_id) in display_order.iter().enumerate() {
-                    let item_id = Id::new("col_dnd_item").with(row_idx);
+                    let item_id = Id::unique("col_dnd_item").with(row_idx);
                     let mut handle_response: Option<egui::Response> = None;
 
                     ui.horizontal(|ui| {

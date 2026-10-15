@@ -1,7 +1,7 @@
 use eframe::egui::{self, Color32, CursorIcon, Id, Pos2, Rect, Sense, Stroke, Vec2};
 
 pub fn show_floating_nav_toggle(ctx: &egui::Context, is_visible: &mut bool) {
-    let pos_id = Id::new("floating_nav_toggle_pos");
+    let pos_id = Id::unique("floating_nav_toggle_pos");
     let screen_rect = ctx.input(|i| i.raw.screen_rect.unwrap_or(Rect::EVERYTHING));
 
     // Domyślna pozycja: lewy dolny róg, tuż nad dolnym paskiem stanu
@@ -11,7 +11,7 @@ pub fn show_floating_nav_toggle(ctx: &egui::Context, is_visible: &mut bool) {
     let button_size = Vec2::splat(38.0);
     let radius = button_size.x / 2.0;
 
-    egui::Area::new(Id::new("floating_nav_toggle_area"))
+    egui::Area::new(Id::unique("floating_nav_toggle_area"))
         .order(egui::Order::Foreground)
         .fixed_pos(current_pos)
         .show(ctx, |ui| {

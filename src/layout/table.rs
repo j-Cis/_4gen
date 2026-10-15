@@ -55,7 +55,7 @@ impl<'a> AdvancedTable<'a> {
 
         // 2. Komponent Chips (pomiędzy toolbarem a tabelą)
         ChipsContainer::new(
-            ui.id().with("table_chips_filter"),
+            ui.scope_id().with("table_chips_filter"),
             &mut self.state.filter_chips,
             &mut self.state.chip_input,
             &self.state.chip_pool,

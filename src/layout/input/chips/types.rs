@@ -1,6 +1,7 @@
 // src/layout/input/chips/types.rs
 
 use std::collections::HashMap;
+use super::chip_slot::ChipSlot;
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug, Default)]
 pub enum ChipContainerMode {
@@ -22,7 +23,7 @@ impl Default for ChipOverflow {
     }
 }
 
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug)]
 pub enum ChipItem {
     Simple {
         id: String,
@@ -31,7 +32,8 @@ pub enum ChipItem {
     Parametric {
         id: String,
         key: String,
-        display_value: String,
+        slot: ChipSlot,
+        is_editing: bool,
     },
 }
 
@@ -49,26 +51,29 @@ impl ChipItem {
         }
     }
 
-    pub fn param_value(&self) -> Option<&str> {
+    pub fn param_value(&self) -> Option<String> {
         match self {
             Self::Simple { .. } => None,
-            Self::Parametric { display_value, .. } => Some(display_value),
+            Self::Parametric { slot, .. } => Some(slot.display_text()),
         }
     }
 
-    /// Przypisuje parametr do chipa (zamienia Simple na Parametric lub aktualizuje istniejący)
-    pub fn set_param_value(&mut self, val: String) {
-        match self {
-            Self::Simple { id, label } => {
-                *self = Self::Parametric {
-                    id: id.clone(),
-                    key: label.clone(),
-                    display_value: val,
-                };
-            }
-            Self::Parametric { display_value, .. } => {
-                *display_value = val;
-            }
+    pub fn convert_to_parametric(&mut self) {
+        if let Self::Simple { id, label } = self {
+            let slot = match label.as_str() {
+                "Płeć" => ChipSlot::select("Kobieta", vec!["Kobieta".into(), "Mężczyzna".into()]),
+                "Wiek" => ChipSlot::range(18.0, 65.0, 0.0, 120.0),
+                _ => ChipSlot::text(""),
+            };
+
+            let is_editing = !matches!(slot, ChipSlot::Select(_));
+
+            *self = Self::Parametric {
+                id: id.clone(),
+                key: label.clone(),
+                slot,
+                is_editing,
+            };
         }
     }
 }
@@ -114,8 +119,8 @@ impl ChipLimits {
 
 #[derive(Clone, Debug, PartialEq)]
 pub enum ChipAction {
-    Added(ChipItem),
+    Added(String),
     Removed(String),
     Clicked(String),
-    ParamEditRequested(String),
+    ParamChanged { id: String, display_value: String },
 }
