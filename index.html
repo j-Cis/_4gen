@@ -2,9 +2,26 @@
 <html lang="pl">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <meta name="theme-color" content="#191a1b">
+    
+    <!-- Meta tagi mobilne i Apple PWA -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="_4gen">
+
+    <!-- Ikony i Manifest PWA -->
+    <link rel="icon" type="image/svg+xml" href="assets/ico/twemoji_1f4a0.svg">
+    <link rel="apple-touch-icon" href="assets/ico/twemoji_1f4a0.svg">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Instrukcje dla Trunk (kopiowanie zasobów do dist/) -->
     <link data-trunk rel="rust" data-bin="_4gen" data-wasm-opt="2">
+    <link data-trunk rel="copy-file" href="manifest.json">
+    <link data-trunk rel="copy-file" href="sw.js">
+    <link data-trunk rel="copy-file" href="assets/ico/twemoji_1f4a0.svg" data-target-path="assets/ico">
+
     <title>_4gen</title>
     <style>
         html, body {
@@ -14,6 +31,11 @@
             padding: 0;
             overflow: hidden;
             background: #191a1b;
+            /* Blokada domyślnych gestów przeglądarek mobilnych (pull-to-refresh, zoom) */
+            overscroll-behavior: none;
+            -webkit-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
         }
         body {
             display: flex;
@@ -23,10 +45,21 @@
             width: 100%;
             height: 100%;
             outline: none;
+            touch-action: none;
         }
     </style>
 </head>
 <body>
     <canvas id="the_canvas_id"></canvas>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then((reg) => console.log('PWA ServiceWorker zarejestrowany:', reg.scope))
+                    .catch((err) => console.warn('Błąd rejestracji ServiceWorker:', err));
+            });
+        }
+    </script>
 </body>
 </html>

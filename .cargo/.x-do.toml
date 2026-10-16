@@ -13,13 +13,12 @@ add_fotter_customize_text = "\n---\n*Generated automatically via querypath & que
 
 [snapshot.scan]
 match_patterns = [
-	"./{examples|tests|src|scripts|.github|.cargo}/**",
-	"./{Cargo|Trunk}.toml",
+	"./{examples|tests|src|scripts|assets|.github|.cargo|dump}/**",
+	"./{Cargo|Trunk|.rustfmt}.toml",
+	"./{.gitattributes|.gitignore|build.rs|manifest.json|sw.js}",
 	"./index.html",
-	"./assets/**",
-	"./{.gitattributes|.gitignore|.rustfmt.toml}",
-	"!./Cargo.lock",
-	"!./{target|.git|dist|dump}/**"
+	"!./{Cargo.lock|.cargo/.x-do-history.txt}",
+	"!./{target|.git|dist|temp}/**"
 ]
 keep_parent = true
 
@@ -33,11 +32,11 @@ case_precedence = "Insensitive"
 numerate_dirs = false
 numerate_binaries = false
 numerate_skip = [
-	"*.svg"
+	"./dump/**"
 ]
 content_skip = [
+	"./dump/**",
 	"./assets/**",
-	"*.svg"
 ]
 numerate_start_from = 1
 

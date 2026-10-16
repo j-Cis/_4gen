@@ -6,3 +6,4 @@
 .xtask_history
 .xtask_last
 *.tmp
+.x-do-history.txt

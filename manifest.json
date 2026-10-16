@@ -1,0 +1,20 @@
+{
+  "name": "_4gen - Genealogia",
+  "short_name": "_4gen",
+  "description": "System badań i rejestrów genealogicznych _4gen",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#191a1b",
+  "theme_color": "#191a1b",
+  "categories": ["utilities", "productivity"],
+  "icons": [
+    {
+      "src": "assets/ico/twemoji_1f4a0.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
