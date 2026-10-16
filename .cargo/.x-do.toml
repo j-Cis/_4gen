@@ -1,0 +1,58 @@
+[snapshot]
+title = "_4GEN (CODE DUMP / SNAPSHOT) v:"
+title_sufix_date = true
+title_sufix_date_fmt = "WYYY-WW-D::hh:mm:ss:tt:qq"
+name = "_4Gen_"
+name_sufix_date = true
+name_sufix_date_fmt = "WYYYWW-Dhhmm-ssttqq"
+output_dir = "./dump"
+max_single_file_size = 524288
+add_footer_summary_setups = true
+add_header_customize_text = "\nGenerated via cargo-x-do\n"
+add_fotter_customize_text = "\n---\n*Generated automatically via querypath & querypath-snapshot*\n"
+
+[snapshot.scan]
+match_patterns = [
+	"./{examples|tests|src|scripts|.github|.cargo}/**",
+	"./{Cargo|Trunk}.toml",
+	"./index.html",
+	"./assets/**",
+	"./{.gitattributes|.gitignore|.rustfmt.toml}",
+	"!./Cargo.lock",
+	"!./{target|.git|dist|dump}/**"
+]
+keep_parent = true
+
+[snapshot.sort]
+same_name_priority = "FileFirst"
+no_ext_priority = "Above"
+ignore_leading_dot = true
+case_precedence = "Insensitive"
+
+[snapshot.incl]
+numerate_dirs = false
+numerate_binaries = false
+numerate_skip = [
+	"*.svg"
+]
+content_skip = [
+	"./assets/**",
+	"*.svg"
+]
+numerate_start_from = 1
+
+[snapshot.tree]
+name_width = 25
+path_width = 25
+column_order_left = []
+column_order_right = ["Weight", "Temporal", "Path"]
+
+[snapshot.tree.weight]
+stats_weight = true
+unit_system_binary = true
+dir_display = "MatchedOnly"
+precision = "0.1"
+
+[snapshot.tree.temporal]
+stats_temporal = true
+pattern = "WYYY-WW-D:hh:mm:ss"
