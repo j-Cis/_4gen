@@ -1,6 +1,6 @@
 // src/layout/system_status.rs
 
-use eframe::egui::{self, Id, Order, Pos2, Rect, Vec2};
+use eframe::egui::{self, Color32, CursorIcon, Id, Order, Pos2, Rect, Sense, Stroke, Vec2};
 
 #[derive(Clone, Copy, Default, Debug)]
 pub struct SystemModifiers {
@@ -27,34 +27,39 @@ impl Default for SystemStatus {
 
 impl SystemStatus {
 	pub fn show(&mut self, ui: &mut egui::Ui) {
-		// 1. CZYSTY PASEK STANU NA DOLE (Bez ciasnych guzików modyfikatorów)
+		// 1. Zwykły pasek stanu na dole
 		ui.horizontal(|ui| {
-			ui.label(&self.status_msg);
+			const BUILD_TIMESTAMP: &str = env!("BUILD_TIMESTAMP");
+
+			if self.status_msg == "Gotowy" || self.status_msg.is_empty() {
+				ui.label(BUILD_TIMESTAMP);
+			} else {
+				ui.label(BUILD_TIMESTAMP);
+				ui.separator();
+				ui.label(&self.status_msg);
+			}
 
 			ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |ui| {
-				ui.label("_4gen · wersja rozwojowa · v:0.1.0-dev.2");
+				ui.label(concat!("_4gen · wersja rozwojowa · v:", env!("CARGO_PKG_VERSION")));
 			});
 		});
 
-		// 2. NIEPRZYKRYTA SIATKA 2x2 W LEWYM DOLNYM ROGU
+		// 2. Pływająca siatka 2x2 w lewym dolnym rogu (obok przełącznika paneli)
 		self.show_floating_modifiers(ui.ctx());
 	}
 
 	fn show_floating_modifiers(&mut self, ctx: &egui::Context) {
 		let screen_rect = ctx.input(|i| i.raw.screen_rect.unwrap_or(Rect::EVERYTHING));
 
-		let cell_size = Vec2::new(58.0, 32.0);
+		let cell_size = Vec2::new(58.0, 36.0);
 		let gap = 5.0;
-		let margin_x = 8.0;
-		let margin_bottom = 28.0; // Wysokość tuż nad dolnym paskiem stanu
 
-		// 2A: Pozycja bazowa wyzwalacza (Lewy dolny róg)
-		let pos_2a = Pos2::new(
-			screen_rect.min.x + margin_x,
-			screen_rect.max.y - margin_bottom - cell_size.y,
-		);
+		// Pozycja X: 8.0 (margines) + 38.0 (szerokość guzika paneli) + 8.0 (odstęp) = 54.0
+		let trigger_x = 54.0;
+		// Pozycja Y zrównana z guzikiem paneli (screen_rect.max.y - 70.0)
+		let trigger_y = (screen_rect.max.y - 69.0).max(screen_rect.min.y);
 
-		// 1A: Pozycja lewego górnego rogu siatki (dla stanu rozwiniętego)
+		let pos_2a = Pos2::new(trigger_x, trigger_y);
 		let pos_top_left = Pos2::new(pos_2a.x, pos_2a.y - cell_size.y - gap);
 
 		let (phys_shift, phys_ctrl, phys_alt) = ctx.input(|i| (
@@ -66,7 +71,7 @@ impl SystemStatus {
 		let area_pos = if self.menu_expanded { pos_top_left } else { pos_2a };
 
 		egui::Area::new(Id::unique("floating_system_modifiers_grid"))
-			.order(Order::Tooltip) // Zawsze na samej górze - nic go nie przykryje
+			.order(Order::Tooltip)
 			.fixed_pos(area_pos)
 			.show(ctx, |ui| {
 				ui.style_mut().interaction.selectable_labels = false;
@@ -90,10 +95,7 @@ impl SystemStatus {
 
 					// --- RZĄD 2: 2A (Wyzwalacz) i 2B (Alt) ---
 					ui.horizontal(|ui| {
-						let trig_btn = egui::Button::new("✕ SK").min_size(cell_size).selected(true);
-						if ui.add(trig_btn).on_hover_text("Zwiń przyciski modyfikatorów (2A)").clicked() {
-							self.menu_expanded = false;
-						}
+						Self::render_trigger_button(ui, ctx, cell_size, true, &mut self.menu_expanded);
 
 						let alt_active = self.modifiers.alt || phys_alt;
 						let alt_btn = egui::Button::new("⌥ Alt").min_size(cell_size).selected(alt_active);
@@ -102,12 +104,76 @@ impl SystemStatus {
 						}
 					});
 				} else {
-					// --- STAN ZWINIĘTY: Tylko 2A w lewym dolnym rogu ---
-					let trig_btn = egui::Button::new("⌨ SK").min_size(cell_size).selected(false);
-					if ui.add(trig_btn).on_hover_text("Rozwiń skróty klawiszowe (Ctrl, Shift, Alt)").clicked() {
-						self.menu_expanded = true;
-					}
+					// --- STAN ZWINIĘTY: Tylko 2A ---
+					Self::render_trigger_button(ui, ctx, cell_size, false, &mut self.menu_expanded);
 				}
 			});
+	}
+
+	fn render_trigger_button(
+		ui: &mut egui::Ui,
+		ctx: &egui::Context,
+		size: Vec2,
+		is_open: bool,
+		expanded_state: &mut bool,
+	) {
+		let (rect, resp) = ui.allocate_exact_size(size, Sense::click());
+
+		if resp.clicked() {
+			*expanded_state = !*expanded_state;
+		}
+
+		if resp.hovered() {
+			ctx.set_cursor_icon(CursorIcon::PointingHand);
+		}
+
+		// Identyczna paleta kolorystyczna jak floating_nav_toggle
+		let bg_color = if resp.is_pointer_button_down_on() {
+			Color32::from_rgba_unmultiplied(22, 24, 28, 245)
+		} else if resp.hovered() || is_open {
+			Color32::from_rgba_unmultiplied(42, 48, 60, 230)
+		} else {
+			Color32::from_rgba_unmultiplied(32, 34, 38, 175)
+		};
+
+		let border_stroke = if resp.hovered() || is_open {
+			Stroke::new(1.5, Color32::from_rgba_unmultiplied(255, 255, 255, 180))
+		} else {
+			Stroke::new(1.0, Color32::from_rgba_unmultiplied(255, 255, 255, 60))
+		};
+
+		let icon_col = if resp.hovered() || is_open {
+			Color32::WHITE
+		} else {
+			Color32::from_rgb(200, 205, 215)
+		};
+
+		let corner_radius = 6.0;
+
+		// Cień za przyciskiem
+		ui.painter().rect_filled(
+			rect.translate(Vec2::new(0.0, 1.5)),
+			corner_radius,
+			Color32::from_black_alpha(70),
+		);
+		// Tło i obwódka
+		ui.painter().rect_filled(rect, corner_radius, bg_color);
+		ui.painter().rect_stroke(rect, corner_radius, border_stroke, egui::StrokeKind::Inside);
+
+		// Sama ikona bez żadnego tekstu
+		let icon_text = if is_open { "✕" } else { "⌨" };
+		ui.painter().text(
+			rect.center(),
+			egui::Align2::CENTER_CENTER,
+			icon_text,
+			egui::FontId::proportional(16.0),
+			icon_col,
+		);
+
+		resp.on_hover_text(if is_open {
+			"Ukryj klawisze modyfikatorów"
+		} else {
+			"Pokaż klawisze modyfikatorów (Ctrl, Shift, Alt)"
+		});
 	}
 }

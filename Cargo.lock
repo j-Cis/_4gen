@@ -13,6 +13,7 @@ dependencies = [
  "palette",
  "quick-xml 0.42.0",
  "serde",
+ "temporal-fmt",
  "wasm-bindgen",
  "wasm-bindgen-futures",
  "web-sys",
@@ -3387,6 +3388,12 @@ dependencies = [
  "rustix 1.1.5",
  "windows-sys 0.61.2",
 ]
+
+[[package]]
+name = "temporal-fmt"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "23a13fa7b1c37f064c3c72896a306993280405868f56120e42caee2f3a6c6393"
 
 [[package]]
 name = "termcolor"
