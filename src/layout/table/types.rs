@@ -21,7 +21,7 @@ pub enum TableAction {
 pub enum PinPosition {
 	None,
 	Left,
-	Right, // TODO: Tymczasowo wyłączone do czasu wdrożenia pełnego wsparcia
+	Right,
 }
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
@@ -41,7 +41,7 @@ pub enum SortDir {
 pub struct ColDef {
 	pub id: String,
 	pub title: String,
-	pub width_px: f32, // Sztywna szerokość w px do resizowania i zamrażania
+	pub width_px: f32,
 	pub sortable: bool,
 	pub regex_filter: String,
 	pub pinned: PinPosition,
@@ -72,7 +72,6 @@ pub struct TableState {
 	pub selected_rows: HashSet<usize>,
 	pub pinned_rows: HashMap<usize, RowPinPosition>,
 
-	// Stan komponentu Chips (filtry)
 	pub filter_chips: Vec<ChipItem>,
 	pub chip_input: String,
 	pub chip_pool: Vec<String>,
@@ -93,7 +92,6 @@ impl TableState {
 			columns.insert(col.id.clone(), col);
 		}
 
-		// Przykładowe chipy startowe do weryfikacji wyglądu
 		let filter_chips = vec![
 			ChipItem::Parametric {
 				id: "chip_sample_1".into(),
@@ -151,13 +149,12 @@ impl TableState {
 		let mut right_pinned = Vec::new();
 
 		for id in &self.display_order {
-			if self.visible_columns.contains(id) {
-				if let Some(col) = self.columns.get(id) {
-					match col.pinned {
-						PinPosition::Left => left_pinned.push(id.clone()),
-						PinPosition::None => unpinned.push(id.clone()),
-						PinPosition::Right => right_pinned.push(id.clone()),
-					}
+			if self.visible_columns.contains(id)
+				&& let Some(col) = self.columns.get(id) {
+				match col.pinned {
+					PinPosition::Left => left_pinned.push(id.clone()),
+					PinPosition::None => unpinned.push(id.clone()),
+					PinPosition::Right => right_pinned.push(id.clone()),
 				}
 			}
 		}
@@ -175,7 +172,6 @@ impl TableState {
 			} else if col.pinned == PinPosition::None {
 				col.pinned = PinPosition::Left;
 			}
-			// Jeśli jest Right - nic nie robimy (najpierw trzeba odpiąć)
 		}
 	}
 
@@ -186,7 +182,6 @@ impl TableState {
 			} else if col.pinned == PinPosition::None {
 				col.pinned = PinPosition::Right;
 			}
-			// Jeśli jest Left - nic nie robimy (najpierw trzeba odpiąć)
 		}
 	}
 
@@ -203,9 +198,7 @@ impl TableState {
 			RowPinPosition::None => {
 				self.pinned_rows.insert(row_idx, RowPinPosition::Top);
 			}
-			RowPinPosition::Bottom => {
-				// Zablokowane: aby przypiąć u góry, wiersz musi najpierw zostać odpięty z dołu
-			}
+			RowPinPosition::Bottom => {}
 		}
 	}
 
@@ -218,9 +211,7 @@ impl TableState {
 			RowPinPosition::None => {
 				self.pinned_rows.insert(row_idx, RowPinPosition::Bottom);
 			}
-			RowPinPosition::Top => {
-				// Zablokowane: aby przypiąć u dołu, wiersz musi najpierw zostać odpięty z góry
-			}
+			RowPinPosition::Top => {}
 		}
 	}
 
@@ -271,10 +262,9 @@ impl TableState {
 			if self.selected_rows.contains(&row_idx) {
 				self.selected_rows.remove(&row_idx);
 			} else {
-				if let Some(limit) = config.max_selection {
-					if self.selected_rows.len() >= limit {
-						return;
-					}
+				if let Some(limit) = config.max_selection
+					&& self.selected_rows.len() >= limit {
+					return;
 				}
 				self.selected_rows.insert(row_idx);
 			}
@@ -285,7 +275,6 @@ impl TableState {
 	}
 }
 
-// Dodaj pod istniejącymi definicjami w src/layout/table/types.rs
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub enum ConfigColItem {
 	Visible,

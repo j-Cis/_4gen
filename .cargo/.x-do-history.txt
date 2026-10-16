@@ -1,0 +1,2 @@
+cargo clippy --all-targets -- -D warnings
+cargo check --all-targets

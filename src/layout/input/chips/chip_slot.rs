@@ -5,7 +5,7 @@ use eframe::egui::{
 };
 
 // ============================================================================
-// 1. SLOT TEKSTOWY (rozszerza się inline w poziomie)
+// 1. SLOT TEKSTOWY
 // ============================================================================
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct TextParamSlot {
@@ -44,9 +44,7 @@ impl TextParamSlot {
 				changed = true;
 			}
 
-			if ok_btn.clicked() || enter_pressed || (resp.lost_focus() && !ok_btn.hovered()) {
-				*is_editing = false;
-			} else if esc_pressed {
+			if ok_btn.clicked() || enter_pressed || esc_pressed || (resp.lost_focus() && !ok_btn.hovered()) {
 				*is_editing = false;
 			}
 		} else {
@@ -85,7 +83,7 @@ impl TextParamSlot {
 }
 
 // ============================================================================
-// 2. SLOT WYBORU / MENU (ComboBox wbudowany w pigułkę)
+// 2. SLOT WYBORU / MENU
 // ============================================================================
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct SelectParamSlot {
@@ -127,7 +125,7 @@ impl SelectParamSlot {
 }
 
 // ============================================================================
-// 3. SLOT ZAKRESU (RangeSlider wbudowany w pigułkę)
+// 3. SLOT ZAKRESU
 // ============================================================================
 #[derive(Clone, Debug, PartialEq)]
 pub struct RangeSliderParamSlot {

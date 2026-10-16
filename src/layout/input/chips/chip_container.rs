@@ -139,12 +139,12 @@ impl<'a> ChipsContainer<'a> {
 											});
 									});
 
-								if ui.input(|i| i.pointer.any_pressed()) {
-									if let Some(pos) = ui.input(|i| i.pointer.interact_pos()) {
-										if !popup_resp.response.rect.contains(pos) && !btn_resp.rect.contains(pos) {
-											ui.data_mut(|d| d.insert_temp(is_open_id, false));
-										}
-									}
+								if ui.input(|i| i.pointer.any_pressed())
+									&& let Some(pos) = ui.input(|i| i.pointer.interact_pos())
+									&& !popup_resp.response.rect.contains(pos)
+									&& !btn_resp.rect.contains(pos)
+								{
+									ui.data_mut(|d| d.insert_temp(is_open_id, false));
 								}
 							}
 						}
@@ -162,7 +162,6 @@ impl<'a> ChipsContainer<'a> {
 			}
 		});
 
-		// Obsługa akcji usunięcia z wektora
 		for action in &actions {
 			if let ChipAction::Removed(id) = action {
 				self.items.retain(|c| c.id() != id);

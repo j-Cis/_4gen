@@ -37,11 +37,9 @@ pub fn render_autocomplete_input(
 	let popup_id = id.with("autocomplete_popup");
 	let is_open_id = id.with("autocomplete_is_open");
 
-	// Dymek pozostaje otwarty, gdy pole ma fokus, LUB gdy był otwarty w poprzedniej klatce (umożliwia kliknięcie)
 	let was_open = ui.data(|d| d.get_temp::<bool>(is_open_id)).unwrap_or(false);
 	let mut should_open = (input_resp.has_focus() && !matches.is_empty()) || (was_open && !matches.is_empty());
 
-	// 1. Obsługa zatwierdzenia klawiszem Enter
 	if (input_resp.has_focus() || input_resp.lost_focus()) && ui.input(|i| i.key_pressed(Key::Enter)) {
 		let trimmed = buffer.trim();
 		if !trimmed.is_empty() {
@@ -57,7 +55,6 @@ pub fn render_autocomplete_input(
 		}
 	}
 
-	// 2. Renderowanie dymka podpowiedzi
 	if should_open {
 		let popup_pos = input_resp.rect.left_bottom() + Vec2::new(0.0, 4.0);
 		let mut clicked_item = None;
@@ -83,19 +80,17 @@ pub fn render_autocomplete_input(
 					});
 			});
 
-		// 3. Obsługa kliknięcia w pozycję z dymka
 		if let Some(chosen) = clicked_item {
 			committed = Some(chosen);
 			buffer.clear();
 			should_open = false;
 			ui.memory_mut(|m| m.request_focus(input_id));
-		} else if ui.input(|i| i.pointer.any_pressed()) {
-			// Kliknięcie w tło zamyka dymek
-			if let Some(pos) = ui.input(|i| i.pointer.interact_pos()) {
-				if !area_resp.response.rect.contains(pos) && !input_resp.rect.contains(pos) {
-					should_open = false;
-				}
-			}
+		} else if ui.input(|i| i.pointer.any_pressed())
+			&& let Some(pos) = ui.input(|i| i.pointer.interact_pos())
+			&& !area_resp.response.rect.contains(pos)
+			&& !input_resp.rect.contains(pos)
+		{
+			should_open = false;
 		}
 	}
 

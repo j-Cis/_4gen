@@ -9,6 +9,7 @@ use crate::theme::tab::TableTheme;
 pub struct TableGridEngine;
 
 impl TableGridEngine {
+	#[allow(clippy::too_many_arguments)]
 	pub fn render<F>(
 		ui: &mut egui::Ui,
 		state: &mut TableState,
@@ -50,7 +51,6 @@ impl TableGridEngine {
 			}
 		}
 
-		// --- KLUCZOWA POPRAWKA Linii 55-57 ---
 		let shift_pressed = ui.input(|i| state.is_shift_active(i, sys_modifiers));
 		let ctrl_pressed = ui.input(|i| state.is_ctrl_active(i, sys_modifiers));
 		let alt_pressed = ui.input(|i| state.is_alt_active(i, sys_modifiers));
@@ -71,9 +71,7 @@ impl TableGridEngine {
 		let scroll_y_id = ui.scope_id().with("table_vertical_scroll_sync");
 		let mut scroll_y = ui.data(|d| d.get_temp::<f32>(scroll_y_id).unwrap_or(0.0));
 
-		// ==========================================
-		// 1. NAGŁÓWKI (ZAMROŻONE W PIONIE)
-		// ==========================================
+		// 1. NAGŁÓWKI
 		ui.allocate_ui_with_layout(
 			vec2(ui.available_width(), theme.header_height),
 			egui::Layout::left_to_right(egui::Align::Center),
@@ -127,9 +125,7 @@ impl TableGridEngine {
 			},
 		);
 
-		// ==========================================
-		// 2. WIERSZE PRZYPIĘTE DO GÓRY (ZAMROŻONE W PIONIE)
-		// ==========================================
+		// 2. WIERSZE PRZYPIĘTE DO GÓRY
 		if !top_rows.is_empty() {
 			let top_rows_height = top_rows.len() as f32 * theme.row_height;
 			ui.allocate_ui_with_layout(
@@ -195,9 +191,7 @@ impl TableGridEngine {
 			ui.separator();
 		}
 
-		// ==========================================
-		// 3. CIAŁO TABELI (PRZEWIJANE W PIONIE I W POZIOMIE)
-		// ==========================================
+		// 3. CIAŁO TABELI
 		let bottom_rows_height = if !bottom_rows.is_empty() {
 			bottom_rows.len() as f32 * theme.row_height + 4.0
 		} else {
@@ -293,9 +287,7 @@ impl TableGridEngine {
 			},
 		);
 
-		// ==========================================
-		// 4. WIERSZE PRZYPIĘTE DO DOŁU (ZAMROŻONE W PIONIE)
-		// ==========================================
+		// 4. WIERSZE PRZYPIĘTE DO DOŁU
 		if !bottom_rows.is_empty() {
 			ui.separator();
 			let actual_bottom_height = bottom_rows.len() as f32 * theme.row_height;

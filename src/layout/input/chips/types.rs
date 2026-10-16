@@ -10,17 +10,12 @@ pub enum ChipContainerMode {
 	MultiLine,
 }
 
-#[derive(Clone, Copy, PartialEq, Eq, Debug)]
+#[derive(Clone, Copy, PartialEq, Eq, Debug, Default)]
 pub enum ChipOverflow {
+	#[default]
 	Wrap,
 	Scroll,
 	Popup { max_visible: usize },
-}
-
-impl Default for ChipOverflow {
-	fn default() -> Self {
-		Self::Wrap
-	}
 }
 
 #[derive(Clone, Debug)]
@@ -97,10 +92,9 @@ impl Default for ChipLimits {
 
 impl ChipLimits {
 	pub fn can_add(&self, key: &str, current_items: &[ChipItem]) -> bool {
-		if let Some(total_limit) = self.max_total {
-			if current_items.len() >= total_limit {
-				return false;
-			}
+		if let Some(total_limit) = self.max_total
+			&& current_items.len() >= total_limit {
+			return false;
 		}
 
 		if let Some(&per_key_limit) = self.max_per_key.get(key) {

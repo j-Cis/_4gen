@@ -4,6 +4,7 @@ use eframe::egui::{self, Color32, Rect, Sense, UiBuilder, vec2};
 use crate::layout::table::types::{RowPinPosition, TableConfig, TableState};
 use crate::theme::tab::TableTheme;
 
+#[allow(clippy::too_many_arguments)]
 pub fn render_scroll_body<F>(
 	ui: &mut egui::Ui,
 	col_ids: &[String],
@@ -59,7 +60,6 @@ pub fn render_scroll_body<F>(
 
 				ui.painter().rect_filled(rect, 0.0, row_bg);
 
-				// Subtelny pasek akcentujący przypięcie na pierwszej kolumnie
 				if col_idx == 0 && pin_pos != RowPinPosition::None {
 					let accent_color = match pin_pos {
 						RowPinPosition::Top => Color32::from_rgb(0, 150, 255),

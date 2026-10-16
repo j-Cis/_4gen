@@ -1,5 +1,7 @@
 // src/pipe/egui_color.rs
 
+#![allow(clippy::excessive_precision, clippy::approx_constant)]
+
 use egui::Color32;
 
 /// Rozszerzenie Color32 o przestrzenie barw OKLab i OKLCH.
@@ -73,7 +75,6 @@ pub const fn oklch(l: f32, c: f32, h: f32) -> Color32 {
 		let mut max_c = c;
 		let mut iters = 0;
 
-		// BAZA: Rozpoczynamy od gwarantowanego koloru w gamucie (szarość dla danego L)
 		let (mut best_r, mut best_g, mut best_b) = oklab_to_linear_srgb(l_clamped, 0.0, 0.0);
 
 		while iters < 16 {
@@ -117,13 +118,10 @@ const fn channel(linear: f32) -> u8 {
 	(srgb * 255.0 + 0.5) as u8
 }
 
-/// Oblicza x^(5/12) metodą Newtona:
-/// Rozwiązujemy równanie y^12 = x, a następnie zwracamy y^5.
 const fn pow_five_twelths(x: f32) -> f32 {
 	let mut y = 1.0_f32;
 	let mut i = 0;
 
-	// Znajdujemy y = x^(1/12)
 	while i < 16 {
 		let y2 = y * y;
 		let y4 = y2 * y2;
@@ -135,17 +133,15 @@ const fn pow_five_twelths(x: f32) -> f32 {
 		i += 1;
 	}
 
-	// Podnosimy wynik do potęgi 5, otrzymując x^(5/12)
 	let y2 = y * y;
 	let y4 = y2 * y2;
 	y4 * y
 }
 
-/// Sinus i cosinus kąta w stopniach.
 const fn sin_cos_degrees(degrees: f32) -> (f32, f32) {
 	let mut angle = degrees;
 
-	angle = angle % 360.0;
+	angle %= 360.0;
 	if angle < 0.0 {
 		angle += 360.0;
 	}
@@ -189,7 +185,6 @@ mod tests {
 	use super::*;
 	use palette::{FromColor, Oklab, Oklch, Srgb};
 
-	// Helper: tolerancja dla różnic precyzji w obliczeniach const vs std
 	const TOLERANCE: u8 = 1;
 
 	fn assert_color_eq(actual: Color32, expected: Srgb<u8>) {
@@ -208,7 +203,7 @@ mod tests {
 		let cases = [
 			(0.5, 0.1, -0.1),
 			(0.8, -0.05, 0.05),
-			(0.2, 0.0, 0.0), // Szarość
+			(0.2, 0.0, 0.0),
 		];
 
 		for (l, a, b) in cases {
@@ -235,19 +230,15 @@ mod tests {
 
 	#[test]
 	fn test_edge_cases() {
-		// L = 0 (Czerń)
 		assert_eq!(oklch(0.0, 0.5, 100.0), Color32::from_rgb(0, 0, 0));
 		assert_eq!(oklab(0.0, 0.5, 0.5), Color32::from_rgb(0, 0, 0));
 
-		// L = 1 (Biel) - zakłada zerową chromę po clippingu
 		assert_eq!(oklch(1.0, 0.0, 0.0), Color32::from_rgb(255, 255, 255));
 
-		// Ujemna chroma (powinna być traktowana jak 0)
 		let actual_neg_c = oklch(0.5, -0.1, 45.0);
 		let actual_zero_c = oklch(0.5, 0.0, 45.0);
 		assert_eq!(actual_neg_c, actual_zero_c);
 
-		// Kąty ujemne i > 360
 		let base = oklch(0.5, 0.1, 45.0);
 		assert_eq!(oklch(0.5, 0.1, 405.0), base, "Kąt > 360 zawiódł");
 		assert_eq!(oklch(0.5, 0.1, -315.0), base, "Kąt ujemny zawiódł");
@@ -255,16 +246,12 @@ mod tests {
 
 	#[test]
 	fn test_gamut_mapping_out_of_bounds() {
-		// Bardzo nasycony niebieski z dużym L - niemożliwy w sRGB
 		let l = 0.9;
 		let c = 0.4;
-		let h = 265.0; // Odcień błękitu/fioletu
+		let h = 265.0;
 
 		let result = oklch(l, c, h);
 
-		// Zamiast zwracać "przepalony" kolor (np. 255, 255, 255 lub coś wpadającego w magenta),
-		// Gamut mapping powinien obniżyć chromę, by zwrócić jasny błękit mieszczący się w gamucie.
-		// Oczekujemy wartości, które nie zostały chamsko ucięte do 0/255.
 		assert!(
 			result.r() > 0 && result.r() < 255,
 			"R powinno zostać sprowadzone do wnętrza gamutu"

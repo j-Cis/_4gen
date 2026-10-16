@@ -37,7 +37,6 @@ impl TableConfigWindow {
 			let frame = Frame::default().inner_margin(4.0);
 			let layout_order = build_table_config_record();
 
-			// Podział konfiguracji na elementy przed Title (lewa strona) i po Title (prawa strona)
 			let title_pos = layout_order.iter().position(|x| *x == ConfigColItem::Title).unwrap_or(layout_order.len());
 			let left_items = &layout_order[..title_pos];
 			let right_items = if title_pos < layout_order.len() { &layout_order[title_pos + 1..] } else { &[] };
@@ -55,12 +54,10 @@ impl TableConfigWindow {
 					ui.horizontal(|ui| {
 						ui.spacing_mut().item_spacing.x = 8.0;
 
-						// 1. Elementy lewe (przed Title) w sztywnych kolumnach
 						for item in left_items {
 							render_item(ui, *item, row_idx, list_len, col_id, state, &mut swap_action);
 						}
 
-						// 2. Elementy po Title kotwiczone do prawej krawędzi, a Title wypełnia środek
 						if !right_items.is_empty() {
 							ui.with_layout(egui::Layout::right_to_left(egui::Align::Center), |r_ui| {
 								r_ui.spacing_mut().item_spacing.x = 8.0;
@@ -79,29 +76,28 @@ impl TableConfigWindow {
 					});
 
 					// Wizualizacja przeciągania DND na klocku tytułowym
-					if let Some(hr) = handle_response {
-						if let (Some(pointer), Some(hovered_payload)) = (
+					if let Some(hr) = handle_response
+						&& let (Some(pointer), Some(hovered_payload)) = (
 							ui.input(|i| i.pointer.interact_pos()),
 							hr.dnd_hover_payload::<usize>(),
 						) {
-							let rect = hr.rect;
-							let stroke = Stroke::new(2.0, Color32::from_rgb(0, 120, 215));
+						let rect = hr.rect;
+						let stroke = Stroke::new(2.0, Color32::from_rgb(0, 120, 215));
 
-							let insert_target = if *hovered_payload == row_idx {
-								ui.painter().hline(rect.x_range(), rect.center().y, stroke);
-								row_idx
-							} else if pointer.y < rect.center().y {
-								ui.painter().hline(rect.x_range(), rect.top(), stroke);
-								row_idx
-							} else {
-								ui.painter().hline(rect.x_range(), rect.bottom(), stroke);
-								row_idx + 1
-							};
+						let insert_target = if *hovered_payload == row_idx {
+							ui.painter().hline(rect.x_range(), rect.center().y, stroke);
+							row_idx
+						} else if pointer.y < rect.center().y {
+							ui.painter().hline(rect.x_range(), rect.top(), stroke);
+							row_idx
+						} else {
+							ui.painter().hline(rect.x_range(), rect.bottom(), stroke);
+							row_idx + 1
+						};
 
-							if let Some(dragged_payload) = hr.dnd_release_payload() {
-								from_idx = Some(*dragged_payload);
-								to_idx = Some(insert_target);
-							}
+						if let Some(dragged_payload) = hr.dnd_release_payload() {
+							from_idx = Some(*dragged_payload);
+							to_idx = Some(insert_target);
 						}
 					}
 
@@ -109,12 +105,10 @@ impl TableConfigWindow {
 				}
 			});
 
-			// Akcja przycisków góra/dół (zamiana sąsiadów)
 			if let Some((a, b)) = swap_action {
 				state.display_order.swap(a, b);
 			}
 
-			// Akcja przeciągania myszą DND
 			if let (Some(from), Some(to)) = (from_idx, to_idx) {
 				engine::reorder_columns(state, from, to);
 			}
@@ -163,7 +157,6 @@ fn render_item(
 			);
 		}
 		ConfigColItem::Pinned => {
-			// Sztywna kolumna na oba przyciski: dokładnie 72px (dwa sloty po 34px + 4px odstępu)
 			ui.allocate_ui_with_layout(
 				vec2(72.0, 20.0),
 				egui::Layout::left_to_right(egui::Align::Center),
@@ -173,7 +166,6 @@ fn render_item(
 						let is_left = col.pinned == PinPosition::Left;
 						let is_right = col.pinned == PinPosition::Right;
 
-						// Przycisk lewego przypięcia 📌L
 						let left_tooltip = if is_right {
 							"Odepnij z prawej, aby móc przypiąć z lewej"
 						} else if is_left {
@@ -189,7 +181,6 @@ fn render_item(
 							engine::toggle_pin_left(state, col_id);
 						}
 
-						// Przycisk prawego przypięcia 📌R
 						let right_tooltip = if is_left {
 							"Odepnij z lewej, aby móc przypiąć z prawej"
 						} else if is_right {
