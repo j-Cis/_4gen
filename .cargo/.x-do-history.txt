@@ -1,3 +1,4 @@
+git push origin main --follow-tags
 cargo clippy --all-targets -- -D warnings
 cargo check --all-targets
 git log --oneline --graph --decorate -n 10
